@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heirloom Holidays | Bespoke Luxury Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #0a1628;
+            --navy: #152238;
+            --champagne: #c9a962;
+            --champagne-light: #e4d5b0;
+            --ivory: #faf8f5;
+            --ivory-warm: #f5f2ec;
+            --text-dark: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e4d5b0 50%, #c9a962 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 300;
+            background: var(--ivory);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--champagne);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease;
+        }
+
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--champagne);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 4rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--midnight);
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-img-footer {
+            height: 45px;
+            width: auto;
+            filter: invert(1) brightness(1.2);
+        }
+
+        .logo span {
+            color: var(--champagne);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--champagne);
+            transition: width 0.4s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--midnight);
+            color: var(--ivory);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-cta:hover {
+            background: transparent;
+            color: var(--midnight);
+            border-color: var(--midnight);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 4rem 4rem 8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.3s forwards;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--champagne);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            color: var(--midnight);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.5s forwards;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 400px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.7s forwards;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.9s forwards;
+        }
+
+        .btn-primary {
+            background: var(--midnight);
+            color: var(--ivory);
+            padding: 1.25rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-primary svg {
+            transition: transform 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--champagne);
+            color: var(--midnight);
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(5px);
+        }
+
+        .btn-secondary {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--champagne);
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeIn 1.5s ease 0.2s forwards;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, var(--ivory) 0%, transparent 20%);
+            z-index: 1;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 1.2s forwards;
+        }
+
+        .hero-scroll span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            color: var(--text-muted);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: var(--champagne);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: var(--midnight);
+            animation: scrollDown 2s ease infinite;
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            background: var(--midnight);
+            padding: 4rem 8rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--champagne);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 10rem 8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .philosophy::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40rem;
+            color: var(--champagne);
+            opacity: 0.08;
+            position: absolute;
+            top: -5rem;
+            left: 2rem;
+            line-height: 1;
+        }
+
+        .philosophy-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--champagne);
+        }
+
+        .philosophy h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--midnight);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .philosophy p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-visual {
+            position: relative;
+        }
+
+        .philosophy-image-main {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            box-shadow: 40px 40px 80px rgba(10, 22, 40, 0.15);
+        }
+
+        .philosophy-image-accent {
+            position: absolute;
+            bottom: -3rem;
+            left: -3rem;
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            border: 8px solid var(--ivory);
+            box-shadow: 20px 20px 40px rgba(10, 22, 40, 0.1);
+        }
+
+        .philosophy-badge {
+            position: absolute;
+            top: -2rem;
+            right: -2rem;
+            width: 140px;
+            height: 140px;
+            background: var(--champagne);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--midnight);
+        }
+
+        .philosophy-badge span:first-child {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .philosophy-badge span:last-child {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            padding: 8rem 0;
+            background: var(--ivory-warm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .destinations-header {
+            padding: 0 8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+
+        .destinations-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--midnight);
+        }
+
+        .destinations-header h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .destinations-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .destinations-nav button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--midnight);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .destinations-nav button:hover {
+            background: var(--midnight);
+            color: var(--ivory);
+        }
+
+        .destinations-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 0 8rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .destinations-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .destination-card {
+            min-width: 380px;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            group: true;
+        }
+
+        .destination-card img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem 2rem;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.95) 0%, transparent 100%);
+            color: var(--ivory);
+        }
+
+        .destination-region {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 0.75rem;
+        }
+
+        .destination-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .destination-teaser {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--champagne);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: gap 0.3s ease;
+        }
+
+        .destination-link:hover {
+            gap: 1.25rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 10rem 8rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        /* Resorts Gallery Section */
+        .resorts {
+            padding: 8rem 8rem 10rem;
+            background: var(--ivory-warm);
+        }
+
+        .resorts-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .resorts-header .section-label {
+            justify-content: center;
+        }
+
+        .resorts-header .section-label::before,
+        .resorts-header .section-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--champagne);
+        }
+
+        .resorts-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--midnight);
+            margin-bottom: 1.5rem;
+        }
+
+        .resorts-header h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .resorts-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .resorts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 1.5rem;
+        }
+
+        .resort-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .resort-card.resort-large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .resort-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .resort-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .resort-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.4) 60%, transparent 100%);
+            color: var(--ivory);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .resort-card:hover .resort-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .resort-tag {
+            display: inline-block;
+            background: var(--champagne);
+            color: var(--midnight);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .resort-overlay h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resort-card.resort-large .resort-overlay h3 {
+            font-size: 2rem;
+        }
+
+        .resort-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1200px) {
+            .resorts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+            
+            .resort-card.resort-large {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 400px;
+            }
+            
+            .resort-card:not(.resort-large) {
+                height: 280px;
+            }
+
+            .resorts {
+                padding: 6rem 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resorts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resort-card.resort-large {
+                grid-column: span 1;
+                height: 350px;
+            }
+            
+            .resort-card:not(.resort-large) {
+                height: 250px;
+            }
+
+            .resorts {
+                padding: 4rem 2rem;
+            }
+
+            .resort-overlay {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .services-visual {
+            position: relative;
+        }
+
+        .services-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .services-float {
+            position: absolute;
+            bottom: -4rem;
+            right: -4rem;
+            background: var(--midnight);
+            padding: 3rem;
+            max-width: 320px;
+        }
+
+        .services-float h4 {
+            color: var(--champagne);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-float p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .services-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--midnight);
+            line-height: 1.2;
+            margin-bottom: 3rem;
+        }
+
+        .services-content h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .service-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(10, 22, 40, 0.1);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            padding-left: 1rem;
+        }
+
+        .service-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--champagne);
+        }
+
+        .service-info h4 {
+            font-size: 1.25rem;
+            color: var(--midnight);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .service-arrow {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--champagne);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--champagne);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover .service-arrow {
+            background: var(--champagne);
+            color: var(--midnight);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 10rem 8rem;
+            background: var(--midnight);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-header .section-label {
+            justify-content: center;
+            color: var(--champagne);
+        }
+
+        .testimonials-header .section-label::before,
+        .testimonials-header .section-label::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--champagne);
+        }
+
+        .testimonials-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--ivory);
+        }
+
+        .testimonials-header h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .testimonials-grid {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .testimonials-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-thumb {
+            background: var(--champagne);
+            border-radius: 3px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 3rem;
+            transition: all 0.4s ease;
+            width: calc((100vw - 16rem - 4rem) / 3);
+            min-width: calc((100vw - 16rem - 4rem) / 3);
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-10px);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--champagne);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--champagne);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--midnight);
+        }
+
+        .testimonial-info h5 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--ivory);
+        }
+
+        .testimonial-info span {
+            font-size: 0.8rem;
+            color: var(--champagne);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 10rem 8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--midnight);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .contact-content h2 em {
+            font-style: italic;
+            color: var(--champagne);
+        }
+
+        .contact-content > p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--ivory-warm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--champagne);
+            flex-shrink: 0;
+        }
+
+        .contact-item h5 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 1.1rem;
+            color: var(--midnight);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--champagne);
+        }
+
+        .contact-form {
+            background: var(--ivory-warm);
+            padding: 4rem;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--midnight);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            background: var(--ivory);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--champagne);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--midnight);
+            color: var(--ivory);
+            padding: 1.25rem 2.5rem;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--champagne);
+            color: var(--midnight);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--midnight);
+            padding: 6rem 8rem 3rem;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin: 1.5rem 0 2rem;
+            max-width: 300px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ivory);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--champagne);
+            border-color: var(--champagne);
+            color: var(--midnight);
+        }
+
+        .footer-column h5 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ivory);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--champagne);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .footer-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-badge img {
+            height: 40px;
+            opacity: 0.6;
+        }
+
+        .footer-badge span {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scrollDown {
+            0% {
+                top: -30%;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* Scroll Animations - visible by default, enhanced on scroll */
+        .reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.animate-ready {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--midnight);
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 10rem 4rem 4rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .philosophy, .services, .contact {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                padding: 6rem 4rem;
+            }
+
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 4rem;
+            }
+
+            .testimonials-grid {
+                gap: 1.5rem;
+            }
+
+            .testimonial-card {
+                width: calc((100vw - 8rem - 1.5rem) / 2);
+                min-width: calc((100vw - 8rem - 1.5rem) / 2);
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            /* Mobile menu open state */
+            nav.menu-open .nav-links {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                order: 3;
+                padding: 1.5rem 0;
+                gap: 1rem;
+                border-top: 1px solid rgba(10, 25, 47, 0.1);
+                margin-top: 1rem;
+            }
+            
+            nav.menu-open .nav-links li {
+                text-align: center;
+            }
+            
+            nav.menu-open .nav-cta {
+                display: inline-block;
+                width: 100%;
+                order: 4;
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .hero-content {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .hero-scroll {
+                left: 2rem;
+            }
+
+            .philosophy, .services, .contact,
+            .destinations-header, .testimonials {
+                padding: 4rem 2rem;
+            }
+
+            .destinations-grid {
+                padding: 0 2rem;
+            }
+
+            .destination-card {
+                min-width: 300px;
+            }
+
+            .testimonial-card {
+                width: calc(100vw - 4rem);
+                min-width: calc(100vw - 4rem);
+            }
+
+            .stats-strip {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+            }
+
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+
+            footer {
+                padding: 4rem 2rem 2rem;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo"><img src="data:image/png;base64,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" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
+        <ul class="nav-links">
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Stories</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Begin Your Journey</a>
+        <button class="mobile-menu-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Bespoke Luxury Travel</span>
+            <h1>Journeys That Become <em>Family Heirlooms</em></h1>
+            <p class="hero-description">We craft transformative travel experiences so extraordinary, they're passed down through generations—stories retold, memories cherished, adventures that define your family's legacy.</p>
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">
+                    Start Planning
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#destinations" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Explore Destinations
+                </a>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80" alt="Luxury Maldives overwater villa">
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="stats-strip">
+        <div class="stat-item">
+            <div class="stat-number">5000+</div>
+            <div class="stat-label">Hotel Partners</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">350+</div>
+            <div class="stat-label">VIP Travel Suppliers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Journeys Crafted</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Bespoke Experiences</div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+        <div class="philosophy-content reveal">
+            <span class="section-label">Our Philosophy</span>
+            <h2>Travel Should Be <em>Treasured</em>, Not Just Taken</h2>
+            <p>At Heirloom Holidays, we believe the most meaningful journeys aren't measured in miles—they're measured in moments that take your breath away, connections that deepen with time, and stories that become legend around your family table.</p>
+            <p>When you partner with us, you're not just booking a holiday. You're investing in experiences so perfectly crafted, so deeply personal, that they become the heirlooms your children and grandchildren will treasure most.</p>
+            <p>As a proud member of Little Emperors, we unlock exclusive privileges at the world's finest hotels and resorts—amenities and experiences that simply aren't available through direct bookings.</p>
+        </div>
+        <div class="philosophy-visual reveal">
+            <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80" alt="Luxury resort infinity pool" class="philosophy-image-main">
+            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&q=80" alt="Boutique hotel room" class="philosophy-image-accent">
+            <div class="philosophy-badge">
+                <span>Est. 2023</span>
+                <span>London</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="destinations-header">
+            <div>
+                <span class="section-label">Curated Destinations</span>
+                <h2>Where Will Your <em>Story</em> Begin?</h2>
+            </div>
+            <div class="destinations-nav">
+                <button aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="destinations-grid">
+            <!-- Amalfi Coast -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=600&q=80" alt="Amalfi Coast">
+                <div class="destination-overlay">
+                    <span class="destination-region">Italy</span>
+                    <h3 class="destination-name">Amalfi Coast</h3>
+                    <p class="destination-teaser">Stay at historic hilltop hotels with infinity pools that drop into the sky. Complimentary boat excursions, lush gardens, and delicious pasta with views over Ravello.</p>
+                    <a href="destinations/amalfi-coast.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Bali & Beyond -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Bali">
+                <div class="destination-overlay">
+                    <span class="destination-region">Indonesia</span>
+                    <h3 class="destination-name">Bali & Beyond</h3>
+                    <p class="destination-teaser">From Ubud's emerald rice terraces to Sumba's untouched beaches. Experience ancient temple ceremonies, world-class spas, and private villa luxury in paradise.</p>
+                    <a href="destinations/bali-beyond.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Canadian Rockies -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=600&q=80" alt="Canadian Rockies">
+                <div class="destination-overlay">
+                    <span class="destination-region">Canada</span>
+                    <h3 class="destination-name">Canadian Rockies</h3>
+                    <p class="destination-teaser">Iconic mountain lodges overlooking turquoise lakes. Heli-hiking adventures, wildlife encounters, and the legendary Fairmont properties of Banff and Jasper.</p>
+                    <a href="destinations/canadian-rockies.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Iceland -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600&q=80" alt="Iceland">
+                <div class="destination-overlay">
+                    <span class="destination-region">Iceland</span>
+                    <h3 class="destination-name">Iceland</h3>
+                    <p class="destination-teaser">Chase the aurora from outdoor hot tubs with wake-up calls when the lights appear. Soak in the Blue Lagoon's healing waters or float through 800-year-old lava fields.</p>
+                    <a href="destinations/iceland.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Japan Four Seasons -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Japan">
+                <div class="destination-overlay">
+                    <span class="destination-region">Japan</span>
+                    <h3 class="destination-name">Japan Four Seasons</h3>
+                    <p class="destination-teaser">From Tokyo's sky-high bars to Kyoto's bamboo forests and Osaka's knife workshops. Private sushi experiences, temple visits at dawn, and Geiko performances await.</p>
+                    <a href="destinations/japan-four-seasons.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Maldives -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80" alt="Maldives">
+                <div class="destination-overlay">
+                    <span class="destination-region">Maldives</span>
+                    <h3 class="destination-name">Maldives</h3>
+                    <p class="destination-teaser">Every villa has its own private pool in the secluded Raa Atoll. Treetop spa experiences, overwater bungalows with glass floors, and champagne dinners on private islands.</p>
+                    <a href="destinations/maldives.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Paris & Beyond -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&q=80" alt="Paris">
+                <div class="destination-overlay">
+                    <span class="destination-region">France</span>
+                    <h3 class="destination-name">Paris & Beyond</h3>
+                    <p class="destination-teaser">Elevate your city break with coastal chic extensions to Deauville and Dinard. World-class art, romantic dining, Belle Époque architecture and crystal-clear northern seas.</p>
+                    <a href="destinations/paris-beyond.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Tanzania Safari -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80" alt="Tanzania Safari">
+                <div class="destination-overlay">
+                    <span class="destination-region">Tanzania</span>
+                    <h3 class="destination-name">Tanzania Safari</h3>
+                    <p class="destination-teaser">Witness two million wildebeest thunder across the Serengeti. Stay at luxury mobile camps that follow the herds, with private guides and bush dining under the stars.</p>
+                    <a href="destinations/tanzania-safari.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- UK Spa Breaks -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" alt="UK Spa">
+                <div class="destination-overlay">
+                    <span class="destination-region">United Kingdom</span>
+                    <h3 class="destination-name">UK Spa Breaks</h3>
+                    <p class="destination-teaser">From the Cotswolds' infinity pools to Hampshire's botanical treatments. Himalayan salt saunas, homegrown spa products, and country house luxury across the UK.</p>
+                    <a href="destinations/uk-spa-breaks.html" class="destination-link">
+                        Discover More
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels Section -->
+    <section id="hotels" class="resorts">
+        <div class="resorts-header reveal">
+            <span class="section-label">Inspiration</span>
+            <h2>Handpicked <em>Hotels</em></h2>
+            <p>As a Little Emperors member, we unlock exclusive privileges at the world's finest hotels—amenities and experiences that simply aren't available through direct bookings.</p>
+        </div>
+        <div class="resorts-grid">
+            <div class="resort-card resort-large reveal">
+                <a href="hotels/disconnect-reset.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/cKnh5sfcXDRKZGQOwrTJbjRxe6ETtyZKATQdWLqt.jpg" alt="Disconnect & Reset">
+                    <div class="resort-overlay">
+                        <span class="resort-tag">Featured</span>
+                        <h3>Disconnect & Reset</h3>
+                        <p>Time off, done properly</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/ski-season.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/XiPnpYFNmpoKsLkpXUTJ3XnAxepALNVnmBFp4tNg.jpg" alt="Ski Season">
+                    <div class="resort-overlay">
+                        <h3>Ski Season</h3>
+                        <p>These resorts are peak perfection</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/new-openings.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/Rd2vW8Sszh4OhWWNEHrq6MlYwN9Tp9rIAm7krPJO.jpg" alt="New Openings">
+                    <div class="resort-overlay">
+                        <h3>New Openings</h3>
+                        <p>The hottest hotel openings</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/countryside-favourites.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/WsPOr9OlnepXnPaIpiP0c3kwWhJ5Xxcko2wTwpf0.jpg" alt="Countryside Favourites">
+                    <div class="resort-overlay">
+                        <h3>Countryside Favourites</h3>
+                        <p>Explore the beautiful English countryside</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/safari.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/znkxSmeDy0ubil2jxq5OU9mjqkNsJO7uRiwLOil8.jpg" alt="Safari">
+                    <div class="resort-overlay">
+                        <h3>Safari</h3>
+                        <p>Take a walk on the wild side</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/best-for-families.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/FgrWlZSWfq2aJFT305ro6OQPCVSzGEvfXICkWzNy.jpg" alt="Best for Families">
+                    <div class="resort-overlay">
+                        <h3>Best for Families</h3>
+                        <p>For you and your little emperors</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/luxury-train-journeys.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/RBCDzW3ayDr04tVMuAdmnX90aP6ROzpCShBKkBsU.jpg" alt="Luxury Train Journeys">
+                    <div class="resort-overlay">
+                        <h3>Luxury Train Journeys</h3>
+                        <p>Travel to exciting destinations in style</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/villas.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/GD2ary7dLaDpmtnmribW03W9MLA3b6bL38AWQGse.jpg" alt="Villas">
+                    <div class="resort-overlay">
+                        <h3>Villas</h3>
+                        <p>Unique luxury homes, villas and chalets</p>
+                    </div>
+                </a>
+            </div>
+            <div class="resort-card reveal">
+                <a href="hotels/medical-wellness.html">
+                    <img src="https://d13bre0qp8legl.cloudfront.net/inspirations/M6EB5b6VFCiCLSzzjLpoKTEc1fJfOfqZ5bABPDIt.jpg" alt="Medical Wellness">
+                    <div class="resort-overlay">
+                        <h3>Medical Wellness</h3>
+                        <p>Recovery that feels like retreat</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-visual reveal">
+            <img src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=800&q=80" alt="Luxury villa experience" class="services-image">
+            <div class="services-float">
+                <h4>Little Emperors Member</h4>
+                <p>Exclusive access to VIP privileges, room upgrades, resort credits, and experiences you won't find anywhere else.</p>
+            </div>
+        </div>
+        <div class="services-content reveal">
+            <span class="section-label">The Heirloom Experience</span>
+            <h2>Every Detail, <em>Thoughtfully</em> Curated</h2>
+            <div class="service-item">
+                <span class="service-number">01</span>
+                <div class="service-info">
+                    <h4>Personal Consultation</h4>
+                    <p>Deep dive into your dreams, preferences, and travel aspirations</p>
+                </div>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-item">
+                <span class="service-number">02</span>
+                <div class="service-info">
+                    <h4>Bespoke Itinerary Design</h4>
+                    <p>Hand-crafted journeys tailored exclusively to your family</p>
+                </div>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-item">
+                <span class="service-number">03</span>
+                <div class="service-info">
+                    <h4>Exclusive Access</h4>
+                    <p>VIP privileges at the world's most coveted hotels and resorts</p>
+                </div>
+                <span class="service-arrow">→</span>
+            </div>
+            <div class="service-item">
+                <span class="service-number">04</span>
+                <div class="service-info">
+                    <h4>24/7 Concierge Support</h4>
+                    <p>Seamless assistance throughout your entire journey</p>
+                </div>
+                <span class="service-arrow">→</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-header reveal">
+            <span class="section-label">Client Stories</span>
+            <h2>Memories They'll <em>Never</em> Forget</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The Château de Fonscolombe was a heavenly escape tucked away in the South of France...and was exactly what we needed at the end of a whirlwind trip. She took care of every detail from restaurant reservations to pastry baking class and made our holiday stress free.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SA</div>
+                    <div class="testimonial-info">
+                        <h5>Shelly & Asif</h5>
+                        <span>Provence, France</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">We consistently book our Toronto staycations (and all holidays now!) with Kara because she has consistently secured room upgrades as well as complimentary breakfast, all at a lower price than we previously paid by booking directly.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">GS</div>
+                    <div class="testimonial-info">
+                        <h5>Gus & Sarah</h5>
+                        <span>Toronto, Canada</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Kara truly made our Florence trip exceptional. We were overwhelmed by the sheer number of hotels and the endless research required, but Kara's expertise was a lifesaver. She swiftly identified the perfect hotel that matched all our preferences, saving us countless hours. Even better, she secured a rate significantly better than anything we could find online. We highly recommend Kara for a stress-free and superior travel experience!</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">BD</div>
+                    <div class="testimonial-info">
+                        <h5>Bill & Debbie</h5>
+                        <span>Florence, Italy</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Kara understood exactly what we were looking for. Our Tanzania safari exceeded every expectation—the kids still talk about watching the wildebeest crossing. It's become our family's most treasured memory.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-info">
+                        <h5>Sarah & Michael</h5>
+                        <span>Tanzania Safari</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The level of personalisation was extraordinary. From private temple visits at dawn to our overwater villa in the Maldives, every moment felt like it was designed just for us. Simply magical.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JR</div>
+                    <div class="testimonial-info">
+                        <h5>James & Rebecca</h5>
+                        <span>Asia & Indian Ocean</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Our anniversary trip to Japan was perfect in every way. The attention to detail, the exclusive experiences, the seamless logistics—this is what luxury travel should feel like. We're clients for life.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AT</div>
+                    <div class="testimonial-info">
+                        <h5>Alexandra & Thomas</h5>
+                        <span>Japan Journey</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content reveal">
+            <span class="section-label">Begin Your Journey</span>
+            <h2>Let's Create <em>Something</em> Extraordinary</h2>
+            <p>Every remarkable journey begins with a conversation. Share your dreams with us, and we'll craft an experience that becomes part of your family's story forever.</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h5>Email</h5>
+                        <a href="mailto:kara@heirloomholidays.co.uk">kara@heirloomholidays.co.uk</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h5>Telephone</h5>
+                        <a href="tel:+447539647559">+44 7539 647559</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h5>Location</h5>
+                        <p>Fulham, London</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form reveal">
+            <h3>Request a Consultation</h3>
+            <form id="consultationForm" onsubmit="submitForm(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span style="color: var(--champagne);">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXXXXX">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="interest">I'm Interested In</label>
+                    <select id="interest" name="interest">
+                        <option value="">Select an option...</option>
+                        <option value="safari">African Safari & Wildlife</option>
+                        <option value="japan">Japan with Four Seasons</option>
+                        <option value="europe">European Escapes</option>
+                        <option value="islands">Maldives & Island Paradise</option>
+                        <option value="honeymoon">Honeymoon & Romance</option>
+                        <option value="spa">UK Spa Breaks</option>
+                        <option value="adventure">Adventure & Natural Wonders</option>
+                        <option value="family">Family Holiday</option>
+                        <option value="other">Something Unique</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Dream Journey</label>
+                    <textarea id="message" name="message" placeholder="Where do you dream of going? What experiences are on your wish list?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Begin The Conversation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="#" class="logo" style="color: var(--ivory);"><img src="data:image/png;base64,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" alt="Heirloom Holidays Logo" class="logo-img-footer">HEIRLOOM <span>HOLIDAYS</span></a>
+                <p>Crafting journeys that become treasured family heirlooms. Based in London, creating memories worldwide.</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/heirloomholidaysuk" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h5>Explore</h5>
+                <ul>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#resorts">Luxury Resorts</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Client Stories</a></li>
+                    <li><a href="#philosophy">Our Philosophy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Destinations</h5>
+                <ul>
+                    <li><a href="#contact">Tanzania Safari</a></li>
+                    <li><a href="#contact">Japan with Four Seasons</a></li>
+                    <li><a href="#contact">Paris & France</a></li>
+                    <li><a href="#contact">Maldives & Islands</a></li>
+                    <li><a href="#contact">UK Spa Breaks</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="mailto:kara@heirloomholidays.co.uk">Email Kara</a></li>
+                    <li><a href="tel:+447539647559">Call Us</a></li>
+                    <li><a href="https://instagram.com/heirloomholidaysuk">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Heirloom Holidays. All rights reserved.</p>
+            <div class="footer-badge">
+                <span>Proud Member of Little Emperors</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                nav.classList.toggle('menu-open');
+            });
+        }
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('menu-open');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        document.addEventListener('DOMContentLoaded', revealOnScroll);
+        // Run immediately as well
+        revealOnScroll();
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Horizontal scroll for destinations
+        const destNav = document.querySelectorAll('.destinations-nav button');
+        const destGrid = document.querySelector('.destinations-grid');
+
+        destNav[0].addEventListener('click', () => {
+            destGrid.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+
+        destNav[1].addEventListener('click', () => {
+            destGrid.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+
+        // Form submission handler
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+            const interestText = interest ? document.querySelector('#interest option:checked').textContent : 'Not specified';
+            
+            const subject = encodeURIComponent('New Consultation Request from ' + (firstName || 'Website Visitor'));
+            const body = encodeURIComponent(
+                'New consultation request from Heirloom Holidays website:\n\n' +
+                'Name: ' + (firstName ? firstName + ' ' + lastName : 'Not provided') + '\n' +
+                'Email: ' + email + '\n' +
+                'Phone: ' + (phone || 'Not provided') + '\n' +
+                'Interested In: ' + interestText + '\n\n' +
+   
