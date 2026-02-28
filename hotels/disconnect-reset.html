@@ -4,141 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disconnect & Reset | Heirloom Holidays</title>
+    <meta name="description" content="Disconnect and reset at the world's most peaceful luxury retreats — digital detox, wellness, and rejuvenation curated by Heirloom Holidays.">
+    <meta property="og:title" content="Disconnect & Reset | Heirloom Holidays">
+    <meta property="og:description" content="Disconnect and reset at the world's most peaceful luxury retreats — digital detox, wellness, and rejuvenation curated by Heirloom Holidays.">
+    <meta property="og:image" content="https://d13bre0qp8legl.cloudfront.net/inspirations/cKnh5sfcXDRKZGQOwrTJbjRxe6ETtyZKATQdWLqt.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root { --midnight: #0a1628; --navy: #152238; --champagne: #c9a962; --champagne-light: #e4d5b0; --ivory: #faf8f5; --ivory-warm: #f5f2ec; --text-dark: #1a1a1a; --text-muted: #6b6b6b; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Outfit', sans-serif; font-weight: 300; background: var(--ivory); color: var(--text-dark); line-height: 1.8; }
-        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; background: rgba(250, 248, 245, 0.95); backdrop-filter: blur(20px); box-shadow: 0 4px 30px rgba(0,0,0,0.05); }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--midnight); text-decoration: none; letter-spacing: 0.15em; }
-        .logo span { color: var(--champagne); font-weight: 400; }
-        .nav-links { display: flex; gap: 3rem; list-style: none; }
-        .nav-links a { color: var(--text-dark); text-decoration: none; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--champagne); }
-        .nav-cta { background: var(--midnight); color: var(--ivory); padding: 1rem 2rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.4s ease; }
-        .nav-cta:hover { background: var(--champagne); }
-        .hero { height: 70vh; position: relative; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-        .hero img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10, 22, 40, 0.8) 0%, rgba(10, 22, 40, 0.2) 50%, transparent 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; text-align: center; padding: 4rem 2rem; max-width: 800px; }
-        .hero-label { font-size: 0.75rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--champagne); margin-bottom: 1rem; display: block; }
-        .hero h1 { font-size: 3.5rem; color: var(--ivory); margin-bottom: 1.5rem; line-height: 1.2; }
-        .hero h1 em { font-style: italic; color: var(--champagne-light); }
-        .hero-intro { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-        .intro { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; text-align: center; }
-        .intro p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.9; }
-        .hotels-section { background: var(--ivory-warm); padding: 5rem 2rem; }
-        .hotels-container { max-width: 1200px; margin: 0 auto; }
-        .hotels-header { text-align: center; margin-bottom: 4rem; }
-        .hotels-header h2 { font-size: 2.5rem; color: var(--midnight); }
-        .hotels-header h2 em { font-style: italic; color: var(--champagne); }
-        .hotels-header p { color: var(--text-muted); margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hotel-card { display: grid; grid-template-columns: 450px 1fr; gap: 0; background: white; margin-bottom: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
-        .hotel-card:nth-child(even) { direction: rtl; }
-        .hotel-card:nth-child(even) > * { direction: ltr; }
-        .hotel-card img { width: 100%; height: 100%; min-height: 350px; object-fit: cover; }
-        .hotel-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-        .hotel-location { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne); margin-bottom: 0.5rem; }
-        .hotel-info h3 { font-size: 1.8rem; color: var(--midnight); margin-bottom: 1rem; }
-        .hotel-info p { color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8; }
-        .hotel-features { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .hotel-feature { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--champagne); background: rgba(201, 169, 98, 0.1); padding: 0.5rem 1rem; }
-        .hotel-cta { display: inline-block; background: var(--midnight); color: var(--ivory); padding: 1rem 2rem; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.4s ease; align-self: flex-start; }
-        .hotel-cta:hover { background: var(--champagne); color: var(--midnight); }
-        .cta-section { background: var(--midnight); padding: 5rem 2rem; text-align: center; }
-        .cta-section h2 { font-size: 2.5rem; color: var(--ivory); margin-bottom: 1rem; }
-        .cta-section h2 em { font-style: italic; color: var(--champagne); }
-        .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .cta-button { display: inline-block; background: var(--champagne); color: var(--midnight); padding: 1.25rem 3rem; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.4s ease; }
-        .cta-button:hover { background: var(--ivory); }
-        footer { background: var(--midnight); padding: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-        footer .logo { color: var(--ivory); margin-bottom: 2rem; display: inline-block; }
-        footer p { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        @media (max-width: 900px) { nav { padding: 1rem 2rem; } .nav-links { display: none; } .hero h1 { font-size: 2.5rem; } .hotel-card { grid-template-columns: 1fr; } .hotel-card:nth-child(even) { direction: ltr; } .hotel-card img { min-height: 250px; } }
-    
-        .logo-img {
-            height: 45px;
-            width: auto;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--midnight);
-            transition: all 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            .nav-links, .nav-cta {
-                display: none;
-            }
-        }
-
-    
-            /* Mobile menu open state */
-            nav.menu-open .nav-links {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                order: 3;
-                padding: 1.5rem 0;
-                gap: 1rem;
-                border-top: 1px solid rgba(10, 25, 47, 0.1);
-                margin-top: 1rem;
-            }
-            
-            nav.menu-open .nav-links li {
-                text-align: center;
-            }
-            
-            nav.menu-open .nav-cta {
-                display: inline-block;
-                width: 100%;
-                order: 4;
-                text-align: center;
-                margin-top: 0.5rem;
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-
-    </style>
+    <link rel="stylesheet" href="../assets/css/shared.css">
 </head>
 <body>
-    <nav>
-        <a href="../index.html" class="logo"><img src="data:image/png;base64,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" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
+    <nav class="nav-solid" id="navbar">
+        <a href="../index.html" class="logo"><img src="../assets/images/logo.webp" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
         <ul class="nav-links">
             <li><a href="../index.html#philosophy">Philosophy</a></li>
             <li><a href="../index.html#destinations">Destinations</a></li>
@@ -146,7 +25,7 @@
             <li><a href="../index.html#services">Services</a></li>
             <li><a href="../index.html#testimonials">Stories</a></li>
         </ul>
-        <a href="../index.html#contact" class="nav-cta">Enquire</a>
+        <a href="../index.html#contact" class="nav-cta">Enquire Now</a>
         <button class="mobile-menu-toggle" aria-label="Menu">
             <span></span>
             <span></span>
@@ -163,19 +42,19 @@
         </div>
     </section>
 
-    <section class="intro">
+    <section class="intro reveal">
         <p>In our hyper-connected world, true rest has become the ultimate luxury. These sanctuaries offer more than a break—they provide the space and serenity to reconnect with yourself. From remote island retreats to mountain hideaways, each property has been chosen for its commitment to wellness, tranquility, and the art of slowing down.</p>
     </section>
 
     <section class="hotels-section">
         <div class="hotels-container">
-            <div class="hotels-header">
+            <div class="hotels-header reveal">
                 <h2>Our <em>Wellness</em> Collection</h2>
                 <p>Curated retreats where luxury meets tranquility</p>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://d13bre0qp8legl.cloudfront.net/hotels/8153/ioxOIYFdRuXfW4PSkd88jqx8gLopUjlmCSQdw4IE.jpg" alt="Rosewood Baha Mar">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://d13bre0qp8legl.cloudfront.net/hotels/8153/ioxOIYFdRuXfW4PSkd88jqx8gLopUjlmCSQdw4IE.jpg" alt="Rosewood Baha Mar">
                 <div class="hotel-info">
                     <span class="hotel-location">Nassau, Bahamas</span>
                     <h3>Rosewood Baha Mar</h3>
@@ -189,8 +68,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://d13bre0qp8legl.cloudfront.net/hotels/8065/MRz2cJ6nxvOrwYoEXEmttKg9N41V7y7kSz1sxzXp.jpg" alt="Mandarin Oriental Lutetia Paris">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://d13bre0qp8legl.cloudfront.net/hotels/8065/MRz2cJ6nxvOrwYoEXEmttKg9N41V7y7kSz1sxzXp.jpg" alt="Mandarin Oriental Lutetia Paris">
                 <div class="hotel-info">
                     <span class="hotel-location">Paris, France</span>
                     <h3>Mandarin Oriental Lutetia, Paris</h3>
@@ -204,8 +83,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://d13bre0qp8legl.cloudfront.net/hotels/379/itXtK0IGmghDVfVkIQfMyASLzlVFcfAProNqaF6y.jpg" alt="Gstaad Palace">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://d13bre0qp8legl.cloudfront.net/hotels/379/itXtK0IGmghDVfVkIQfMyASLzlVFcfAProNqaF6y.jpg" alt="Gstaad Palace">
                 <div class="hotel-info">
                     <span class="hotel-location">Gstaad, Switzerland</span>
                     <h3>Gstaad Palace</h3>
@@ -219,8 +98,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://d13bre0qp8legl.cloudfront.net/hotels/352/yc1LAmtgPFK4qtqiWho3FKCq6pFYKY7hHJTe6UAD.jpg" alt="Mount Nelson, A Belmond Hotel">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://d13bre0qp8legl.cloudfront.net/hotels/352/yc1LAmtgPFK4qtqiWho3FKCq6pFYKY7hHJTe6UAD.jpg" alt="Mount Nelson, A Belmond Hotel">
                 <div class="hotel-info">
                     <span class="hotel-location">Cape Town, South Africa</span>
                     <h3>Mount Nelson, A Belmond Hotel</h3>
@@ -234,8 +113,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://d13bre0qp8legl.cloudfront.net/hotels/48/TT4FTT7t85yF9TTAfwPOyiSCF4ViQZz4s7LuuNqR.jpeg" alt="L'Apogée Courchevel">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://d13bre0qp8legl.cloudfront.net/hotels/48/TT4FTT7t85yF9TTAfwPOyiSCF4ViQZz4s7LuuNqR.jpeg" alt="L'Apogée Courchevel">
                 <div class="hotel-info">
                     <span class="hotel-location">Courchevel, France</span>
                     <h3>L'Apogée Courchevel</h3>
@@ -251,39 +130,17 @@
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <h2>Ready to <em>Disconnect?</em></h2>
         <p>Let us curate your perfect wellness escape with exclusive Little Emperors privileges.</p>
         <a href="../index.html#contact" class="cta-button">Begin Your Journey</a>
     </section>
 
     <footer>
-        <a href="../index.html" class="logo"><img src="data:image/png;base64,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" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
-        <p>&copy; 2025 Heirloom Holidays. Curating Extraordinary Journeys.</p>
+        <a href="../index.html" class="logo"><img src="../assets/images/logo.webp" alt="Heirloom Holidays Logo" class="logo-img-footer">HEIRLOOM <span>HOLIDAYS</span></a>
+        <p class="footer-tagline">Curating extraordinary journeys that become family heirlooms.</p>
+        <p>&copy; <span class="copyright-year">2025</span> Heirloom Holidays. All rights reserved. | <a href="mailto:kara@heirloomholidays.co.uk">kara@heirloomholidays.co.uk</a></p>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                nav.classList.toggle('menu-open');
-            });
-        }
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenuToggle) {
-                    mobileMenuToggle.classList.remove('active');
-                    nav.classList.remove('menu-open');
-                }
-            });
-        });
-    </script>
-
+    <script src="../assets/js/shared.js" defer></script>
 </body>
 </html>

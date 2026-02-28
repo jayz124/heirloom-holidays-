@@ -1,0 +1,733 @@
+/* ==========================================================================
+   Heirloom Holidays — Shared Styles
+   Used across all pages (homepage + subpages)
+   ========================================================================== */
+
+/* --- CSS Variables --- */
+:root {
+    --midnight: #0a1628;
+    --navy: #152238;
+    --champagne: #c9a962;
+    --champagne-light: #e4d5b0;
+    --ivory: #faf8f5;
+    --ivory-warm: #f5f2ec;
+    --text-dark: #1a1a1a;
+    --text-muted: #6b6b6b;
+    --gradient-gold: linear-gradient(135deg, #c9a962 0%, #e4d5b0 50%, #c9a962 100%);
+}
+
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    background: var(--ivory);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.8;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+/* --- Navigation --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+nav.scrolled,
+nav.nav-solid {
+    background: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem 4rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--midnight);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.logo-img-footer {
+    height: 45px;
+    width: auto;
+    filter: invert(1) brightness(1.2);
+}
+
+.logo span {
+    color: var(--champagne);
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--champagne);
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--midnight);
+    color: var(--ivory);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-cta:hover {
+    background: transparent;
+    color: var(--midnight);
+    border-color: var(--midnight);
+}
+
+/* CTA button shine effect */
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-cta:hover::before {
+    left: 100%;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--champagne);
+    color: var(--midnight);
+    padding: 1.25rem 3rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: var(--ivory);
+}
+
+/* CTA button shine effect */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* --- Mobile Menu --- */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--midnight);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* --- Section Label --- */
+.section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--champagne);
+}
+
+/* --- Subpage Hero --- */
+.hero {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.8) 0%, rgba(10, 22, 40, 0.2) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+}
+
+.hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero h1 em {
+    font-style: italic;
+    color: var(--champagne-light);
+}
+
+.hero-intro {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Article Content --- */
+.article {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+.article-lead {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.article-lead::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    float: left;
+    line-height: 1;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    color: var(--champagne);
+}
+
+.article h2 {
+    font-size: 2.2rem;
+    color: var(--midnight);
+    margin: 3rem 0 1.5rem;
+}
+
+.article h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.article p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+/* --- Full Width Image --- */
+.full-image {
+    margin: 4rem 0;
+    position: relative;
+}
+
+.full-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.full-image figcaption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: #fff;
+    font-size: 0.95rem;
+    font-style: italic;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    letter-spacing: 0.05em;
+}
+
+/* --- Image Pair --- */
+.image-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.image-pair img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* --- Intro Section (hotel pages) --- */
+.intro {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+}
+
+/* --- Hotels Section --- */
+.hotels-section {
+    background: var(--ivory-warm);
+    padding: 5rem 2rem;
+    margin: 4rem 0;
+}
+
+.hotels-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hotels-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hotels-header h2 {
+    font-size: 2.5rem;
+    color: var(--midnight);
+}
+
+.hotels-header h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.hotels-header p {
+    color: var(--text-muted);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Hotel Cards --- */
+.hotel-card {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 0;
+    background: white;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+}
+
+.hotel-card:nth-child(even) {
+    direction: rtl;
+}
+
+.hotel-card:nth-child(even) > * {
+    direction: ltr;
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hotel-card:hover img {
+    transform: scale(1.03);
+}
+
+.hotel-info {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hotel-location {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 0.5rem;
+}
+
+.hotel-info h3,
+.hotel-info h4 {
+    font-size: 1.8rem;
+    color: var(--midnight);
+    margin-bottom: 1rem;
+}
+
+.hotel-info p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.hotel-features {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    margin-top: auto;
+}
+
+.hotel-feature {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    background: rgba(201, 169, 98, 0.1);
+    padding: 0.5rem 1rem;
+}
+
+.hotel-cta {
+    display: inline-block;
+    background: var(--midnight);
+    color: var(--ivory);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    align-self: flex-start;
+}
+
+.hotel-cta:hover {
+    background: var(--champagne);
+    color: var(--midnight);
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    background: var(--midnight);
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--ivory);
+    margin-bottom: 1rem;
+}
+
+.cta-section h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.cta-section p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Back Link --- */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--champagne);
+}
+
+/* --- Footer (subpages) --- */
+footer {
+    background: var(--midnight);
+    padding: 4rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+footer .logo {
+    color: var(--ivory);
+    margin-bottom: 1rem;
+    display: inline-flex;
+}
+
+footer .footer-tagline {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+footer p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: var(--champagne);
+    text-decoration: none;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}
+
+.reveal.animate-ready {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Animations --- */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Responsive: Tablet --- */
+@media (max-width: 1200px) {
+    nav {
+        padding: 1.5rem 3rem;
+    }
+
+    nav.scrolled,
+    nav.nav-solid {
+        padding: 1rem 3rem;
+    }
+}
+
+/* --- Responsive: Mobile --- */
+@media (max-width: 968px) {
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    nav.scrolled,
+    nav.nav-solid {
+        padding: 1rem 2rem;
+    }
+
+    .hotel-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hotel-card:nth-child(even) {
+        direction: ltr;
+    }
+
+    .hotel-card img {
+        min-height: 250px;
+    }
+
+    .image-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .article {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 2rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-links, .nav-cta {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    /* Mobile menu open state */
+    nav.menu-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        order: 3;
+        padding: 1.5rem 0;
+        gap: 1rem;
+        border-top: 1px solid rgba(10, 25, 47, 0.1);
+        margin-top: 1rem;
+    }
+
+    nav.menu-open .nav-links li {
+        text-align: center;
+    }
+
+    nav.menu-open .nav-cta {
+        display: inline-block;
+        width: 100%;
+        order: 4;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+}

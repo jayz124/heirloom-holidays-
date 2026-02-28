@@ -4,541 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iceland | Heirloom Holidays</title>
+    <meta name="description" content="Discover Iceland with Heirloom Holidays — Northern Lights, Blue Lagoon, volcanic landscapes, and luxury Arctic adventures.">
+    <meta property="og:title" content="Iceland | Heirloom Holidays">
+    <meta property="og:description" content="Discover Iceland with Heirloom Holidays — Northern Lights, Blue Lagoon, volcanic landscapes, and luxury Arctic adventures.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=1200&q=80">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --midnight: #0a1628;
-            --navy: #152238;
-            --champagne: #c9a962;
-            --champagne-light: #e4d5b0;
-            --ivory: #faf8f5;
-            --ivory-warm: #f5f2ec;
-            --text-dark: #1a1a1a;
-            --text-muted: #6b6b6b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
-            background: var(--ivory);
-            color: var(--text-dark);
-            line-height: 1.8;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1.5rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(250, 248, 245, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--midnight);
-            text-decoration: none;
-            letter-spacing: 0.15em;
-        }
-
-        .logo span {
-            color: var(--champagne);
-            font-weight: 400;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .nav-links a:hover {
-            color: var(--champagne);
-        }
-
-        .nav-cta {
-            background: var(--midnight);
-            color: var(--ivory);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--champagne);
-        }
-
-        /* Hero */
-        .hero {
-            height: 80vh;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(10, 22, 40, 0.8) 0%, rgba(10, 22, 40, 0.2) 50%, transparent 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 2rem;
-            max-width: 800px;
-        }
-
-        .hero-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--champagne);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--ivory);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 em {
-            font-style: italic;
-            color: var(--champagne-light);
-        }
-
-        .hero-intro {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Article Content */
-        .article {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .article-lead {
-            font-size: 1.3rem;
-            line-height: 1.9;
-            color: var(--text-dark);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-
-        .article-lead::first-letter {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            float: left;
-            line-height: 1;
-            margin-right: 0.5rem;
-            margin-top: 0.1rem;
-            color: var(--champagne);
-        }
-
-        .article h2 {
-            font-size: 2.2rem;
-            color: var(--midnight);
-            margin: 3rem 0 1.5rem;
-        }
-
-        .article h2 em {
-            font-style: italic;
-            color: var(--champagne);
-        }
-
-        .article p {
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-        }
-
-        /* Full Width Image */
-        .full-image {
-            margin: 4rem 0;
-            position: relative;
-        }
-
-        .full-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .full-image figcaption {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            color: #fff;
-            font-size: 0.95rem;
-            font-style: italic;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-            letter-spacing: 0.05em;
-        }
-
-        /* Image Pair */
-        .image-pair {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .image-pair img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        /* Hotels Section */
-        .hotels-section {
-            background: var(--ivory-warm);
-            padding: 5rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .hotels-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .hotels-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .hotels-header h2 {
-            font-size: 2.5rem;
-            color: var(--midnight);
-        }
-
-        .hotels-header h2 em {
-            font-style: italic;
-            color: var(--champagne);
-        }
-
-        .hotels-header p {
-            color: var(--text-muted);
-            margin-top: 1rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hotel-card {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 2.5rem;
-            background: white;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
-
-        .hotel-card:nth-child(even) {
-            direction: rtl;
-        }
-
-        .hotel-card:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .hotel-card img {
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            object-fit: cover;
-        }
-
-        .hotel-info {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hotel-info h4 {
-            font-size: 1.6rem;
-            color: var(--midnight);
-            margin-bottom: 1rem;
-        }
-
-        .hotel-info p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .hotel-features {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        .hotel-feature {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--champagne);
-            background: rgba(201, 169, 98, 0.1);
-            padding: 0.5rem 1rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--midnight);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            color: var(--ivory);
-            margin-bottom: 1rem;
-        }
-
-        .cta-section h2 em {
-            font-style: italic;
-            color: var(--champagne);
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--champagne);
-            color: var(--midnight);
-            padding: 1.25rem 3rem;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-        }
-
-        .cta-button:hover {
-            background: var(--ivory);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--midnight);
-            padding: 4rem;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        footer .logo {
-            color: var(--ivory);
-            margin-bottom: 2rem;
-            display: inline-block;
-        }
-
-        footer p {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--champagne);
-            text-decoration: none;
-        }
-
-        /* Back Link */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--champagne);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            nav {
-                padding: 1rem 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hotel-card {
-                grid-template-columns: 1fr;
-            }
-
-            .hotel-card:nth-child(even) {
-                direction: ltr;
-            }
-
-            .image-pair {
-                grid-template-columns: 1fr;
-            }
-
-            .article {
-                padding: 3rem 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-    
-        .logo-img {
-            height: 45px;
-            width: auto;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--midnight);
-            transition: all 0.3s ease;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            .nav-links, .nav-cta {
-                display: none;
-            }
-        }
-
-    
-            /* Mobile menu open state */
-            nav.menu-open .nav-links {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                order: 3;
-                padding: 1.5rem 0;
-                gap: 1rem;
-                border-top: 1px solid rgba(10, 25, 47, 0.1);
-                margin-top: 1rem;
-            }
-            
-            nav.menu-open .nav-links li {
-                text-align: center;
-            }
-            
-            nav.menu-open .nav-cta {
-                display: inline-block;
-                width: 100%;
-                order: 4;
-                text-align: center;
-                margin-top: 0.5rem;
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-
-    </style>
+    <link rel="stylesheet" href="../assets/css/shared.css">
 </head>
 <body>
     <!-- Navigation -->
-        <nav>
-        <a href="../index.html" class="logo"><img src="data:image/png;base64,UklGRmARAABXRUJQVlA4WAoAAAAwAAAAtAAAkgAASUNDUMgBAAAAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADZBTFBICg8AAAHwvf//4yTbtn0WM2GS0EIg9FCkF5HesdE72OhK3ZG2K2B3x11OdsSC2Lt0UIFIkw7SwV6P3vvacf4LiZPJbyYuHQsRMQH4X6diUxvn4LSCwz8erT1SXZaXvmurndzw+0Y/pLh16sOvf/V2dqD38e1rdzr6hqZW3nx6Nd9xPFXxfWIffaJvcX7gWlVCqIelHr5NGSs8ww+ceTA+P3A1a6vB94XkkPJPv3qUaQVtGmxvXvrD0km37wZFbufy0/owGbRv4Jl3d1F51Pc7gPa9srnR4AhyZYXKV11RYt0m3je0cWu3DGSLvOrmRsvNdJc0c3it2QtcNDmknCi00VGZs2s1MnBVtHt4vk6ig0IeLR6zBpfF2UNje2kdI27+0ioF1wW1X5QOukSQ+Lx/J/jQq/VltaHOMGzcrARfpi33OOqIiOEBH5BobGJKAswbF/N1QuFGkyG0K4/yUDnTWHDFQWXLkQRtAPlLTca8p39jORZaFKjYLjmrZOxFWrkKPe6pHXiODTnynNXtqUCwbhOZc14GAL3BKntzLetiVBSTht8SswPLe6O+vGY+P0SD9YS5KFg7qDSnqBw4170fqqF3oJ4+d+18ECvAz1/CeMxv4q4l2DUCgBM5CJeq7KlUydvl+0KuknnyGzcLKFF6Fjt0+WwCbzkv3aHBqvFJfxXfp8dbolS8zqsUJqHimABAXRRAAdhxBwBusAOUvYrmKd+lRn2waa1nVHpUBQ/MYegDIHQ4GrAoLKDpokAguL00eFsmgIZclU4RS8hZO8BL1i+uisGioKAZkM/Zq9THwLoRQKSbMRjTzkkVdgB+Sgfg1A/Wf1jdzUOOK5eEYNXuiRWdf7NCZffokSo/aNHpPCC4X6FCF16otNII+W928I7Vs8cmYPnw9UM+uGUOIDhIH9rNLIw7fkICQHz5vLVZUaBGVO2EK8/oKwfBusGQDEgddgeRpjRUS7sAiO+JNQEaNxT80jDrzB72VQIJwUIy1AseZwKgB801kz58KOGT3Nee0KLZTDkIp/pcAESNGmgGwfAVHnFdKYA2pQEUacjPA0Q9RWDTZzWLNwyVF8C3hbG7Oo9Brb2QGdJWvPni5JIF78DMwxLq485ogLZ+IT8ELO8Aj++4fUeogeVYCS/INs6Ax3MKrodD0x2ft/HBj2uWvCW2rd5newca67Xd5wHH9Ujwtv6tFDRmAyJPOSMYLyRxjn58Hzxu5eY6655cWTrRQjNC6aY114I+hvAZUNbxQ6Rdc5GJhJnZehXX2pvB74Zi+A7GQuOEFTNu7d5Q8BzsS7oDwOJAI6cEfVfA+/XbwWbqBxsu+Wx48J+BOSsiZSWX7rRBVyctGnHH/X2QzjJayOVOzZRYZ6H+GcWZqVzobod1J65sn9fXYbh3iis9TdDliRvG3HD8XYzOEdYzsf8azY2U31npGNq7ecWeAfX0/7jR8gC61DHrzMPeSAt9BigZ4cZkFO/Qjq4y9qjxYps2ISRMrDZtueCxSvHNnteL7a/lrMEW2B+GHxwZYDiXCyXPwauy8rE2fyBriT1IBIH3718rYXKuiwvtTcTRYm1s/+dVCQBI/mHNGnXp9tBePTBO/o2UPMOlA6QFDt941H+hPE7OhkN7fxDU7lyjWENyPgUNvf/hSp7ikwdpvquWgOPxlT8u1HgaaBD8mxyol21YQot60NT4UwJ521YMSEPwSAYAyHwOto5NXM2y/obetS5HqPfZjAbRfRXkpQ+BfNOZE2Kod9h3e1pZE+3pFlj9pRLfzHq/DVq23FMUSTOpvUze6RYOALXvXNQBEJr7FNyffnzIBuqp+72m0LL7xKV9ZU0CBmnPyOvM5wR2TFXofUNjx4HrEmiZ6owBEL2XgcWMiLipKG4ADUtG7IT9NwVatzwBAII6BsJZK9LoFS+uIGHoEKWZ8OSMN7RvcF4AIP0YA0x6kWbxRsEZiMef0proPXgEIjNPeAQem7Fj8nwnaR7vTbkDVC5LmBmMFwrIQNi5S+U2YPo0nbSgt0ZcwmwYI9F8Obj6uJS0iA0xp774MTq8JODMzROkRa7SHBJe6aEYDfuAs5eaSdu5yCHz358A81UQa7xbxdGdwS9XSYte4tDdBDDXHybHcODuw4f3un0ZXLhC3IqIOxqbPiDHpAAAHL0ZXL5A2vY1MWFiUyNN6PRKMzUWHQRlqTC+3kha1IaELK9//eGPX5Wn97gbqZPtezPWNqLGupcco1YLTe6eIs3/tRFZHv8fZGHl4F879H6kZEdM2cDnO+5AY5aK/TNyYC7VpOMwaXavzMhC6owDVO0L77S3X61xBICQVypbhgjSvD+DNP1VR8KQ+muZCnP6XwoArs85NBhMGmb8SUPynLtG6I8E4ElQ5QEfcz1YMhnfQtxQEnEI2RQDMGRUVwZgG0Ft3ROTwzcvMaAmZcTdPsKCwNDRP3KXP+AmF7OC9HEBYiYFTHxuAggcIMcWelL70KMMrMcFzGg7A+2dus9IIHfd06x8uba5vrn6DL7vlqaULmxgNg5bfidloj8PILyHHPV6DJK6wTzkw0JLhpmW9kx8i/KvH/iw2nIwwtnKWN9AnwZkVq67DAD60uloITPvFuCjggn92R6Ivk8a07NNGkCR1PBkuq9uuy3Fnu97MwAyv+IHi1MPy71EYPXQjYmrzDAP3HVnguf7gIyrxATKNRoo00RVP6x++tPUcX+KJYsPYW4/DH3907NMObRKAyifLFaoGwVOpzBqaAeKG4k5MVqzhZnRq91sABA4pP0yPNtxereDRBOZ14Gl6ZkHVWFykOhYcL1XoKbjcIYynFHcBxotVaTQ9T65v9z+OYfBtj+4sKTWLLVz489vB8+W74nZHrUjJi236tHCr38/Mt0KDsouT/wIxvp/kGMtlRTfJADU4SgGyZ+k2gCg7xK0e9+Z1gcdHR0PrzdVxkd4WyBrmAss3s6S/teBFL88AEiTM2jsAQctFgz5wO79lXEQe9NNIvarBcOxHC7gxR6NjJ2DYpPT0lPiQpylxMCjQkqOa+dgT4shA+dVqSYWO+0pApqeMTDyTr/0eGpx+eXs5Iux8anZuZXJZ9fL/S1JIFsv0E8PDEuU0DRw87eTdW5aS/ydQo0k7c5v/zJUEWctEgqgVkCJzSMq+n/71yd51rxhZAlNqcHjGkGyNetyz8S93CBzbSh+nwT7xJ8HpzpPRJiBValv+S3l6I38bRI+KP5JI/vPEZqplcd3f/pzb5UtxZbB4PTY1836bdCyZXLvp/WLqVKKaw77gjXZtyhhCYCh54GG8blbhZEyipnAMv7s87n2t/vtaJAo9S9rnZ64aMQtRNYHatBVBe1SziXPP7x6OXT3UtOJyqPnmq91D8+szd+IN8FINsgV+dVyyiFbWi8uNmcUsG6lJVVDhUdYYn55dfWP1QfTd/s5mIoAoHSeJofrNU8HBm5c6zdj0tgnIIBtq7ehukIqkLmGp1U5MTBd2AfuNt5mZOkbm11z5qezZ2pzY33taH5hMX9ajwWbykgbMhzeeKlQjmkt/ZOTI08ft54/93PT5cdPBkYnO1uy3PV5S/YyDyxu6f36qYgI9DwUikN/3PjzWksqDQ2psFNLf33VHG/IA9sdWShYNGcDUITZATDJ9BRqx/jo557x9jPJrmKwKrSL/unZ8kRbmh235N0/iTUSjJ+ENu1HPo1fTTZlRyDzLnq0PDI1JYOWTeJbFzYHjkRa0JwxEBQ/KYnxChczyV+QaQUCuf/hnmOaSX1Szw6sTjXE2Yi8v+7UFgCJYsexp8tDplwBcDZ1/8NiMLR5cxDk+vX0dHZ1dfU8e7E5M3Itx5mCanMfAWrt40UccoqDDZjWLZoSZJSYmpSYkhIb7GwiBEP9xQxCuOohUsGJbDC1X4kE97O/2PEXXVR7SE2NFxNJ13XwIKW8oEZkG36oqePJk/7+zks1CZ6mFB8EbYV6Gkz3f/Jmy/PSXicBMZCPFwSV3Z6YGX7QXHtw/569+3LKG64MLywMnIq15lp2pd+RqyfEYO65WAi2rRvH3gwdizKnSTB0ynjy9vW9vU5CaEhbZlyZXe8q8pQKOKQYHD659cJOZuL+Too1gLYMqlGuT50OMdaOa3b3+uLtxKu9YFmi2HV+enGg0o/iCoQ0sCuUWfWyC7Rtk9YyM9dZHWTOisQpu2VqrbMiQATI5o6zpNa18M7MRFuJn4wTwPbDp0SM4l4lg0RKFt2y9OuZiigHEQOB3Cfmxocv/dW2IqhP+ZikBQBCeWrnh3dW3IA/GMsWzoBYodv+5q6RF6PKwYHBoeHRsTHlkxuFEWZgXPkqSiuqZsF6HGFuMdwqJOfblNTOw9veEKwK7s6LtcWPd+fMwK8GD0dteU98eVwB7VLk6Qe/Vla3diinZiZGnrZfP5cbLuMdQd1mOLQbOtawy4gkh7y78/P3Zzb2RgX4+gUGRyUdKD09fw6ALZ8IzqyGQcuyw/dm5rtrImwo7Rm5p51VzvcfC5PCeeSKETSUvxhv27vVlB9ER1eSQKDQMu7i2m+Gj2/Tin707U+/Hyl1E0GtbKJDpAFo58T2T5uP4/mgaTMcpBoEFN6anL1XGCBlgbJPbRia6zsbaw2mjgMddhqoWkbW1mJLS7YPp0wuze4C2Q7lz//wq74jMR6OCgkASmbrHHCg9fV/Pt6I0oPG0uezVpqptbm8/NGaSw9f+YB8eeihXzpGp+dnJyen5pYWpwduHolzF4NVk9aNNHYAiQW466184gQuCyg9Wgjt0ufe1NDscDlu+bEcvB+z/tCaV0Rn1n+goQO39MztpvjDtX1iJ3SjsOrzdTFfFL+7bAidGdK5lC/hg4ju8b160KUFbye9OGd44XOrMXSs4sTiFR9O2dTPPwyBDvbt2LjgIOCK2dH1iQPQzXTgnY27EZxwOLs8lGwM3R3ZttyZay8gS779wnxXhhi6XVrw4s39aDE5gRc21hqcBND94sjjyvHWDGex9qx3Nzyfa0uzwHejb/PSb+ea4m20IPbO6fv9544kCt+X0m15V0ZX53rbqhJC3K0NaKFAIBQbmdk4bw0vOnvv+ezEw6M7rPF9uiXtyOWR9bdv1l8uz05MzCyubr55/25z/PaJLDd859IyS4WjV1hEZGRkVESAh4OVjMb/+ARWUDggYAAAALAJAJ0BKrUAkwA+USiSRyOioaEgSABwCglpbuF2ARtAE9r0VcIMghqqTXbaLhBkENVSa7bRcIMghqqTXbaLhBkENVSa7bRcIMghqqTXbaLhBkENVNgAAP7/1KMAAAAAAA==" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
+        <nav class="nav-solid" id="navbar">
+        <a href="../index.html" class="logo"><img src="../assets/images/logo.webp" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
         <ul class="nav-links">
             <li><a href="../index.html#philosophy">Philosophy</a></li>
             <li><a href="../index.html#destinations">Destinations</a></li>
@@ -566,7 +46,7 @@
 
     <!-- Article -->
     <article class="article">
-        <a href="../heirloom-holidays-editorial.html#destinations" class="back-link">
+        <a href="../index.html#destinations" class="back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
@@ -580,7 +60,7 @@
         <p>In summer, the midnight sun creates endless days for exploring. In winter, the darkness brings its own gifts: the chance to witness the Northern Lights in their full glory, followed by a soak in a geothermal hot spring under a canopy of stars.</p>
 
         <figure class="full-image">
-            <img src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1800&q=80" alt="Jökulsárlón glacier lagoon with floating icebergs">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=1800&q=80" alt="Jökulsárlón glacier lagoon with floating icebergs">
             <figcaption>Jökulsárlón glacier lagoon—where ancient ice meets the Atlantic</figcaption>
         </figure>
 
@@ -588,8 +68,8 @@
         <p>Iceland sits atop one of the most geologically active places on Earth, and this energy infuses every aspect of Icelandic life. From the famous Blue Lagoon to hidden hot springs known only to locals, the tradition of bathing in naturally heated waters is central to the culture. These geothermal pools offer more than relaxation—they're a connection to the primal forces that shaped this island.</p>
 
         <div class="image-pair">
-            <img src="https://images.unsplash.com/photo-1529963183134-61a90db47eaf?w=800&q=80" alt="Iceland geothermal pool">
-            <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&q=80" alt="Iceland waterfall">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1529963183134-61a90db47eaf?w=800&q=80" alt="Iceland geothermal pool">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&q=80" alt="Iceland waterfall">
         </div>
 
         <h2>Wildlife & <em>Wilderness</em></h2>
@@ -599,13 +79,13 @@
     <!-- Hotels Section -->
     <section class="hotels-section">
         <div class="hotels-container">
-            <div class="hotels-header">
+            <div class="hotels-header reveal">
                 <h2>Where to <em>Stay</em></h2>
                 <p>Exceptional lodges and hotels that bring you close to Iceland's raw beauty while providing refined comfort</p>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://images.trvl-media.com/lodging/34000000/33990000/33987100/33987034/149a500a.jpg?impolicy=resizecrop&rw=598&ra=fit" alt="The Retreat at Blue Lagoon Iceland geothermal spa">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://images.trvl-media.com/lodging/34000000/33990000/33987100/33987034/149a500a.jpg?impolicy=resizecrop&rw=598&ra=fit" alt="The Retreat at Blue Lagoon Iceland geothermal spa">
                 <div class="hotel-info">
                     <h4>The Retreat at Blue Lagoon</h4>
                     <p>Built into an 800-year-old lava flow, The Retreat offers the most exclusive Blue Lagoon experience. Each suite features floor-to-ceiling windows overlooking the milky-blue waters and moss-covered lava fields. Private lagoon access, a subterranean spa carved from volcanic rock, and Moss Restaurant's tasting menus make this Iceland's most coveted address.</p>
@@ -617,8 +97,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://www.uniqhotels.com/media/cache/7a/ce/7ace3b493e7e4579b7c3d927b97eb60a.jpg" alt="Ion Adventure Hotel Iceland exterior">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://www.uniqhotels.com/media/cache/7a/ce/7ace3b493e7e4579b7c3d927b97eb60a.jpg" alt="Ion Adventure Hotel Iceland exterior">
                 <div class="hotel-info">
                     <h4>Ion Adventure Hotel</h4>
                     <p>Perched on a lava field overlooking Þingvallavatn lake, Ion Adventure Hotel embodies sustainable luxury in one of Iceland's most dramatic settings. Floor-to-ceiling windows frame views of the Northern Lights in winter, while the outdoor geothermal pool offers year-round stargazing. The ideal base for Golden Circle exploration.</p>
@@ -630,8 +110,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&q=80" alt="Deplar Farm Iceland luxury lodge">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&q=80" alt="Deplar Farm Iceland luxury lodge">
                 <div class="hotel-info">
                     <h4>Deplar Farm, Troll Peninsula</h4>
                     <p>In the remote Fljót Valley, this converted sheep farm offers Iceland's most exclusive adventure experience. Accessed by helicopter or super-jeep, Deplar provides heli-skiing, horse riding, and fly-fishing in summer, plus exceptional Northern Lights viewing in winter. The geothermally heated pool offers views of the surrounding mountains.</p>
@@ -643,8 +123,8 @@
                 </div>
             </div>
 
-            <div class="hotel-card">
-                <img src="https://www.icelandreview.com/wp-content/uploads/2024/07/Exterior-@christiantrustrup-1024x632.jpg" alt="Hotel Rangá exterior South Iceland">
+            <div class="hotel-card reveal">
+                <img loading="lazy" src="https://www.icelandreview.com/wp-content/uploads/2024/07/Exterior-@christiantrustrup-1024x632.jpg" alt="Hotel Rangá exterior South Iceland">
                 <div class="hotel-info">
                     <h4>Hotel Rangá</h4>
                     <p>Set in the countryside of South Iceland, Hotel Rangá is purpose-built for Northern Lights viewing, with wake-up calls when the aurora appears. The log-cabin-style hotel sits on the banks of a salmon river, offering world-class fly-fishing alongside stargazing from their observatory. Continental suites themed after different regions add unique character.</p>
@@ -660,45 +140,23 @@
 
     <!-- Final Image -->
     <figure class="full-image" style="margin: 0;">
-        <img src="https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=1800&q=80" alt="Northern Lights Iceland">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1504829857797-ddff29c27927?w=1800&q=80" alt="Northern Lights Iceland">
         <figcaption>The aurora borealis—nature's most spectacular light show</figcaption>
     </figure>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <h2>Begin Your <em>Nordic Adventure</em></h2>
         <p>Let us craft your perfect Icelandic journey, from Northern Lights to glacier lagoons and beyond</p>
-        <a href="../heirloom-holidays-editorial.html#contact" class="cta-button">Plan Your Trip</a>
+        <a href="../index.html#contact" class="cta-button">Plan Your Trip</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <a href="../index.html" class="logo">HEIRLOOM <span>HOLIDAYS</span></a>
-        <p>&copy; 2025 Heirloom Holidays. All rights reserved. | <a href="mailto:kara@heirloomholidays.co.uk">kara@heirloomholidays.co.uk</a></p>
+        <a href="../index.html" class="logo"><img src="../assets/images/logo.webp" alt="Heirloom Holidays Logo" class="logo-img-footer">HEIRLOOM <span>HOLIDAYS</span></a>
+        <p class="footer-tagline">Curating extraordinary journeys that become family heirlooms.</p>
+        <p>&copy; <span class="copyright-year">2025</span> Heirloom Holidays. All rights reserved. | <a href="mailto:kara@heirloomholidays.co.uk">kara@heirloomholidays.co.uk</a></p>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mobileMenuToggle.classList.toggle('active');
-                nav.classList.toggle('menu-open');
-            });
-        }
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a, .nav-cta').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenuToggle) {
-                    mobileMenuToggle.classList.remove('active');
-                    nav.classList.remove('menu-open');
-                }
-            });
-        });
-    </script>
-
+    <script src="../assets/js/shared.js" defer></script>
 </body>
 </html>

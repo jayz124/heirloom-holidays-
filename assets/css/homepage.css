@@ -1,0 +1,1204 @@
+/* ==========================================================================
+   Heirloom Holidays — Homepage-Only Styles
+   ========================================================================== */
+
+/* --- Custom Cursor --- */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--champagne);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--champagne);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* --- Homepage Hero (overrides subpage hero) --- */
+.hero {
+    min-height: 100vh;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    display: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 8rem;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    max-width: none;
+}
+
+.hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 0.3s forwards;
+}
+
+.hero-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--champagne);
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--midnight);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 0.5s forwards;
+}
+
+.hero h1 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 400px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 0.7s forwards;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 0.9s forwards;
+}
+
+.btn-primary {
+    background: var(--midnight);
+    color: var(--ivory);
+    padding: 1.25rem 2.5rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-primary svg {
+    transition: transform 0.4s ease;
+}
+
+.btn-primary:hover {
+    background: var(--champagne);
+    color: var(--midnight);
+}
+
+.btn-primary:hover svg {
+    transform: translateX(5px);
+}
+
+.btn-secondary {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    color: var(--champagne);
+}
+
+.hero-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.2s forwards;
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, var(--ivory) 0%, transparent 20%);
+    z-index: 1;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease 1.2s forwards;
+}
+
+.hero-scroll span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    color: var(--text-muted);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: var(--champagne);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: var(--midnight);
+    animation: scrollDown 2s ease infinite;
+}
+
+@keyframes scrollDown {
+    0% { top: -30%; }
+    100% { top: 100%; }
+}
+
+/* --- Stats Strip --- */
+.stats-strip {
+    background: var(--midnight);
+    padding: 4rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: rgba(255,255,255,0.1);
+}
+
+.stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--champagne);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+}
+
+/* --- Philosophy Section --- */
+.philosophy {
+    padding: 10rem 8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+    position: relative;
+}
+
+.philosophy::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40rem;
+    color: var(--champagne);
+    opacity: 0.08;
+    position: absolute;
+    top: -5rem;
+    left: 2rem;
+    line-height: 1;
+}
+
+.philosophy-content {
+    position: relative;
+    z-index: 2;
+}
+
+.philosophy h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--midnight);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.philosophy h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.philosophy p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-visual {
+    position: relative;
+}
+
+.philosophy-image-main {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    box-shadow: 40px 40px 80px rgba(10, 22, 40, 0.15);
+}
+
+.philosophy-image-accent {
+    position: absolute;
+    bottom: -3rem;
+    left: -3rem;
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border: 8px solid var(--ivory);
+    box-shadow: 20px 20px 40px rgba(10, 22, 40, 0.1);
+}
+
+.philosophy-badge {
+    position: absolute;
+    top: -2rem;
+    right: -2rem;
+    width: 140px;
+    height: 140px;
+    background: var(--champagne);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--midnight);
+}
+
+.philosophy-badge span:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.philosophy-badge span:last-child {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* --- Destinations Section --- */
+.destinations {
+    padding: 8rem 0;
+    background: var(--ivory-warm);
+    position: relative;
+    overflow: hidden;
+}
+
+.destinations-header {
+    padding: 0 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+.destinations-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--midnight);
+}
+
+.destinations-header h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.destinations-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.destinations-nav button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--midnight);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.destinations-nav button:hover {
+    background: var(--midnight);
+    color: var(--ivory);
+}
+
+.destinations-grid {
+    display: flex;
+    gap: 2rem;
+    padding: 0 8rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.destinations-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.destination-card {
+    min-width: 380px;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.destination-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.destination-card:hover img {
+    transform: scale(1.05);
+}
+
+.destination-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.95) 0%, transparent 100%);
+    color: var(--ivory);
+}
+
+.destination-region {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 0.75rem;
+}
+
+.destination-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.destination-teaser {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+}
+
+.destination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--champagne);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: gap 0.3s ease;
+}
+
+.destination-link:hover {
+    gap: 1.25rem;
+}
+
+/* --- Resorts Gallery Section --- */
+.resorts {
+    padding: 8rem 8rem 10rem;
+    background: var(--ivory-warm);
+}
+
+.resorts-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+}
+
+.resorts-header .section-label {
+    justify-content: center;
+}
+
+.resorts-header .section-label::before,
+.resorts-header .section-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--champagne);
+}
+
+.resorts-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--midnight);
+    margin-bottom: 1.5rem;
+}
+
+.resorts-header h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.resorts-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.resorts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 280px);
+    gap: 1.5rem;
+}
+
+.resort-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.resort-card.resort-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.resort-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.resort-card:hover img {
+    transform: scale(1.08);
+}
+
+.resort-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.4) 60%, transparent 100%);
+    color: var(--ivory);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.resort-card:hover .resort-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.resort-tag {
+    display: inline-block;
+    background: var(--champagne);
+    color: var(--midnight);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.resort-overlay h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.resort-card.resort-large .resort-overlay h3 {
+    font-size: 2rem;
+}
+
+.resort-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- Services Section --- */
+.services {
+    padding: 10rem 8rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+
+.services-visual {
+    position: relative;
+}
+
+.services-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.services-float {
+    position: absolute;
+    bottom: -4rem;
+    right: -4rem;
+    background: var(--midnight);
+    padding: 3rem;
+    max-width: 320px;
+}
+
+.services-float h4 {
+    color: var(--champagne);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.services-float p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+}
+
+.services-content h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--midnight);
+    line-height: 1.2;
+    margin-bottom: 3rem;
+}
+
+.services-content h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.service-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(10, 22, 40, 0.1);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    padding-left: 1rem;
+}
+
+.service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--champagne);
+}
+
+.service-info h4 {
+    font-size: 1.25rem;
+    color: var(--midnight);
+    margin-bottom: 0.5rem;
+}
+
+.service-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.service-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--champagne);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--champagne);
+    transition: all 0.3s ease;
+}
+
+.service-item:hover .service-arrow {
+    background: var(--champagne);
+    color: var(--midnight);
+}
+
+/* --- Testimonials Section --- */
+.testimonials {
+    padding: 10rem 8rem;
+    background: var(--midnight);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonials-header .section-label {
+    justify-content: center;
+    color: var(--champagne);
+}
+
+.testimonials-header .section-label::before,
+.testimonials-header .section-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--champagne);
+}
+
+.testimonials-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--ivory);
+}
+
+.testimonials-header h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.testimonials-grid {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+}
+
+.testimonials-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.testimonials-grid::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+}
+
+.testimonials-grid::-webkit-scrollbar-thumb {
+    background: var(--champagne);
+    border-radius: 3px;
+}
+
+.testimonial-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 3rem;
+    transition: all 0.4s ease;
+    width: calc((100vw - 16rem - 4rem) / 3);
+    min-width: calc((100vw - 16rem - 4rem) / 3);
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+.testimonial-card:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-10px);
+}
+
+.testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--champagne);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--champagne);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--midnight);
+}
+
+.testimonial-info h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--ivory);
+}
+
+.testimonial-info span {
+    font-size: 0.8rem;
+    color: var(--champagne);
+}
+
+/* --- Contact Section --- */
+.contact {
+    padding: 10rem 8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+}
+
+.contact-content h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--midnight);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.contact-content h2 em {
+    font-style: italic;
+    color: var(--champagne);
+}
+
+.contact-content > p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--ivory-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--champagne);
+    flex-shrink: 0;
+}
+
+.contact-item h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p, .contact-item a {
+    font-size: 1.1rem;
+    color: var(--midnight);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--champagne);
+}
+
+.contact-form {
+    background: var(--ivory-warm);
+    padding: 4rem;
+}
+
+.contact-form h3 {
+    font-size: 1.8rem;
+    color: var(--midnight);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(10, 22, 40, 0.15);
+    background: var(--ivory);
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--champagne);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--midnight);
+    color: var(--ivory);
+    padding: 1.25rem 2.5rem;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-submit:hover {
+    background: var(--champagne);
+    color: var(--midnight);
+}
+
+/* --- Homepage Footer (elaborate) --- */
+footer {
+    padding: 6rem 8rem 3rem;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    margin: 1.5rem 0 2rem;
+    max-width: 300px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ivory);
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--champagne);
+    border-color: var(--champagne);
+    color: var(--midnight);
+}
+
+.footer-column h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--champagne);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.footer-bottom p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+}
+
+.footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-badge img {
+    height: 40px;
+    opacity: 0.6;
+}
+
+.footer-badge span {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+}
+
+/* --- Homepage Responsive: 1200px --- */
+@media (max-width: 1200px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: 10rem 4rem 4rem;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .philosophy, .services, .contact {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 6rem 4rem;
+    }
+
+    .stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 4rem;
+    }
+
+    .resorts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .resort-card.resort-large {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 400px;
+    }
+
+    .resort-card:not(.resort-large) {
+        height: 280px;
+    }
+
+    .resorts {
+        padding: 6rem 4rem;
+    }
+
+    .testimonials-grid {
+        gap: 1.5rem;
+    }
+
+    .testimonial-card {
+        width: calc((100vw - 8rem - 1.5rem) / 2);
+        min-width: calc((100vw - 8rem - 1.5rem) / 2);
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Homepage Responsive: 768px --- */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 8rem 2rem 4rem;
+    }
+
+    .hero-scroll {
+        left: 2rem;
+    }
+
+    .philosophy, .services, .contact,
+    .destinations-header, .testimonials {
+        padding: 4rem 2rem;
+    }
+
+    .destinations-grid {
+        padding: 0 2rem;
+    }
+
+    .destination-card {
+        min-width: 300px;
+    }
+
+    .testimonial-card {
+        width: calc(100vw - 4rem);
+        min-width: calc(100vw - 4rem);
+    }
+
+    .stats-strip {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+    }
+
+    .stat-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .resorts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resort-card.resort-large {
+        grid-column: span 1;
+        height: 350px;
+    }
+
+    .resort-card:not(.resort-large) {
+        height: 250px;
+    }
+
+    .resorts {
+        padding: 4rem 2rem;
+    }
+
+    .resort-overlay {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    footer {
+        padding: 4rem 2rem 2rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+}
