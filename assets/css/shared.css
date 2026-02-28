@@ -631,11 +631,10 @@ nav.nav-solid {
     color: var(--champagne);
 }
 
-/* --- Footer (subpages) --- */
+/* --- Footer --- */
 footer {
     background: var(--midnight);
-    padding: 4rem;
-    text-align: center;
+    padding: 6rem 8rem 3rem;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -643,12 +642,6 @@ footer .logo {
     color: var(--ivory);
     margin-bottom: 1rem;
     display: inline-flex;
-}
-
-footer .footer-tagline {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
 }
 
 footer p {
@@ -659,6 +652,100 @@ footer p {
 footer a {
     color: var(--champagne);
     text-decoration: none;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    margin: 1.5rem 0 2rem;
+    max-width: 300px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ivory);
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--champagne);
+    border-color: var(--champagne);
+    color: var(--midnight);
+}
+
+.footer-column h5 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--champagne);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.footer-bottom p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+}
+
+.footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-badge img {
+    height: 40px;
+    opacity: 0.6;
+}
+
+.footer-badge span {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
 }
 
 /* --- Scroll Reveal Animations --- */
@@ -704,6 +791,10 @@ footer a {
     nav.scrolled,
     nav.nav-solid {
         padding: 1rem 3rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -779,5 +870,20 @@ footer a {
         order: 4;
         text-align: center;
         margin-top: 0.5rem;
+    }
+
+    footer {
+        padding: 4rem 2rem 2rem;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
 }
