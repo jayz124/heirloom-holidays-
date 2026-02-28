@@ -788,6 +788,54 @@ nav.nav-solid {
     color: var(--ivory);
 }
 
+/* --- Subpage Testimonial --- */
+.subpage-testimonial {
+    padding: 4rem 2rem;
+    background: var(--ivory-warm);
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.subpage-testimonial blockquote {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--midnight);
+    position: relative;
+}
+
+.subpage-testimonial blockquote::before {
+    content: '\201C';
+    font-size: 4rem;
+    color: var(--champagne);
+    position: absolute;
+    top: -1.5rem;
+    left: -1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+}
+
+.subpage-testimonial cite {
+    display: block;
+    margin-top: 1.5rem;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--champagne);
+    letter-spacing: 0.05em;
+    font-family: 'Outfit', sans-serif;
+}
+
+.subpage-testimonial cite span {
+    display: block;
+    color: rgba(10, 22, 40, 0.5);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
 /* --- CTA Section --- */
 .cta-section {
     background: var(--midnight);
