@@ -17,12 +17,32 @@
         });
     }
 
-    // Close mobile menu when clicking a link
+    // Close mobile menu when clicking a non-dropdown link
     document.querySelectorAll('.nav-links a, .nav-cta').forEach(function (link) {
         link.addEventListener('click', function () {
+            // Don't close if it's a dropdown parent toggle on mobile
+            if (link.closest('.has-dropdown') && link === link.closest('.has-dropdown').querySelector(':scope > a')) {
+                return;
+            }
             if (mobileMenuToggle) {
                 mobileMenuToggle.classList.remove('active');
                 nav.classList.remove('menu-open');
+            }
+        });
+    });
+
+    // --- Mobile Dropdown Toggle ---
+    document.querySelectorAll('.has-dropdown > a').forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            // Only toggle on mobile (when hamburger is visible)
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                var parent = toggle.parentElement;
+                // Close other open dropdowns
+                document.querySelectorAll('.has-dropdown.dropdown-open').forEach(function (item) {
+                    if (item !== parent) item.classList.remove('dropdown-open');
+                });
+                parent.classList.toggle('dropdown-open');
             }
         });
     });
