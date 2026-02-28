@@ -1,1 +1,7 @@
 .DS_Store
+
+# Skills and agent tooling
+.agents/
+.agent/
+.claude/
+skills-lock.json
