@@ -719,34 +719,101 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "TravelAgency",
-        "name": "Heirloom Holidays",
-        "description": "Bespoke luxury travel experiences — handpicked hotels, exclusive privileges, and journeys that become treasured family heirlooms.",
-        "url": "https://www.heirloomholidays.co.uk",
-        "logo": "https://www.heirloomholidays.co.uk/assets/images/logo.png",
-        "image": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80",
-        "email": "kara@heirloomholidays.co.uk",
-        "telephone": "+447539647559",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Fulham",
-            "addressRegion": "London",
-            "addressCountry": "GB"
-        },
-        "sameAs": [
-            "https://instagram.com/heirloomholidaysuk"
-        ],
-        "founder": {
-            "@type": "Person",
-            "name": "Kara"
-        },
-        "foundingDate": "2023",
-        "areaServed": "Worldwide",
-        "priceRange": "$$$$",
-        "memberOf": {
-            "@type": "Organization",
-            "name": "Little Emperors"
-        }
+        "@graph": [
+            {
+                "@type": "TravelAgency",
+                "@id": "https://www.heirloomholidays.co.uk/#organization",
+                "name": "Heirloom Holidays",
+                "description": "Bespoke luxury travel experiences — handpicked hotels, exclusive privileges, and journeys that become treasured family heirlooms.",
+                "url": "https://www.heirloomholidays.co.uk",
+                "logo": "https://www.heirloomholidays.co.uk/assets/images/logo.png",
+                "image": "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80",
+                "email": "kara@heirloomholidays.co.uk",
+                "telephone": "+447539647559",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Fulham",
+                    "addressRegion": "London",
+                    "addressCountry": "GB"
+                },
+                "sameAs": [
+                    "https://instagram.com/heirloomholidaysuk"
+                ],
+                "founder": {
+                    "@type": "Person",
+                    "name": "Kara"
+                },
+                "foundingDate": "2023",
+                "areaServed": "Worldwide",
+                "priceRange": "$$$$",
+                "memberOf": {
+                    "@type": "Organization",
+                    "name": "Little Emperors"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "reviewCount": "6",
+                    "bestRating": "5"
+                },
+                "review": [
+                    {
+                        "@type": "Review",
+                        "author": {"@type": "Person", "name": "Bill & Debbie"},
+                        "reviewBody": "Kara truly made our Florence trip exceptional. She secured a rate significantly better than anything we could find online.",
+                        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+                    },
+                    {
+                        "@type": "Review",
+                        "author": {"@type": "Person", "name": "Sarah & Michael"},
+                        "reviewBody": "Our Tanzania safari exceeded every expectation — the kids still talk about watching the wildebeest crossing. It's become our family's most treasured memory.",
+                        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+                    },
+                    {
+                        "@type": "Review",
+                        "author": {"@type": "Person", "name": "James & Rebecca"},
+                        "reviewBody": "The level of personalisation was extraordinary. Every moment felt like it was designed just for us. Simply magical.",
+                        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+                    }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://www.heirloomholidays.co.uk/#website",
+                "name": "Heirloom Holidays",
+                "url": "https://www.heirloomholidays.co.uk",
+                "publisher": {"@id": "https://www.heirloomholidays.co.uk/#organization"}
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Does Heirloom Holidays charge planning fees?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Our expert service costs you nothing. We are paid by our hotel partners, so you get better rates, exclusive perks, and white-glove planning at zero extra cost."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can Heirloom Holidays get better rates than booking directly?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Our clients consistently pay less than public prices. Through Little Emperors partnerships, we unlock trade rates plus complimentary upgrades, breakfast, and resort credits."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What VIP privileges do Heirloom Holidays clients receive?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Clients receive room upgrades, spa credits, private experiences, complimentary breakfast, and priority reservations at over 5,000 partner hotels worldwide through our Little Emperors membership."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
     <script src="assets/js/shared.js" defer></script>
