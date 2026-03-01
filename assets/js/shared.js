@@ -8,7 +8,7 @@
 
     // --- Mobile Menu Toggle ---
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('nav');
+    const nav = document.getElementById('navbar');
 
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', function () {
@@ -48,7 +48,7 @@
     });
 
     // --- Navbar Scroll Effect ---
-    var navbar = document.getElementById('navbar') || document.querySelector('nav');
+    var navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', function () {
             if (window.scrollY > 100) {

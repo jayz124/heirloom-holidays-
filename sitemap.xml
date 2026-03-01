@@ -127,6 +127,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.heirloomholidays.co.uk/guides/family-summer-travel</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.heirloomholidays.co.uk/guides/city-guides</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.heirloomholidays.co.uk/guides/where-to-go-in-spring</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.heirloomholidays.co.uk/privacy</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
