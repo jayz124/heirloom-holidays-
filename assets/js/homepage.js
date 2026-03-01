@@ -34,4 +34,67 @@
         });
     }
 
+    // --- Form Validation & Submit State ---
+    var form = document.getElementById('consultationForm');
+    var submitBtn = document.getElementById('submitBtn');
+
+    if (form && submitBtn) {
+        // Inline validation on blur
+        var requiredFields = form.querySelectorAll('[required]');
+        requiredFields.forEach(function (field) {
+            field.addEventListener('blur', function () {
+                validateField(field);
+            });
+            // Clear error on input
+            field.addEventListener('input', function () {
+                field.classList.remove('invalid');
+                var err = field.parentElement.querySelector('.field-error');
+                if (err) err.classList.remove('visible');
+            });
+        });
+
+        function validateField(field) {
+            var valid = true;
+            var msg = '';
+
+            if (!field.value.trim()) {
+                valid = false;
+                msg = 'This field is required';
+            } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                valid = false;
+                msg = 'Please enter a valid email address';
+            }
+
+            if (!valid) {
+                field.classList.add('invalid');
+                var err = field.parentElement.querySelector('.field-error');
+                if (!err) {
+                    err = document.createElement('div');
+                    err.className = 'field-error';
+                    field.parentElement.appendChild(err);
+                }
+                err.textContent = msg;
+                err.classList.add('visible');
+            }
+
+            return valid;
+        }
+
+        // Submit handler — loading state + prevent double submit
+        form.addEventListener('submit', function (e) {
+            var allValid = true;
+            requiredFields.forEach(function (field) {
+                if (!validateField(field)) allValid = false;
+            });
+
+            if (!allValid) {
+                e.preventDefault();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('is-sending');
+        });
+    }
+
 })();

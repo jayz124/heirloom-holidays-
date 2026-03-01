@@ -800,7 +800,7 @@
     justify-content: center;
     gap: 0.75rem;
     margin-top: 1.5rem;
-    color: rgba(255,255,255,0.5);
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 
@@ -1085,6 +1085,63 @@
 .btn-submit:hover {
     background: var(--champagne);
     color: var(--midnight);
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-submit.is-sending {
+    position: relative;
+    color: transparent;
+}
+
+.btn-submit.is-sending::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: var(--ivory);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.form-group .required {
+    color: var(--champagne);
+}
+
+.form-group .optional {
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgba(10, 22, 40, 0.35);
+    font-size: 0.7rem;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid,
+.form-group select.invalid {
+    border-color: #c44;
+}
+
+.form-group .field-error {
+    color: #c44;
+    font-size: 0.75rem;
+    margin-top: 0.4rem;
+    display: none;
+}
+
+.form-group .field-error.visible {
+    display: block;
 }
 
 /* --- Homepage Responsive: 1200px --- */

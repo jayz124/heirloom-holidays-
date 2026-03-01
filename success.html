@@ -55,6 +55,32 @@
             max-width: 500px;
             margin-bottom: 1rem;
         }
+        .success-next {
+            font-size: 0.85rem;
+            color: rgba(10, 22, 40, 0.4);
+            margin-bottom: 0.5rem;
+        }
+        .success-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .success-links a {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--midnight);
+            text-decoration: none;
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            padding: 0.6rem 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .success-links a:hover {
+            border-color: var(--champagne);
+            color: var(--champagne);
+        }
         .success-page .cta-button {
             margin-top: 2rem;
         }
@@ -112,10 +138,16 @@
                 <polyline points="20 6 9 17 4 12"/>
             </svg>
         </div>
-        <h1>Thank <em>You</em></h1>
-        <p>Your message has been received. Kara will be in touch shortly to begin crafting your perfect journey.</p>
-        <p>In the meantime, explore our destinations and hotel inspirations.</p>
-        <a href="index.html" class="cta-button">Return Home</a>
+        <h1>You're <em>In</em></h1>
+        <p>Kara will reply personally within 24 hours — usually sooner. Check your inbox (and spam folder, just in case).</p>
+        <p class="success-next">While you wait, browse where others have been:</p>
+        <div class="success-links">
+            <a href="destinations/maldives.html">Maldives</a>
+            <a href="destinations/tanzania-safari.html">Tanzania Safari</a>
+            <a href="destinations/amalfi-coast.html">Amalfi Coast</a>
+            <a href="hotels/best-for-families.html">Best for Families</a>
+        </div>
+        <a href="index.html" class="cta-button">Back to Home</a>
     </main>
 
     <footer>

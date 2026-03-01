@@ -606,44 +606,43 @@
                 <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="email">Email Address <span style="color: var(--champagne);">*</span></label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="phone">Phone <span class="optional">(optional)</span></label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+44">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXXXXX">
+                        <label for="interest">Interested In <span class="optional">(optional)</span></label>
+                        <select id="interest" name="interest">
+                            <option value="">Select an option...</option>
+                            <option value="safari">African Safari & Wildlife</option>
+                            <option value="japan">Japan with Four Seasons</option>
+                            <option value="europe">European Escapes</option>
+                            <option value="islands">Maldives & Island Paradise</option>
+                            <option value="honeymoon">Honeymoon & Romance</option>
+                            <option value="spa">UK Spa Breaks</option>
+                            <option value="adventure">Adventure & Natural Wonders</option>
+                            <option value="family">Family Holiday</option>
+                            <option value="ski">Ski Season</option>
+                            <option value="wellness">Wellness & Medical Retreats</option>
+                            <option value="train">Luxury Train Journeys</option>
+                            <option value="other">Something Else</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="interest">I'm Interested In</label>
-                    <select id="interest" name="interest">
-                        <option value="">Select an option...</option>
-                        <option value="safari">African Safari & Wildlife</option>
-                        <option value="japan">Japan with Four Seasons</option>
-                        <option value="europe">European Escapes</option>
-                        <option value="islands">Maldives & Island Paradise</option>
-                        <option value="honeymoon">Honeymoon & Romance</option>
-                        <option value="spa">UK Spa Breaks</option>
-                        <option value="adventure">Adventure & Natural Wonders</option>
-                        <option value="family">Family Holiday</option>
-                        <option value="other">Something Unique</option>
-                    </select>
+                    <label for="message">Anything Else? <span class="optional">(optional)</span></label>
+                    <textarea id="message" name="message" placeholder="Dates, destinations, who's travelling — anything that helps."></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="message">Tell Us About Your Dream Journey</label>
-                    <textarea id="message" name="message" placeholder="Where do you dream of going? What experiences are on your wish list?"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Begin The Conversation</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Send My Enquiry</button>
                 <div class="form-reassurance">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
