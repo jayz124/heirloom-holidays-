@@ -5,3 +5,6 @@
 .agent/
 .claude/
 skills-lock.json
+
+# Generated image output
+nanobanana-output/
