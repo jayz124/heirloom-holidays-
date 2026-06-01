@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Private, share-by-link only: keep out of search engines -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Your Travel Preferences | Heirloom Holidays</title>
+    <meta name="description" content="Share your travel preferences with Heirloom Holidays so Kara can craft a trip tailored perfectly to you.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <style>
+        body { background: var(--ivory); }
+
+        /* --- Slim, focused header --- */
+        .q-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--midnight);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.25);
+        }
+        .q-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.18em;
+            color: var(--ivory);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .q-header .logo span { color: var(--champagne); }
+        .q-header .logo-img { height: 32px; width: auto; }
+
+        /* --- Intro --- */
+        .q-intro {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4.5rem 2rem 2rem;
+            text-align: center;
+        }
+        .q-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 1.5rem;
+        }
+        .q-intro h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            color: var(--midnight);
+            margin-bottom: 1.5rem;
+        }
+        .q-intro h1 em { font-style: italic; color: var(--champagne); }
+        .q-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .q-intro .q-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.75rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            color: rgba(10, 22, 40, 0.55);
+        }
+
+        /* --- Form shell --- */
+        .q-form {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+        .q-section {
+            background: var(--ivory-warm);
+            padding: 2.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(10, 22, 40, 0.06);
+        }
+        .q-section-head { margin-bottom: 2rem; }
+        .q-section-head .q-num {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .q-section-head h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.9rem;
+            color: var(--midnight);
+            line-height: 1.15;
+        }
+        .q-section-head p {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- Fields --- */
+        .form-group { margin-bottom: 1.6rem; }
+        .form-group:last-child { margin-bottom: 0; }
+        .form-group > label,
+        .field-label {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--midnight);
+            margin-bottom: 0.7rem;
+            line-height: 1.5;
+        }
+        .field-hint {
+            display: block;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .required { color: var(--champagne); }
+        .optional {
+            font-weight: 300;
+            text-transform: none;
+            letter-spacing: 0;
+            color: rgba(10, 22, 40, 0.4);
+            font-size: 0.72rem;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            background: var(--ivory);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+            border-radius: 0;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--champagne);
+        }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+        }
+
+        /* --- Choice grids (checkbox / radio) --- */
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.7rem;
+        }
+        .choice {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.85rem 1rem;
+            background: var(--ivory);
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            cursor: pointer;
+            transition: border-color 0.25s ease, background 0.25s ease;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        .choice:hover { border-color: var(--champagne); }
+        .choice input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            border: 1px solid rgba(10, 22, 40, 0.3);
+            background: #fff;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .choice input[type="radio"] { border-radius: 50%; }
+        .choice input:checked {
+            background: var(--champagne);
+            border-color: var(--champagne);
+        }
+        .choice input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--midnight);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .choice input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--midnight);
+            transform: translate(-50%, -50%);
+        }
+        .choice:has(input:checked) {
+            border-color: var(--champagne);
+            background: #fff;
+        }
+
+        /* --- Submit --- */
+        .q-submit-wrap {
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--midnight);
+            color: var(--ivory);
+            padding: 1.3rem 2.5rem;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        .btn-submit:hover { background: var(--champagne); color: var(--midnight); }
+        .q-privacy {
+            margin-top: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .q-privacy a { color: var(--champagne); text-decoration: none; }
+        .q-privacy a:hover { text-decoration: underline; }
+
+        /* --- Slim footer --- */
+        .q-footer {
+            background: var(--midnight);
+            color: rgba(250, 248, 245, 0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+        }
+        .q-footer a { color: var(--champagne); text-decoration: none; }
+        .q-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            .q-section { padding: 1.75rem 1.4rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .q-intro { padding-top: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="q-header">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="Heirloom Holidays Logo" class="logo-img">
+            HEIRLOOM <span>HOLIDAYS</span>
+        </a>
+    </header>
+
+    <section class="q-intro">
+        <p class="q-eyebrow">Your Travel Preferences</p>
+        <h1>Let's plan a trip that feels <em>made for you</em></h1>
+        <p>To craft something truly tailored, it helps to understand how you love to travel — the big things and the small details. Share as much or as little as you like below, and Kara will take care of the rest.</p>
+        <span class="q-time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Takes about 5&ndash;10 minutes &middot; Only your name and email are required
+        </span>
+    </section>
+
+    <!--
+      ============================================================
+      NETLIFY FORM
+      Submissions appear in Netlify dashboard → Forms → "client-questionnaire".
+      TO EMAIL KARA: in Netlify, open Forms → client-questionnaire → Settings
+      and notifications → Add notification → Email notification →
+      send to kara@heirloomholidays.co.uk. (One-time setup after deploy.)
+      ============================================================
+    -->
+    <form class="q-form"
+          name="client-questionnaire"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/questionnaire-success.html">
+
+        <input type="hidden" name="form-name" value="client-questionnaire">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+        <!-- ============ 1. CONTACT ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">01</span>
+                <h2>How to reach you</h2>
+                <p>So Kara can come back to you personally with ideas.</p>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact_name">Your name <span class="required">*</span></label>
+                    <input type="text" id="contact_name" name="Your name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="contact_email">Email <span class="required">*</span></label>
+                    <input type="email" id="contact_email" name="Email" required autocomplete="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contact_phone">Phone <span class="optional">(optional)</span></label>
+                <input type="tel" id="contact_phone" name="Phone" autocomplete="tel" inputmode="tel" placeholder="+44">
+            </div>
+        </div>
+
+        <!-- ============ 2. ABOUT YOU ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">02</span>
+                <h2>Tell me about you</h2>
+                <p>A little about everyone travelling, so nothing is overlooked.</p>
+            </div>
+            <div class="form-group">
+                <label for="travellers">Who's travelling? <span class="optional">(optional)</span></label>
+                <span class="field-hint">Please list everyone going, with their date of birth and passport nationality.</span>
+                <textarea id="travellers" name="Who's travelling (names, DOB, nationality)" placeholder="e.g. Jane Smith — 12/04/1980 — British&#10;Tom Smith — 03/09/1982 — British&#10;Lily Smith — 21/06/2014 — British"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="allergies">Does anyone have allergies? <span class="optional">(optional)</span></label>
+                <textarea id="allergies" name="Allergies" placeholder="Food, environmental, medication — anything we should plan around."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dietary">Any dietary requirements? <span class="optional">(optional)</span></label>
+                <textarea id="dietary" name="Dietary requirements" placeholder="e.g. vegetarian, gluten-free, halal, no shellfish."></textarea>
+            </div>
+        </div>
+
+        <!-- ============ 3. LOYALTY & STATUS ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">03</span>
+                <h2>Loyalty &amp; status</h2>
+                <p>Where you hold points or status, so we can make them work harder for you.</p>
+            </div>
+            <div class="form-group">
+                <span class="field-label">Hotel programmes you have points or status with <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="Marriott Bonvoy"> Marriott Bonvoy</label>
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="Hilton Honors"> Hilton Honors</label>
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="IHG One Rewards"> IHG One Rewards</label>
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="World of Hyatt"> World of Hyatt</label>
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="Accor Live Limitless"> Accor (ALL)</label>
+                    <label class="choice"><input type="checkbox" name="Hotel loyalty programmes" value="Other / none"> Other / none</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hotel_tiers">Your tiers, if you know them <span class="optional">(optional)</span></label>
+                <input type="text" id="hotel_tiers" name="Hotel loyalty tiers" placeholder="e.g. Bonvoy Titanium, Hilton Diamond">
+            </div>
+            <div class="form-group">
+                <label for="airline_status">Airline status <span class="optional">(optional)</span></label>
+                <input type="text" id="airline_status" name="Airline status" placeholder="Which airlines, and at what tier?">
+            </div>
+        </div>
+
+        <!-- ============ 4. YOUR TRIP ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">04</span>
+                <h2>Your trip</h2>
+                <p>The shape of the journey you have in mind.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Where would you like to go? <span class="optional">(optional)</span></label>
+                <input type="text" id="destination" name="Destination" placeholder="A specific place, a region, or 'surprise me'.">
+            </div>
+
+            <div class="form-group">
+                <label for="dates">What are your dates? <span class="optional">(optional)</span></label>
+                <input type="text" id="dates" name="Travel dates" placeholder="e.g. last two weeks of July 2026">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How flexible are your dates?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Date flexibility" value="Fixed"> Fixed</label>
+                    <label class="choice"><input type="radio" name="Date flexibility" value="Somewhat flexible"> Somewhat flexible</label>
+                    <label class="choice"><input type="radio" name="Date flexibility" value="Very flexible"> Very flexible</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="who_going">Who is this trip for? <span class="optional">(optional)</span></label>
+                <input type="text" id="who_going" name="Who is going" placeholder="e.g. just the two of us, the whole family, three generations">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Why are you taking this trip? <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Relaxation"> Relaxation</label>
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Explore somewhere new"> Explore somewhere new</label>
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Cultural or historical discovery"> Cultural / historical discovery</label>
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Celebrate a milestone"> Celebrate a milestone</label>
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Quality time together"> Quality time together</label>
+                    <label class="choice"><input type="checkbox" name="Reason for trip" value="Adventure"> Adventure</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hobbies">Hobbies or interests to indulge on this trip? <span class="optional">(optional)</span></label>
+                <textarea id="hobbies" name="Hobbies and interests" placeholder="e.g. golf, diving, wine, art galleries, hiking, photography."></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Preferred sleeping arrangements</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Sleeping arrangements" value="One king bed"> One king bed</label>
+                    <label class="choice"><input type="radio" name="Sleeping arrangements" value="Two double / twin beds"> Two double / twin beds</label>
+                    <label class="choice"><input type="radio" name="Sleeping arrangements" value="Everyone in the same room"> Everyone in the same room</label>
+                    <label class="choice"><input type="radio" name="Sleeping arrangements" value="A mix / multiple rooms"> A mix / multiple rooms</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">What's important to you in the room? <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Separate living area"> Separate living area</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Outdoor space / balcony"> Outdoor space / balcony</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Double vanity"> Double vanity</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Ocean / sea view"> Ocean / sea view</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Privacy"> Privacy</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="King-sized bed"> King-sized bed</label>
+                    <label class="choice"><input type="checkbox" name="Important in room" value="Connecting rooms"> Connecting rooms</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">What's important to you in a hotel? <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Breakfast included"> Breakfast included</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Gym"> Gym</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Spa"> Spa</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Pool"> Pool</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Walkable to attractions"> Walkable to attractions</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Lots of restaurants nearby"> Restaurants nearby</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Instagram-worthy"> Instagram-worthy</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Kids' club"> Kids' club</label>
+                    <label class="choice"><input type="checkbox" name="Important in hotel" value="Quiet / adults-focused"> Quiet / adults-focused</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Will you want a rental car?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Rental car" value="Yes"> Yes</label>
+                    <label class="choice"><input type="radio" name="Rental car" value="No"> No</label>
+                    <label class="choice"><input type="radio" name="Rental car" value="Not sure"> Not sure yet</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">What's your budget per night?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Budget per night" value="Up to $500"> Up to $500 / night</label>
+                    <label class="choice"><input type="radio" name="Budget per night" value="Up to $750"> Up to $750 / night</label>
+                    <label class="choice"><input type="radio" name="Budget per night" value="Up to $1,000"> Up to $1,000 / night</label>
+                    <label class="choice"><input type="radio" name="Budget per night" value="$1,000+"> $1,000+ / night</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Would you like help with&hellip; <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Help with" value="Planning activities"> Planning activities</label>
+                    <label class="choice"><input type="checkbox" name="Help with" value="Booking transportation"> Booking transportation</label>
+                    <label class="choice"><input type="checkbox" name="Help with" value="Restaurant reservations"> Restaurant reservations</label>
+                    <label class="choice"><input type="checkbox" name="Help with" value="Spa appointments"> Spa appointments</label>
+                    <label class="choice"><input type="checkbox" name="Help with" value="Everything — full concierge"> Everything — full concierge</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Cancellation vs. savings</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Cancellation preference" value="Prefer flexible cancellation"> Prefer flexible cancellation</label>
+                    <label class="choice"><input type="radio" name="Cancellation preference" value="Happy to prepay for savings"> Happy to prepay for savings</label>
+                    <label class="choice"><input type="radio" name="Cancellation preference" value="Depends — let's discuss"> Depends — let's discuss</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 5. TRAVEL DNA ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">05</span>
+                <h2>Your travel DNA</h2>
+                <p>The details that turn a good trip into one you'll be talking about for years.</p>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How often do you travel in a year?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Trips per year" value="Once a year"> Once a year</label>
+                    <label class="choice"><input type="radio" name="Trips per year" value="Twice a year"> Twice a year</label>
+                    <label class="choice"><input type="radio" name="Trips per year" value="Three times a year"> Three times a year</label>
+                    <label class="choice"><input type="radio" name="Trips per year" value="Four or more"> Four or more</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">When do you normally travel? <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="When you travel" value="Christmas"> Christmas</label>
+                    <label class="choice"><input type="checkbox" name="When you travel" value="Half term"> Half term</label>
+                    <label class="choice"><input type="checkbox" name="When you travel" value="Easter"> Easter</label>
+                    <label class="choice"><input type="checkbox" name="When you travel" value="Summer"> Summer</label>
+                    <label class="choice"><input type="checkbox" name="When you travel" value="Whenever the mood strikes"> Whenever the mood strikes</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="typical_spend">What do you typically spend per night? <span class="optional">(optional)</span></label>
+                <input type="text" id="typical_spend" name="Typical spend per night" placeholder="A rough sense of your usual nightly spend.">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Any physical or mobility considerations? <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Mobility considerations" value="Difficulty with steep stairs"> Difficulty with steep stairs</label>
+                    <label class="choice"><input type="checkbox" name="Mobility considerations" value="Long walking distances"> Long walking distances</label>
+                    <label class="choice"><input type="checkbox" name="Mobility considerations" value="Motion sickness"> Motion sickness</label>
+                    <label class="choice"><input type="checkbox" name="Mobility considerations" value="Need wheelchair-accessible vehicles"> Wheelchair-accessible vehicles</label>
+                    <label class="choice"><input type="checkbox" name="Mobility considerations" value="None"> None</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobility_notes">Anything else we should know about accessibility? <span class="optional">(optional)</span></label>
+                <input type="text" id="mobility_notes" name="Accessibility notes" placeholder="Optional details.">
+            </div>
+
+            <div class="form-group">
+                <label for="fav_hotel">Favourite hotel you've stayed in — and why? <span class="optional">(optional)</span></label>
+                <textarea id="fav_hotel" name="Favourite hotel and why" placeholder="What made it special?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fav_destination">Favourite destination you've visited — and why? <span class="optional">(optional)</span></label>
+                <textarea id="fav_destination" name="Favourite destination and why" placeholder="What did you love about it?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Preferred pace of travel</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Pace of travel" value="Packed schedule"> Packed schedule</label>
+                    <label class="choice"><input type="radio" name="Pace of travel" value="Balanced"> Balanced</label>
+                    <label class="choice"><input type="radio" name="Pace of travel" value="Relaxed"> Relaxed</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="how_booked">How have you booked travel in the past? <span class="optional">(optional)</span></label>
+                <input type="text" id="how_booked" name="How you've booked before" placeholder="e.g. online yourself, a travel agent, directly with hotels.">
+            </div>
+
+            <div class="form-group">
+                <label for="how_research">How do you research travel? <span class="optional">(optional)</span></label>
+                <input type="text" id="how_research" name="How you research travel" placeholder="e.g. Instagram, friends, magazines, Google.">
+            </div>
+
+            <div class="form-group">
+                <label for="food">Food likes &amp; dislikes? <span class="optional">(optional)</span></label>
+                <textarea id="food" name="Food likes and dislikes" placeholder="What you love, and what you'd rather avoid."></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Sparkling or still water?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Water preference" value="Sparkling"> Sparkling</label>
+                    <label class="choice"><input type="radio" name="Water preference" value="Still"> Still</label>
+                    <label class="choice"><input type="radio" name="Water preference" value="No preference"> No preference</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pillow">Pillow preference? <span class="optional">(optional)</span></label>
+                <input type="text" id="pillow" name="Pillow preference" placeholder="e.g. soft, firm, feather-free, extra pillows.">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Alcohol preferences <span class="optional">(select any)</span></span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="Alcohol preferences" value="White wine"> White wine</label>
+                    <label class="choice"><input type="checkbox" name="Alcohol preferences" value="Red wine"> Red wine</label>
+                    <label class="choice"><input type="checkbox" name="Alcohol preferences" value="Champagne"> Champagne</label>
+                    <label class="choice"><input type="checkbox" name="Alcohol preferences" value="Spirits"> Spirits</label>
+                    <label class="choice"><input type="checkbox" name="Alcohol preferences" value="No alcohol"> No alcohol</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cocktail">Favourite cocktail? <span class="optional">(optional)</span></label>
+                <input type="text" id="cocktail" name="Favourite cocktail" placeholder="So there's one waiting on arrival.">
+            </div>
+
+            <div class="form-group">
+                <label for="breakfast_drink">Your breakfast drink order? <span class="optional">(optional)</span></label>
+                <input type="text" id="breakfast_drink" name="Breakfast drink order" placeholder="e.g. flat white, English breakfast tea, fresh orange juice.">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Dining style</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Dining style" value="Fine dining"> Fine dining</label>
+                    <label class="choice"><input type="radio" name="Dining style" value="Local hidden gems"> Local hidden gems</label>
+                    <label class="choice"><input type="radio" name="Dining style" value="A mix of both"> A mix of both</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="anything_else">Anything else you'd like Kara to know? <span class="optional">(optional)</span></label>
+                <textarea id="anything_else" name="Anything else" placeholder="No detail is too small."></textarea>
+            </div>
+        </div>
+
+        <!-- ============ SUBMIT ============ -->
+        <div class="q-submit-wrap">
+            <button type="submit" class="btn-submit">Send My Preferences</button>
+            <p class="q-privacy">
+                Your answers go straight to Kara and are used only to plan your trip.
+                Read our <a href="privacy.html">Privacy Policy</a>.
+            </p>
+        </div>
+    </form>
+
+    <footer class="q-footer">
+        <p>&copy; <span class="copyright-year">2025</span> Heirloom Holidays &middot; <a href="index.html">heirloomholidays.co.uk</a></p>
+    </footer>
+
+    <script src="assets/js/shared.js" defer></script>
+</body>
+</html>
