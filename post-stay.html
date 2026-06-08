@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Private, share-by-link only: keep out of search engines -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>How Was Your Trip? | Heirloom Holidays</title>
+    <meta name="description" content="Share how your trip went with Heirloom Holidays so Kara can keep making every journey even better.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <style>
+        body { background: var(--ivory); }
+
+        /* --- Slim, focused header --- */
+        .q-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--midnight);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.25);
+        }
+        .q-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.18em;
+            color: var(--ivory);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .q-header .logo span { color: var(--champagne); }
+        .q-header .logo-img { height: 32px; width: auto; }
+
+        /* --- Intro --- */
+        .q-intro {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4.5rem 2rem 2rem;
+            text-align: center;
+        }
+        .q-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 1.5rem;
+        }
+        .q-intro h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            color: var(--midnight);
+            margin-bottom: 1.5rem;
+        }
+        .q-intro h1 em { font-style: italic; color: var(--champagne); }
+        .q-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .q-intro .q-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.75rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            color: rgba(10, 22, 40, 0.55);
+        }
+
+        /* --- Form shell --- */
+        .q-form {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+        .q-section {
+            background: var(--ivory-warm);
+            padding: 2.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(10, 22, 40, 0.06);
+        }
+        .q-section-head { margin-bottom: 2rem; }
+        .q-section-head .q-num {
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .q-section-head h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.9rem;
+            color: var(--midnight);
+            line-height: 1.15;
+        }
+        .q-section-head p {
+            margin-top: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- Fields --- */
+        .form-group { margin-bottom: 1.6rem; }
+        .form-group:last-child { margin-bottom: 0; }
+        .form-group > label,
+        .field-label {
+            display: block;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--midnight);
+            margin-bottom: 0.7rem;
+            line-height: 1.5;
+        }
+        .field-hint {
+            display: block;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .required { color: var(--champagne); }
+        .optional {
+            font-weight: 300;
+            text-transform: none;
+            letter-spacing: 0;
+            color: rgba(10, 22, 40, 0.4);
+            font-size: 0.72rem;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            background: var(--ivory);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease;
+            border-radius: 0;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--champagne);
+        }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+        }
+
+        /* --- Choice grids (checkbox / radio) --- */
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.7rem;
+        }
+        .choice {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.85rem 1rem;
+            background: var(--ivory);
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            cursor: pointer;
+            transition: border-color 0.25s ease, background 0.25s ease;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        .choice:hover { border-color: var(--champagne); }
+        .choice input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            border: 1px solid rgba(10, 22, 40, 0.3);
+            background: #fff;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        .choice input[type="radio"] { border-radius: 50%; }
+        .choice input:checked {
+            background: var(--champagne);
+            border-color: var(--champagne);
+        }
+        .choice input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--midnight);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .choice input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--midnight);
+            transform: translate(-50%, -50%);
+        }
+        .choice:has(input:checked) {
+            border-color: var(--champagne);
+            background: #fff;
+        }
+
+        /* --- Rating slider --- */
+        .rating { margin-top: 0.5rem; }
+        .rating-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 3px;
+            background: rgba(10, 22, 40, 0.15);
+            outline: none;
+            cursor: pointer;
+            margin: 0.6rem 0 0.2rem;
+        }
+        .rating-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--champagne);
+            border: 3px solid var(--ivory-warm);
+            box-shadow: 0 1px 5px rgba(10, 22, 40, 0.3);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        .rating-slider::-webkit-slider-thumb:hover { transform: scale(1.12); }
+        .rating-slider::-moz-range-thumb {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--champagne);
+            border: 3px solid var(--ivory-warm);
+            box-shadow: 0 1px 5px rgba(10, 22, 40, 0.3);
+            cursor: pointer;
+        }
+        .rating-slider::-moz-range-track { height: 3px; background: rgba(10, 22, 40, 0.15); }
+        .rating:not(.is-set) .rating-slider::-webkit-slider-thumb { background: #c7c2b8; }
+        .rating:not(.is-set) .rating-slider::-moz-range-thumb { background: #c7c2b8; }
+        .rating-slider:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--midnight); outline-offset: 2px; }
+        .rating-slider:focus-visible::-moz-range-thumb { outline: 2px solid var(--midnight); outline-offset: 2px; }
+
+        .rating.is-na { opacity: 0.5; }
+        .rating.is-na .rating-slider { cursor: not-allowed; }
+
+        .rating-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 2.1rem;
+        }
+        .rating-ends {
+            font-size: 0.75rem;
+            color: rgba(10, 22, 40, 0.4);
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            width: 1.4rem;
+            text-align: center;
+        }
+        .rating-value {
+            flex: 1;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--midnight);
+            line-height: 1.25;
+        }
+        .rating:not(.is-set) .rating-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(10, 22, 40, 0.45);
+        }
+        .rating-na {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 0.9rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+        .rating-na input {
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+            accent-color: var(--champagne);
+        }
+
+        /* --- Consent / permission row --- */
+        .consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 1.05rem 1.1rem;
+            background: var(--ivory);
+            border: 1px solid rgba(10, 22, 40, 0.15);
+            cursor: pointer;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+            transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .consent:hover { border-color: var(--champagne); }
+        .consent input {
+            width: 18px;
+            height: 18px;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+            accent-color: var(--champagne);
+            cursor: pointer;
+        }
+        .consent:has(input:checked) { border-color: var(--champagne); background: #fff; }
+
+        /* --- Submit --- */
+        .q-submit-wrap {
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .btn-submit {
+            width: 100%;
+            background: var(--midnight);
+            color: var(--ivory);
+            padding: 1.3rem 2.5rem;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+        .btn-submit:hover { background: var(--champagne); color: var(--midnight); }
+        .q-privacy {
+            margin-top: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .q-privacy a { color: var(--champagne); text-decoration: none; }
+        .q-privacy a:hover { text-decoration: underline; }
+
+        /* --- Slim footer --- */
+        .q-footer {
+            background: var(--midnight);
+            color: rgba(250, 248, 245, 0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+        }
+        .q-footer a { color: var(--champagne); text-decoration: none; }
+        .q-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            .q-section { padding: 1.75rem 1.4rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .q-intro { padding-top: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="q-header">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo.png" alt="Heirloom Holidays Logo" class="logo-img">
+            HEIRLOOM <span>HOLIDAYS</span>
+        </a>
+    </header>
+
+    <section class="q-intro">
+        <p class="q-eyebrow">After Your Trip</p>
+        <h1>Welcome home &mdash; <em>how did we do?</em></h1>
+        <p>I hope you've come back with a memory or two that will last. Now that the dust has settled, I'd love to hear how everything felt &mdash; the wonderful, the not-so-perfect, and everything in between. Your honesty is exactly what helps me look after you even better next time.</p>
+        <span class="q-time">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Takes about 2&ndash;3 minutes &middot; Every question is optional
+        </span>
+    </section>
+
+    <!--
+      ============================================================
+      NETLIFY FORM
+      Submissions appear in Netlify dashboard → Forms → "post-stay-questionnaire".
+      TO EMAIL KARA: in Netlify, open Forms → post-stay-questionnaire → Settings
+      and notifications → Add notification → Email notification →
+      send to kara@heirloomholidays.co.uk. (One-time setup after deploy.)
+      ============================================================
+    -->
+    <form class="q-form"
+          name="post-stay-questionnaire"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/post-stay-success.html">
+
+        <input type="hidden" name="form-name" value="post-stay-questionnaire">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+
+        <!-- ============ 1. WHO ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">01</span>
+                <h2>First, your name</h2>
+                <p>So I know whose trip I'm reading about.</p>
+            </div>
+            <div class="form-group">
+                <label for="name">Your name <span class="optional">(optional)</span></label>
+                <input type="text" id="name" name="Your name" autocomplete="name" placeholder="So I can picture exactly who I'm hearing from.">
+            </div>
+        </div>
+
+        <!-- ============ 2. THE HOTEL ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">02</span>
+                <h2>The hotel</h2>
+                <p>The place you called home for a while.</p>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How would you rate the hotel? <span class="optional">(out of 10)</span></span>
+                <div class="rating" data-rating>
+                    <input type="range" class="rating-slider" min="1" max="10" step="1" value="5" aria-label="Rate the hotel from 1 to 10">
+                    <div class="rating-meta">
+                        <span class="rating-ends">1</span>
+                        <output class="rating-value">Drag to rate</output>
+                        <span class="rating-ends">10</span>
+                    </div>
+                    <input type="hidden" name="Hotel rating" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hotel_liked">What did you love about the hotel? <span class="optional">(optional)</span></label>
+                <textarea id="hotel_liked" name="What you loved about the hotel" placeholder="The room, the service, the view, a particular moment&hellip;"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="hotel_disliked">What didn't quite hit the mark? <span class="optional">(optional)</span></label>
+                <textarea id="hotel_disliked" name="What didn't quite hit the mark" placeholder="Be as honest as you like — it only helps me choose better for you."></textarea>
+            </div>
+        </div>
+
+        <!-- ============ 3. DINING & WELLNESS ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">03</span>
+                <h2>Dining &amp; wellness</h2>
+                <p>Breakfast, the gym, the spa &mdash; the daily rhythms of the stay.</p>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How would you rate breakfast? <span class="optional">(out of 10)</span></span>
+                <div class="rating" data-rating>
+                    <input type="range" class="rating-slider" min="1" max="10" step="1" value="5" aria-label="Rate breakfast from 1 to 10">
+                    <div class="rating-meta">
+                        <span class="rating-ends">1</span>
+                        <output class="rating-value">Drag to rate</output>
+                        <span class="rating-ends">10</span>
+                    </div>
+                    <label class="rating-na"><input type="checkbox" class="rating-na-box"> Didn't have breakfast / N/A</label>
+                    <input type="hidden" name="Breakfast rating" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="breakfast_comment">Any thoughts on breakfast? <span class="optional">(optional)</span></label>
+                <textarea id="breakfast_comment" name="Breakfast comment" placeholder="The spread, the coffee, a standout dish — or anything missing."></textarea>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How would you rate the gym? <span class="optional">(out of 10)</span></span>
+                <div class="rating" data-rating data-zero="0 &mdash; I don't work out on holiday &#128521;">
+                    <input type="range" class="rating-slider" min="0" max="10" step="1" value="5" aria-label="Rate the gym from 0 to 10">
+                    <div class="rating-meta">
+                        <span class="rating-ends">0</span>
+                        <output class="rating-value">Drag to rate</output>
+                        <span class="rating-ends">10</span>
+                    </div>
+                    <input type="hidden" name="Gym rating" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">How would you rate the spa? <span class="optional">(out of 10)</span></span>
+                <div class="rating" data-rating>
+                    <input type="range" class="rating-slider" min="1" max="10" step="1" value="5" aria-label="Rate the spa from 1 to 10">
+                    <div class="rating-meta">
+                        <span class="rating-ends">1</span>
+                        <output class="rating-value">Drag to rate</output>
+                        <span class="rating-ends">10</span>
+                    </div>
+                    <label class="rating-na"><input type="checkbox" class="rating-na-box"> Didn't visit the spa / N/A</label>
+                    <input type="hidden" name="Spa rating" value="">
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 4. THE PERSONAL TOUCHES ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">04</span>
+                <h2>The personal touches</h2>
+                <p>The little signs that someone was looking out for you behind the scenes.</p>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Did you receive my welcome note and a welcome amenity?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Welcome note &amp; amenity received" value="Yes"> Yes</label>
+                    <label class="choice"><input type="radio" name="Welcome note &amp; amenity received" value="No"> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Were you upgraded?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Were you upgraded" value="Yes"> Yes</label>
+                    <label class="choice"><input type="radio" name="Were you upgraded" value="No"> No</label>
+                    <label class="choice"><input type="radio" name="Were you upgraded" value="Not sure"> Not sure</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ 5. LOOKING AHEAD ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">05</span>
+                <h2>Looking ahead</h2>
+                <p>How I can do better, and where you might be off to next.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="improve">How can I improve my service for your future trips? <span class="optional">(optional)</span></label>
+                <textarea id="improve" name="How I can improve for future trips" placeholder="Anything at all — the smallest tweaks often make the biggest difference."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="next_trip">When is your next trip? <span class="optional">(optional)</span></label>
+                <input type="text" id="next_trip" name="When is your next trip" placeholder="e.g. October half term, or 'nothing booked yet — but dreaming'.">
+            </div>
+
+            <div class="form-group">
+                <span class="field-label">Would you like help planning it?</span>
+                <div class="choice-grid">
+                    <label class="choice"><input type="radio" name="Would like help planning next trip" value="Yes"> Yes, please</label>
+                    <label class="choice"><input type="radio" name="Would like help planning next trip" value="No"> Not just yet</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="help_details">If yes, what would you like help with? <span class="optional">(optional)</span></label>
+                <textarea id="help_details" name="What you'd like help with" placeholder="Destination ideas, dates, who's coming, a rough budget — whatever's on your mind."></textarea>
+            </div>
+        </div>
+
+        <!-- ============ 6. A FEW LAST THINGS ============ -->
+        <div class="q-section">
+            <div class="q-section-head">
+                <span class="q-num">06</span>
+                <h2>A few last things</h2>
+                <p>Words I might share, and anything still on your mind.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="testimonial">Could you share a testimonial I could use? <span class="optional">(optional)</span></label>
+                <span class="field-hint">A line or two about your experience working with me means the world — and helps other families find their way to Heirloom.</span>
+                <textarea id="testimonial" name="Testimonial" placeholder="In your own words — what was it like to plan and take this trip with me?"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="consent">
+                    <input type="checkbox" name="Permission to share testimonial" value="Yes — Kara may share this publicly">
+                    <span>Yes, Kara may share my words (with my first name) on social media and the Heirloom Holidays website.</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="anything_else">Anything else I should know? <span class="optional">(optional)</span></label>
+                <textarea id="anything_else" name="Anything else I should know" placeholder="No detail is too small."></textarea>
+            </div>
+        </div>
+
+        <!-- ============ SUBMIT ============ -->
+        <div class="q-submit-wrap">
+            <button type="submit" class="btn-submit">Send My Feedback</button>
+            <p class="q-privacy">
+                Your feedback goes straight to Kara and is used only to look after you better.
+                Read our <a href="privacy.html">Privacy Policy</a>.
+            </p>
+        </div>
+    </form>
+
+    <footer class="q-footer">
+        <p>&copy; <span class="copyright-year">2025</span> Heirloom Holidays &middot; <a href="index.html">heirloomholidays.co.uk</a></p>
+    </footer>
+
+    <script>
+        /* --- Rating sliders: record a value only once the guest interacts --- */
+        (function () {
+            'use strict';
+            var ratings = document.querySelectorAll('[data-rating]');
+            ratings.forEach(function (rating) {
+                var slider = rating.querySelector('.rating-slider');
+                var output = rating.querySelector('.rating-value');
+                var hidden = rating.querySelector('input[type="hidden"]');
+                var na = rating.querySelector('.rating-na-box');
+                var zeroMsg = rating.getAttribute('data-zero');
+                var touched = false;
+
+                function render() {
+                    if (na && na.checked) {
+                        output.innerHTML = 'Not applicable';
+                        hidden.value = 'N/A';
+                        slider.disabled = true;
+                        rating.classList.add('is-na');
+                        rating.classList.remove('is-set');
+                        return;
+                    }
+                    slider.disabled = false;
+                    rating.classList.remove('is-na');
+
+                    if (!touched) {
+                        output.innerHTML = 'Drag to rate';
+                        hidden.value = '';
+                        rating.classList.remove('is-set');
+                        return;
+                    }
+
+                    var v = parseInt(slider.value, 10);
+                    if (zeroMsg && v === 0) {
+                        output.innerHTML = zeroMsg;
+                    } else {
+                        output.innerHTML = v + ' / 10';
+                    }
+                    hidden.value = String(v);
+                    rating.classList.add('is-set');
+                }
+
+                slider.addEventListener('input', function () {
+                    touched = true;
+                    if (na) { na.checked = false; }
+                    render();
+                });
+                if (na) { na.addEventListener('change', render); }
+                render();
+            });
+        })();
+    </script>
+    <script src="assets/js/shared.js" defer></script>
+</body>
+</html>
