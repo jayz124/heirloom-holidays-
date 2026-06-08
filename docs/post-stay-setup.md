@@ -26,6 +26,11 @@ nothing else on the site that points to it.
 
 ## ⚠️ One-time step: turn on the email to Kara
 
+> ✅ **Done (8 Jun 2026):** the email notification for `post-stay-questionnaire`
+> → `kara@heirloomholidays.co.uk` is configured and live (Netlify hook
+> `6a270d6172895d82e906730e`). The steps below are kept for reference, in case
+> it ever needs to be recreated.
+
 The form uses **Netlify Forms**. Every submission is saved in your Netlify
 dashboard automatically — but to also get an **email**, you flip on a
 notification once:
