@@ -65,8 +65,9 @@ Hotel, breakfast, gym and spa are rated on a **slider out of 10**:
 - A rating is only recorded **once the client moves the slider** — an untouched
   slider sends nothing, so you won't see misleading "5"s.
 - **Breakfast** and **spa** have a **"N/A"** tick for clients who didn't use them.
-- The **gym** slider goes down to **0**, which shows the cheeky note
-  *"I don't work out on holiday 🙂"* — a bit of fun for the honest ones.
+- The **gym** has a cheeky opt-out tick — *"Gym?!? That's not a holiday to
+  me!"* — for guests who (quite rightly) don't work out on holiday. Ticking it
+  records the gym rating as "N/A".
 
 > The sliders need JavaScript to record their number. Every other field (the
 > written answers, yes/no choices, testimonial) works regardless.

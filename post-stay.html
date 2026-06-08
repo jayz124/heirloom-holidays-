@@ -506,13 +506,14 @@
 
             <div class="form-group">
                 <span class="field-label">How would you rate the gym? <span class="optional">(out of 10)</span></span>
-                <div class="rating" data-rating data-zero="0 &mdash; I don't work out on holiday &#128521;">
-                    <input type="range" class="rating-slider" min="0" max="10" step="1" value="5" aria-label="Rate the gym from 0 to 10">
+                <div class="rating" data-rating>
+                    <input type="range" class="rating-slider" min="1" max="10" step="1" value="5" aria-label="Rate the gym from 1 to 10">
                     <div class="rating-meta">
-                        <span class="rating-ends">0</span>
+                        <span class="rating-ends">1</span>
                         <output class="rating-value">Drag to rate</output>
                         <span class="rating-ends">10</span>
                     </div>
+                    <label class="rating-na"><input type="checkbox" class="rating-na-box"> Gym?!? That's not a holiday to me!</label>
                     <input type="hidden" name="Gym rating" value="">
                 </div>
             </div>
@@ -639,7 +640,6 @@
                 var output = rating.querySelector('.rating-value');
                 var hidden = rating.querySelector('input[type="hidden"]');
                 var na = rating.querySelector('.rating-na-box');
-                var zeroMsg = rating.getAttribute('data-zero');
                 var touched = false;
 
                 function render() {
@@ -662,11 +662,7 @@
                     }
 
                     var v = parseInt(slider.value, 10);
-                    if (zeroMsg && v === 0) {
-                        output.innerHTML = zeroMsg;
-                    } else {
-                        output.innerHTML = v + ' / 10';
-                    }
+                    output.innerHTML = v + ' / 10';
                     hidden.value = String(v);
                     rating.classList.add('is-set');
                 }
