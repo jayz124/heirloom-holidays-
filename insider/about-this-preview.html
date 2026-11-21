@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About this preview | Heirloom Insider</title>
+    <meta name="description" content="What is real and what is sample in the Heirloom Insider preview.">
+    <!-- Preview build: keep out of search engines until Insider launches -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/insider.css">
+</head>
+<body data-page="about">
+    <header class="in-head">
+        <div class="in-wrap in-head__row">
+            <a class="in-logo" href="index.html"><img src="../assets/images/logo.png" alt="" width="34" height="34">Heirloom <span>Insider</span></a>
+            <div class="in-head__actions"><a href="index.html">Insider home</a> <a href="search.html">Member pages</a></div>
+        </div>
+    </header>
+
+    <main class="in-wrap">
+        <div class="in-about">
+            <h1>About this preview</h1>
+            <p class="in-lede">This is the front end of Heirloom Insider, built ahead of our connection to the Little Emperors API so that the whole member journey can be walked through and discussed.</p>
+
+            <h2>What you are looking at</h2>
+            <dl>
+                <div><dt>Hotels and photographs</dt><dd>Real hotels, shown with the hotels' own or Little Emperors photography.</dd></div>
+                <div><dt>Rates, rooms and privileges</dt><dd>Sample figures written for layout. Nothing here comes from the Little Emperors API, and no live rate or benefit is displayed.</dd></div>
+                <div><dt>Sign-in, payment and booking</dt><dd>Simulated in the browser. No account is created, no card is taken and nothing is sent to a hotel.</dd></div>
+            </dl>
+
+            <h2>How the live version is built</h2>
+            <dl>
+                <div><dt>A closed, identifiable membership</dt><dd>Every member has their own account and signs in with a one-time email link. Member pages are served only to a signed-in member.</dd></div>
+                <div><dt>A paid membership</dt><dd>£299 a year, or £30 a month, taken through Stripe. An account without an active membership cannot reach search, rates or booking.</dd></div>
+                <div><dt>Nothing public</dt><dd>Rates, privileges and availability are requested by our server after sign-in and are never part of a public page. The public Insider page names a handful of hotels and shows no rate or benefit. Member pages are kept out of search engines.</dd></div>
+                <div><dt>The API key</dt><dd>Held on the server only. It never reaches the browser.</dd></div>
+                <div><dt>Credit</dt><dd>"Powered by Little Emperors" sits in the footer of every Insider page.</dd></div>
+                <div><dt>Terms</dt><dd>Members accept the Little Emperors terms and privacy policy alongside our own when they join.</dd></div>
+            </dl>
+
+            <h2>Walk through it</h2>
+            <p>Start on the <a href="index.html">public page</a>, <a href="join.html">join</a>, then search, open a hotel, book a room and find it under My trips. Signing out returns you to the public page, and the member pages close again.</p>
+        </div>
+    </main>
+    <footer class="in-foot" id="in-footer">
+        <div class="in-wrap in-foot__row">
+            <p class="in-foot__powered">Powered by Little Emperors</p>
+            <p class="in-foot__small">Heirloom Insider is the members' booking room of <a href="../index.html">Heirloom Holidays</a>. <a href="about-this-preview.html">About this preview</a> <span aria-hidden="true">/</span> <a href="../privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+    <script src="../assets/js/insider.js"></script>
+</body>
+</html>
