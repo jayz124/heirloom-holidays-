@@ -10,11 +10,31 @@
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.getElementById('navbar');
 
+    // The menu button is shown below this width (keep in step with shared.css)
+    var compactNav = window.matchMedia('(max-width: 1100px)');
+
+    function setMenu(open) {
+        if (!mobileMenuToggle || !nav) return;
+        mobileMenuToggle.classList.toggle('active', open);
+        nav.classList.toggle('menu-open', open);
+        document.body.classList.toggle('menu-locked', open);
+        mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
     if (mobileMenuToggle) {
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
         mobileMenuToggle.addEventListener('click', function () {
-            mobileMenuToggle.classList.toggle('active');
-            nav.classList.toggle('menu-open');
+            setMenu(!nav.classList.contains('menu-open'));
         });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') setMenu(false);
+        });
+
+        // Leaving the compact layout (rotating a tablet, resizing) closes the menu
+        var onNavChange = function () { if (!compactNav.matches) setMenu(false); };
+        if (compactNav.addEventListener) compactNav.addEventListener('change', onNavChange);
+        else if (compactNav.addListener) compactNav.addListener(onNavChange);
     }
 
     // Close mobile menu when clicking a non-dropdown link
@@ -24,10 +44,7 @@
             if (link.closest('.has-dropdown') && link === link.closest('.has-dropdown').querySelector(':scope > a')) {
                 return;
             }
-            if (mobileMenuToggle) {
-                mobileMenuToggle.classList.remove('active');
-                nav.classList.remove('menu-open');
-            }
+            setMenu(false);
         });
     });
 
@@ -35,7 +52,7 @@
     document.querySelectorAll('.has-dropdown > a').forEach(function (toggle) {
         toggle.addEventListener('click', function (e) {
             // Only toggle on mobile (when hamburger is visible)
-            if (window.innerWidth <= 768) {
+            if (compactNav.matches) {
                 e.preventDefault();
                 var parent = toggle.parentElement;
                 // Close other open dropdowns
