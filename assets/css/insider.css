@@ -1710,8 +1710,14 @@ body[data-page="landing"] .in-foot {
     }
 
     .in-logo {
-        font-size: 1.05rem;
-        letter-spacing: 0.1em;
+        gap: 0.5rem;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+    }
+
+    .in-logo img {
+        width: 28px;
+        height: 28px;
     }
 
     .in-head__nav {
