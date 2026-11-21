@@ -97,4 +97,14 @@
         });
     }
 
+    // --- Arriving from a hotel card: start the message with that hotel ---
+    try {
+        var asked = new URLSearchParams(window.location.search).get('hotel');
+        var messageField = document.getElementById('message');
+        if (asked && messageField && !messageField.value) {
+            asked = asked.replace(/[<>]/g, '').slice(0, 80);
+            messageField.value = 'I would like to ask about ' + asked + '.\n';
+        }
+    } catch (err) { /* older browsers: the form simply starts empty */ }
+
 })();

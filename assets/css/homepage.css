@@ -1358,3 +1358,152 @@
         display: none;
     }
 }
+
+
+/* ==========================================================================
+   Polish pass
+   ========================================================================== */
+
+/* --- Hero: the photograph fills its side of the page, edge to edge --- */
+.hero {
+    align-items: stretch;
+}
+
+.hero-image img {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-image::before {
+    display: none;
+}
+
+/* --- Readable gold on ivory --- */
+.hero-label,
+.btn-secondary:hover,
+.hero-proof cite,
+.contact-item a:hover,
+.form-group .required {
+    color: var(--gold-ink);
+}
+
+.hero h1 em,
+.philosophy h2 em,
+.destinations-header h2 em,
+.resorts-header h2 em,
+.services-content h2 em,
+.why-heirloom-header h2 em,
+.contact-content h2 em,
+.service-number,
+.why-heirloom-icon,
+.contact-icon {
+    color: var(--gold-display);
+}
+
+/* --- Hotel collection tiles: the name is always on the tile --- */
+.resort-overlay {
+    transform: none;
+    opacity: 1;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.85) 0%, rgba(10, 22, 40, 0.35) 55%, transparent 100%);
+}
+
+.resort-overlay h3 {
+    margin-bottom: 0;
+}
+
+.resort-overlay p {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+}
+
+.resort-card:hover .resort-overlay p,
+.resort-card a:focus-visible .resort-overlay p {
+    max-height: 4rem;
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
+
+.resort-card.resort-large .resort-overlay {
+    padding: 2rem;
+}
+
+.resort-card:hover img {
+    transform: scale(1.04);
+}
+
+.resort-card a:focus-visible {
+    outline-offset: -4px;
+    outline-color: var(--champagne-light);
+    display: block;
+    height: 100%;
+}
+
+@media (hover: none) {
+    .resort-overlay p {
+        max-height: none;
+        margin-top: 0.5rem;
+        opacity: 0.85;
+    }
+}
+
+/* --- Service rows are a list, not links --- */
+.service-item {
+    grid-template-columns: auto 1fr;
+    cursor: default;
+}
+
+.service-item:hover {
+    padding-left: 0;
+}
+
+/* --- The Heirloom Advantage: text a comfortable size --- */
+.why-heirloom-item p {
+    font-size: 1rem;
+    color: #5a5a5a;
+}
+
+/* --- Phones: hotel collections become one swipe row --- */
+@media (max-width: 768px) {
+    .resorts-grid {
+        display: flex;
+        gap: 1rem;
+        margin: 0 -2rem;
+        padding: 0 2rem 0.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 2rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .resorts-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .resort-card.resort-large,
+    .resort-card:not(.resort-large) {
+        flex: 0 0 78%;
+        height: 380px;
+        scroll-snap-align: start;
+    }
+
+    .resort-card.resort-large .resort-overlay {
+        padding: 1.5rem;
+    }
+
+    .resort-card.resort-large .resort-overlay h3 {
+        font-size: 1.6rem;
+    }
+}
+
+/* The hero photograph now runs to the top of the page, so the menu keeps
+   its ivory backing from the start instead of gaining it on scroll */
+#navbar {
+    background: rgba(250, 248, 245, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
