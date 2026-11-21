@@ -1507,3 +1507,18 @@
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
 }
+
+/* The navy card beside the services photograph hung 2rem past the edge of
+   the screen on phones, which let the whole page slide sideways */
+@media (max-width: 768px) {
+    .services-float {
+        right: 0;
+        bottom: -3rem;
+        padding: 2rem;
+        max-width: 85%;
+    }
+
+    .services-visual {
+        margin-bottom: 4.5rem;
+    }
+}

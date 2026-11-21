@@ -1961,13 +1961,11 @@ footer :focus-visible,
 }
 
 /* --- Hotel cards: the photo no longer sets the height of the card --- */
-@media (min-width: 969px) {
-    .hotel-card img {
-        height: auto;
-        min-height: 0;
-        aspect-ratio: 4 / 3;
-        align-self: stretch;
-    }
+.hotel-card img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    align-self: stretch;
 }
 
 .hotel-info .hotel-features {
