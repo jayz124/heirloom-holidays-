@@ -11,7 +11,7 @@
     const nav = document.getElementById('navbar');
 
     // The menu button is shown below this width (keep in step with shared.css)
-    var compactNav = window.matchMedia('(max-width: 1100px)');
+    var compactNav = window.matchMedia('(max-width: 1280px)');
 
     function setMenu(open) {
         if (!mobileMenuToggle || !nav) return;
@@ -98,6 +98,22 @@
     window.addEventListener('load', revealOnScroll);
     document.addEventListener('DOMContentLoaded', revealOnScroll);
     revealOnScroll();
+
+    // --- WhatsApp: one quiet button on every page, opening a chat with Kara ---
+    (function () {
+        if (document.querySelector('.wa-float')) { return; }
+        var topic = (document.title.split('|')[0] || '').trim();
+        var onHome = /^Heirloom Holidays/i.test(topic) || !topic;
+        var text = onHome ? 'Hello Kara, I would like to talk about a holiday.' : 'Hello Kara, I am looking at "' + topic + '" on your website and would like to talk.';
+        var a = document.createElement('a');
+        a.className = 'wa-float';
+        a.href = 'https://wa.me/447539647559?text=' + encodeURIComponent(text);
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.setAttribute('aria-label', 'Message Kara on WhatsApp');
+        a.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>WhatsApp Kara</span>';
+        document.body.appendChild(a);
+    })();
 
     // --- Dynamic Copyright Year ---
     document.querySelectorAll('.copyright-year').forEach(function (el) {
