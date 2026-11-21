@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become an Insider | Heirloom Insider</title>
+    <meta name="description" content="Join Heirloom Insider.">
+    <!-- Preview build: keep out of search engines until Insider launches -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/insider.css">
+</head>
+<body data-page="join">
+    <header class="in-head">
+        <div class="in-wrap in-head__row">
+            <a class="in-logo" href="index.html"><img src="../assets/images/logo.png" alt="" width="34" height="34">Heirloom <span>Insider</span></a>
+            <div class="in-head__actions"><span class="in-hide-s in-muted">Already a member?</span> <a href="sign-in.html">Sign in</a></div>
+        </div>
+    </header>
+
+    <main class="in-wrap in-entry">
+        <div>
+            <h1>Become an Insider</h1>
+            <p class="in-lede">Three short steps, then the whole collection is open to you.</p>
+
+            <form class="in-form" id="in-join-form" novalidate>
+                <fieldset class="in-fieldset">
+                    <legend><span>1</span>Choose your membership</legend>
+                    <div class="in-choice">
+                        <label><input type="radio" name="plan" value="annual" checked><strong>£299</strong><span>Annual, paid once a year</span></label>
+                        <label><input type="radio" name="plan" value="monthly"><strong>£30</strong><span>Monthly, paid each month</span></label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="in-fieldset">
+                    <legend><span>2</span>Your details</legend>
+                    <div class="in-fields">
+                        <div class="in-field">
+                            <label for="fullname">Full name</label>
+                            <input id="fullname" name="fullname" type="text" autocomplete="name" required maxlength="40">
+                        </div>
+                        <div class="in-field">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <p class="in-hint in-field--wide">We use your email to sign you in. There is no password to remember: each time, we send you a one-time link.</p>
+                    </div>
+                </fieldset>
+
+                <fieldset class="in-fieldset">
+                    <legend><span>3</span>Payment</legend>
+                    <div class="in-panel">
+                        <h3>Secure checkout opens here</h3>
+                        <p>In the live version this step hands over to Stripe to take the first payment and set up renewal. This preview takes no card details and no payment.</p>
+                    </div>
+                </fieldset>
+
+                <label class="in-check"><input type="checkbox" name="terms" required><span>I agree to the Heirloom Insider membership terms and the Little Emperors booking terms and privacy policy.</span></label>
+
+                <div class="in-actions">
+                    <button class="in-btn" type="submit">Complete membership</button>
+                    <span class="in-hint">Preview only. Nothing is charged.</span>
+                </div>
+            </form>
+        </div>
+
+        <aside class="in-entry__aside" aria-label="Your membership">
+            <div id="in-join-card"></div>
+            <p class="in-due"><span class="in-hint">Due today</span><strong id="in-join-due">£299 a year</strong><span class="in-hint">Member rates and privileges at more than 5,000 hotels.</span></p>
+        </aside>
+    </main>
+    <footer class="in-foot" id="in-footer">
+        <div class="in-wrap in-foot__row">
+            <p class="in-foot__powered">Powered by Little Emperors</p>
+            <p class="in-foot__small">Heirloom Insider is the members' booking room of <a href="../index.html">Heirloom Holidays</a>. <a href="about-this-preview.html">About this preview</a> <span aria-hidden="true">/</span> <a href="../privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+    <script src="../assets/js/insider.js"></script>
+</body>
+</html>
