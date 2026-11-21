@@ -117,7 +117,7 @@
 
     // ------------------------------------------------------------ page frame
     function memberHeader(member, active) {
-        var first = esc((member.name || 'Member').split(' ')[0]);
+        var first = member.preview ? 'Preview' : esc((member.name || 'Member').split(' ')[0]);
         function link(href, text, key) {
             return '<a href="' + href + '"' + (active === key ? ' aria-current="page"' : '') + '>' + text + '</a>';
         }
@@ -141,7 +141,10 @@
     function ribbon() {
         var el = document.createElement('p');
         el.className = 'in-ribbon';
-        el.innerHTML = 'Preview with sample rates. No live Little Emperors data is shown. <a href="about-this-preview.html">About this preview</a>';
+        var open = /^(landing|join|signin|about)$/.test(document.body.getAttribute('data-page') || '');
+        el.innerHTML = 'Preview with sample rates. No live Little Emperors data is shown. ' +
+            (open ? '<a href="search.html?preview=1">Open the search page</a> <span aria-hidden="true">/</span> ' : '') +
+            '<a href="about-this-preview.html">About this preview</a>';
         document.body.appendChild(el);
     }
     function frame(active) {
@@ -161,6 +164,12 @@
     // version the server refuses to send the page or any rate without a session.
     function requireMember() {
         if (getMember()) { return true; }
+        // A link ending in ?preview=1 opens the members' side directly, so the
+        // pages can be shown without walking through Join first. Preview only.
+        if (params().get('preview')) {
+            setMember({ name: 'Preview Member', email: '', plan: 'annual', since: new Date().toISOString(), preview: true });
+            return true;
+        }
         window.location.replace('sign-in.html?next=' + encodeURIComponent(window.location.pathname.split('/').pop() + window.location.search));
         return false;
     }
@@ -191,7 +200,7 @@
         var style = p.get('style') || '';
         var sort = p.get('sort') || '';
 
-        $('#in-greeting').textContent = 'Where next, ' + (member.name || 'there').split(' ')[0] + '?';
+        $('#in-greeting').textContent = member.preview ? 'Where next?' : 'Where next, ' + (member.name || 'there').split(' ')[0] + '?';
         var form = $('#in-search');
         form.q.value = q;
         form.in.value = s.in;
