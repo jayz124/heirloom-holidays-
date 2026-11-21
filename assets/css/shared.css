@@ -2056,22 +2056,11 @@ body.menu-locked .wa-float {
     display: none;
 }
 
+/* The words stay on phones too, so it is clear what the button does */
 @media (max-width: 600px) {
     .wa-float {
         right: 1rem;
         bottom: 1rem;
-        width: 52px;
-        height: 52px;
-        padding: 0;
-        justify-content: center;
-    }
-
-    .wa-float span {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
     }
 }
 
