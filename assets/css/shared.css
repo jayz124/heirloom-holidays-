@@ -9,6 +9,10 @@
     --navy: #152238;
     --champagne: #c9a962;
     --champagne-light: #e4d5b0;
+    /* Champagne is for lines, fills and text on navy. On ivory it is too
+       faint to read, so text uses these two deeper golds instead. */
+    --gold-display: #9a7b33;
+    --gold-ink: #7d6226;
     --ivory: #faf8f5;
     --ivory-warm: #f5f2ec;
     --text-dark: #1a1a1a;
@@ -1895,5 +1899,120 @@ footer a {
 
     .logo-img {
         height: 34px;
+    }
+}
+
+
+/* ==========================================================================
+   Polish pass
+   ========================================================================== */
+
+/* --- Readable gold on light backgrounds --- */
+.section-label,
+.hotel-location,
+.hotel-feature,
+.hotel-tag,
+.hotel-link:hover,
+.subpage-testimonial cite,
+.breadcrumbs a:hover,
+.back-link:hover,
+.nav-dropdown a:hover,
+.nav-dropdown .dropdown-viewall a,
+.guide-toc li a:hover,
+.guide-property-body .property-location,
+.property-detail,
+.property-cta:hover,
+.month-card.recommended .month-name,
+.faq-item summary::after {
+    color: var(--gold-ink);
+}
+
+.article h2 em,
+.hotels-header h2 em,
+.related-section h2 em,
+.guide-section h2 em,
+.article-lead::first-letter,
+.guide-intro .article-lead::first-letter {
+    color: var(--gold-display);
+}
+
+/* Navy sections keep champagne, which reads well there */
+.cta-section .section-label,
+.highlight-box .section-label,
+.testimonials .section-label,
+.stats-strip .section-label,
+footer .section-label {
+    color: var(--champagne);
+}
+
+/* --- Keyboard focus --- */
+:focus-visible {
+    outline: 2px solid var(--gold-ink);
+    outline-offset: 3px;
+}
+
+footer :focus-visible,
+.cta-section :focus-visible,
+.highlight-box :focus-visible,
+.testimonials :focus-visible,
+.stats-strip :focus-visible,
+.hero > .hero-content :focus-visible {
+    outline-color: var(--champagne-light);
+}
+
+/* --- Hotel cards: the photo no longer sets the height of the card --- */
+.hotel-card img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    align-self: stretch;
+}
+
+.hotel-info .hotel-features {
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+}
+
+.hotel-info .hotel-link {
+    align-self: flex-start;
+}
+
+.hotel-link svg {
+    transition: transform 0.3s ease;
+}
+
+.hotel-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* --- Motion: one easing curve, and only opacity and position move --- */
+.reveal {
+    transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.reveal.animate-ready {
+    transform: translateY(24px);
+}
+
+.reveal.animate-ready.active {
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal.animate-ready {
+        opacity: 1;
+        transform: none;
     }
 }
