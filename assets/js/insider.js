@@ -236,10 +236,10 @@
                 '<p><a class="in-btn in-btn--line" href="search.html?' + stayQuery(s) + '">Clear the search</a></p></div>';
             return;
         }
-        out.innerHTML = list.map(function (h) {
+        out.innerHTML = list.map(function (h, i) {
             var url = 'hotel.html?id=' + h.id + '&' + stayQuery(s);
             return '<article class="in-result">' +
-                '<a class="in-result__img" href="' + url + '" tabindex="-1" aria-hidden="true"><img loading="lazy" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '></a>' +
+                '<a class="in-result__img" href="' + url + '" tabindex="-1" aria-hidden="true"><img loading="' + (i < 3 ? 'eager' : 'lazy') + '" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '></a>' +
                 '<div class="in-result__body">' +
                 '<p class="in-place">' + esc(h.place) + ', ' + esc(h.country) + '</p>' +
                 '<h2><a href="' + url + '">' + esc(h.name) + '</a></h2>' +

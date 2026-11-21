@@ -435,10 +435,10 @@ a:hover {
     animation: in-card-arrive 1.1s var(--ease) 0.25s both;
 }
 
+/* Position only: the card is never hidden, so it shows even if motion is paused */
 @keyframes in-card-arrive {
     from {
-        opacity: 0;
-        transform: translate(-2.5rem, 1.5rem) rotate(-11deg);
+        transform: translate(-1.5rem, 1.25rem) rotate(-11deg);
     }
 }
 
