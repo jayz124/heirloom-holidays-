@@ -2135,7 +2135,7 @@ body.menu-locked .wa-float {
 .guide-section > h3,
 .guide-section > ul,
 .guide-section > ol {
-    max-width: 44rem;
+    max-width: 38rem;
     margin-left: auto;
     margin-right: auto;
 }
