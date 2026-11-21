@@ -1522,3 +1522,267 @@
         margin-bottom: 4.5rem;
     }
 }
+
+
+/* ==========================================================================
+   Look and feel pass
+   ========================================================================== */
+
+/* --- Phones and tablets: the photograph comes first --- */
+@media (max-width: 1200px) {
+    .hero-image {
+        order: -1;
+        margin-top: 4.25rem;
+        height: clamp(300px, 52vw, 600px);
+    }
+
+    .hero-content {
+        padding-top: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        height: 52vh;
+        height: 52svh;
+        min-height: 300px;
+        max-height: 460px;
+    }
+
+    .hero-content {
+        padding: 2.25rem 1.5rem 2.75rem;
+    }
+}
+
+/* --- Destination cards: the words sit on a proper dark base, not on the photo --- */
+.destination-overlay {
+    padding: 5rem 2rem 2.25rem;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.97) 0%, rgba(10, 22, 40, 0.9) 58%, rgba(10, 22, 40, 0.55) 82%, transparent 100%);
+}
+
+.destination-teaser {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    color: rgba(250, 248, 245, 0.88);
+}
+
+.destination-region,
+.destination-link {
+    color: var(--champagne-light);
+}
+
+/* --- The Heirloom Advantage: three plain statements, no stock icons --- */
+.why-heirloom-icon {
+    display: none;
+}
+
+.why-heirloom-header {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    text-align: left;
+}
+
+.why-heirloom-grid {
+    gap: 0;
+    border-top: 1px solid rgba(10, 22, 40, 0.16);
+}
+
+.why-heirloom-item {
+    padding: 2.25rem 2.5rem 0 0;
+    text-align: left;
+}
+
+.why-heirloom-item + .why-heirloom-item {
+    padding-left: 2.5rem;
+    border-left: 1px solid rgba(10, 22, 40, 0.16);
+}
+
+.why-heirloom-item h4 {
+    font-size: clamp(1.6rem, 2.2vw, 2rem);
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+}
+
+/* --- Not every section needs a label above its headline --- */
+.why-heirloom-header .section-label,
+.services-content .section-label,
+.contact-content .section-label {
+    display: none;
+}
+
+/* --- Phones: the same content in fewer screens --- */
+@media (max-width: 768px) {
+    .philosophy,
+    .services,
+    .contact {
+        padding: 4rem 1.5rem;
+        gap: 2.5rem;
+    }
+
+    .philosophy-image-accent,
+    .philosophy-badge {
+        display: none;
+    }
+
+    .philosophy-image-main {
+        aspect-ratio: 4 / 3;
+        box-shadow: none;
+    }
+
+    .philosophy h2,
+    .services-content h2,
+    .contact-content h2 {
+        margin-bottom: 1.25rem;
+    }
+
+    .philosophy p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .services-image {
+        aspect-ratio: 16 / 10;
+    }
+
+    .services-float {
+        position: static;
+        max-width: none;
+        padding: 1.5rem;
+    }
+
+    .services-visual {
+        margin-bottom: 0;
+    }
+
+    .service-item {
+        padding: 1.25rem 0;
+        gap: 1.25rem;
+    }
+
+    .why-heirloom {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .why-heirloom-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .why-heirloom-grid {
+        gap: 0;
+    }
+
+    .why-heirloom-item,
+    .why-heirloom-item + .why-heirloom-item {
+        padding: 1.5rem 0;
+        border-left: 0;
+        border-bottom: 1px solid rgba(10, 22, 40, 0.12);
+    }
+
+    .why-heirloom-item:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .testimonial-card {
+        padding: 1.75rem;
+    }
+
+    .testimonial-quote {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+    }
+
+    .contact-content > p {
+        margin-bottom: 1.75rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .contact-form h3 {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        margin-bottom: 0.4rem;
+    }
+}
+
+/* --- Nothing on a phone is set smaller than 13px, and links are easy to hit --- */
+@media (max-width: 768px) {
+    .hero-label,
+    .hero-proof cite,
+    .stat-label,
+    .section-label,
+    .destination-region,
+    .resort-tag,
+    .testimonial-info span,
+    .contact-item h5,
+    .form-group label,
+    .form-group .optional,
+    .btn-submit {
+        font-size: 0.8125rem;
+    }
+
+    .destination-link {
+        padding: 0.75rem 0;
+    }
+
+    .btn-secondary {
+        min-height: 2.75rem;
+    }
+
+    .hero-image {
+        height: 46vh;
+        height: 46svh;
+    }
+
+    /* Email, telephone, WhatsApp and location in a two by two block */
+    .contact-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem 1rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        gap: 0.6rem;
+        min-width: 0;
+    }
+
+    .contact-item a,
+    .contact-item p {
+        font-size: 1rem;
+        overflow-wrap: anywhere;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* The homepage headline is dark type on ivory, so it takes no shadow */
+.hero-content h1 {
+    text-shadow: none;
+}
+
+@media (max-width: 768px) {
+    /* The email address gets a full row so it never breaks mid-word */
+    .contact-details .contact-item:first-child {
+        grid-column: 1 / -1;
+    }
+}

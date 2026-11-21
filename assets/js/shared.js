@@ -113,6 +113,20 @@
         a.setAttribute('aria-label', 'Chat with us on WhatsApp');
         a.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Chat with us</span>';
         document.body.appendChild(a);
+
+        // On phones the button shows its words on arrival, shrinks to its icon
+        // after a few seconds or on scroll, and steps aside while someone types
+        var small = window.matchMedia('(max-width: 600px)');
+        var settled = false;
+        function tidy() { a.classList.toggle('is-compact', small.matches && (settled || window.scrollY > 60)); }
+        window.addEventListener('scroll', tidy, { passive: true });
+        tidy();
+        // The words show on arrival, then give the page its corner back
+        setTimeout(function () { settled = true; tidy(); }, 5000);
+        document.addEventListener('focusin', function (e) {
+            if (small.matches && e.target.matches && e.target.matches('input, textarea, select')) { a.classList.add('is-away'); }
+        });
+        document.addEventListener('focusout', function () { a.classList.remove('is-away'); });
     })();
 
     // --- Dynamic Copyright Year ---
