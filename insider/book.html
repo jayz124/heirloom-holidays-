@@ -7,6 +7,7 @@
     <meta name="description" content="Confirm your booking.">
     <!-- Preview build: keep out of search engines until Insider launches -->
     <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="light">
     <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +15,11 @@
     <link rel="stylesheet" href="../assets/css/insider.css">
 </head>
 <body data-page="book">
+    <a class="in-skip" href="#main">Skip to content</a>
     <header class="in-head" id="in-header"></header>
+    <noscript><p class="in-noscript">Insider needs JavaScript switched on to show your rates and bookings.</p></noscript>
 
-    <main id="in-book">
+    <main id="main"><div id="in-book">
         <div class="in-wrap">
             <p class="in-back"><a id="in-back-hotel" href="search.html">Back to the hotel</a></p>
             <div class="in-bookgrid">
@@ -48,7 +51,7 @@
                         <fieldset class="in-fieldset">
                             <legend><span>2</span>Guarantee</legend>
                             <div class="in-panel">
-                                <h3>Card details are taken here</h3>
+                                <h2>Card details are taken here</h2>
                                 <p>In the live version the hotel's own guarantee and cancellation terms for this rate appear here, and your card is taken through a secure payment step. This preview takes no card details.</p>
                             </div>
                         </fieldset>
@@ -61,7 +64,7 @@
                 <aside class="in-sum" id="in-book-summary" aria-label="Your stay"></aside>
             </div>
         </div>
-    </main>
+    </div></main>
     <footer class="in-foot" id="in-footer">
         <div class="in-wrap in-foot__row">
             <p class="in-foot__powered">Powered by Little Emperors</p>

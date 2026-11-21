@@ -5,6 +5,7 @@
    ========================================================================== */
 
 :root {
+    color-scheme: light;
     --midnight: #0a1628;
     --navy: #152238;
     --champagne: #c9a962;
@@ -117,6 +118,32 @@ a:hover {
 
 .in-muted {
     color: var(--muted);
+}
+
+/* Keyboard users can jump past the header */
+.in-skip {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 40;
+    padding: 0.75rem 1.25rem;
+    background: var(--midnight);
+    color: var(--ivory);
+    font-size: 0.9375rem;
+    font-weight: 400;
+}
+
+.in-skip:focus {
+    top: 1rem;
+    color: var(--ivory);
+}
+
+.in-noscript {
+    max-width: 40rem;
+    margin: 3rem auto;
+    padding: 1.25rem 1.5rem;
+    background: var(--ivory-warm);
+    border-left: 2px solid var(--champagne);
 }
 
 /* --- Buttons --- */
@@ -476,7 +503,7 @@ a:hover {
     border-left: 1px solid var(--line);
 }
 
-.in-gives h3 {
+.in-gives h2 {
     font-size: clamp(1.6rem, 2.4vw, 2rem);
     margin-bottom: 0.75rem;
 }
@@ -898,7 +925,7 @@ body[data-page="landing"] .in-foot {
     border-left: 2px solid var(--champagne);
 }
 
-.in-panel h3 {
+.in-panel h2 {
     font-size: 1.35rem;
     margin-bottom: 0.4rem;
 }
@@ -1011,7 +1038,13 @@ body[data-page="landing"] .in-foot {
 }
 
 .in-searchbar > label:focus-within {
-    box-shadow: inset 0 -2px 0 var(--gold-ink);
+    outline: 2px solid var(--gold-ink);
+    outline-offset: -2px;
+}
+
+.in-searchbar input::placeholder {
+    color: #6a6a6a;
+    opacity: 1;
 }
 
 .in-searchbar .in-btn {
@@ -1037,7 +1070,10 @@ body[data-page="landing"] .in-foot {
 }
 
 .in-pills a {
-    padding: 0.4rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 1.1rem;
     border: 1px solid var(--line);
     font-size: 0.9375rem;
     font-weight: 400;
@@ -1057,6 +1093,9 @@ body[data-page="landing"] .in-foot {
 }
 
 .in-sort a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
     text-decoration: none;
     color: var(--muted);
 }
@@ -1171,6 +1210,89 @@ body[data-page="landing"] .in-foot {
     margin-inline: 0;
     padding-block: 1rem;
     text-align: left;
+}
+
+/* Guides */
+.in-top__lede {
+    max-width: 40rem;
+    margin-top: 1rem;
+}
+
+.in-guides {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--midnight);
+}
+
+.in-guide {
+    display: grid;
+    grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.in-guide__img {
+    display: block;
+    overflow: hidden;
+    background: var(--ivory-warm);
+}
+
+.in-guide__img img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform 0.9s var(--ease);
+}
+
+.in-guide:hover .in-guide__img img {
+    transform: scale(1.03);
+}
+
+.in-guide h2 {
+    font-size: clamp(2rem, 3.4vw, 3rem);
+}
+
+.in-guide h2 a {
+    text-decoration: none;
+}
+
+.in-guide__lead {
+    max-width: 34rem;
+    margin-top: 0.75rem;
+    font-size: 1.125rem;
+    color: #444;
+}
+
+.in-guide__meta {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--champagne);
+    font-size: 0.9375rem;
+    color: var(--muted);
+}
+
+.in-guidehead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding-block: 1.5rem 2.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.in-guidehead h1 {
+    margin: 0.5rem 0 1rem;
+}
+
+.in-guidehead .in-lede {
+    margin-bottom: 1.25rem;
+}
+
+.in-guidehead img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
 }
 
 /* Hotel */
@@ -1622,6 +1744,11 @@ body[data-page="landing"] .in-foot {
 
     .in-peek {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .in-guide,
+    .in-guidehead {
+        grid-template-columns: 1fr;
     }
 
     .in-tariff,

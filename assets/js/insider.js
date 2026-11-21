@@ -55,7 +55,60 @@
         { id: 'la-mamounia', name: 'La Mamounia', place: 'Marrakech', country: 'Morocco', style: 'City', img: 'la-mamounia-marrakech-gardens-and-pool.webp',
           line: 'Old gardens of palm and olive beside the medina walls.', rate: 670, credit: '€85' },
         { id: 'singita-sabora', name: 'Singita Sabora Tented Camp', place: 'Grumeti, Serengeti', country: 'Tanzania', style: 'Safari', img: 'singita-sabora-tented-camp.webp',
-          line: 'A tented camp out on the open Grumeti plains.', rate: 2150, credit: '$100' }
+          line: 'A tented camp out on the open Grumeti plains.', rate: 2150, credit: '$100' },
+        // The hotels in Kara's guides, with her one-line take on each
+        { id: 'amanzoe', name: 'Amanzoe', place: 'Porto Heli, Peloponnese', country: 'Greece', style: 'Beach', img: 'amanzoe-hilltop-pavilions-and-infinity-pool.webp',
+          line: 'Aman\'s Hellenic masterpiece: hilltop pavilions, private pools, olive groves running down to the sea.', rate: 1100, credit: '€85' },
+        { id: 'castiglion-del-bosco', name: 'Rosewood Castiglion del Bosco', place: 'Val d\'Orcia, Tuscany', country: 'Italy', style: 'Countryside', img: 'il-borgo-and-its-pool-at.webp',
+          line: '5,000 acres of Val d\'Orcia UNESCO landscape: farmhouse suites, Brunello vineyards, and a cooking school the children will talk about for months.', rate: 1100, credit: '€85' },
+        { id: 'cap-ferrat', name: 'Grand-Hôtel du Cap-Ferrat', place: 'Saint-Jean-Cap-Ferrat, France', country: 'France', style: 'Beach', img: 'club-dauphin-pool-at-grand-h.webp',
+          line: 'A Four Seasons palace on its own pine-clad peninsula: the cliff-edge pool, the private beach, 17 acres of gardens to explore.', rate: 1280, credit: '€85' },
+        { id: 'la-residencia', name: 'Belmond La Residencia', place: 'Deià, Mallorca', country: 'Spain', style: 'Countryside', img: 'belmond-la-residencia-mountain-view-from.webp',
+          line: 'Two 16th-century manor houses in the artists\' village of Deià: sculpture gardens, donkey rides, and mountain views that Robert Graves fell in love with.', rate: 1280, credit: '€85' },
+        { id: 'cala-di-volpe', name: 'Hotel Cala di Volpe', place: 'Costa Smeralda, Sardinia', country: 'Italy', style: 'Beach', img: 'hotel-cala-di-volpe-and-its.webp',
+          line: 'The Aga Khan\'s original vision: a faux-fishing village with the most beautiful pool in the world and a private beach that rivals the Caribbean.', rate: 1190, credit: '€85' },
+        { id: 'marataba', name: 'Marataba Safari Lodge', place: 'Waterberg, Limpopo Province', country: 'South Africa', style: 'Safari', img: 'marataba-safari-lodge.webp',
+          line: 'Malaria-free Big Five in a dramatic red-rock landscape: the safari for families who want everything without compromise.', rate: 1280, credit: '$100' },
+        { id: 'londolozi', name: 'Londolozi Private Game Reserve', place: 'Sabi Sand Game Reserve, Greater Kruger', country: 'South Africa', style: 'Safari', img: 'londolozi-tree-camp.webp',
+          line: 'Five generations of one family\'s devotion to the land: the most famous leopards in Africa, the most intuitive guiding in the world.', rate: 1550, credit: '$100' },
+        { id: 'xaranna', name: '&Beyond Xaranna Okavango Delta Camp', place: 'Okavango Delta, Botswana', country: 'Botswana', style: 'Safari', img: 'andbeyond-xaranna-okavango-delta-camp.webp',
+          line: 'Tented suites on raised platforms above the delta: private plunge pools, star baths, and mokoro safaris at dawn.', rate: 740, credit: '$100' },
+        { id: 'singita-kwitonda', name: 'Singita Kwitonda Lodge', place: 'Volcanoes National Park, Rwanda', country: 'Rwanda', style: 'Safari', img: 'singita-kwitonda-lodge.webp',
+          line: 'Where luxury meets conservation at the foot of the volcanoes: a lodge built to save the mountain gorilla.', rate: 740, credit: '$100' },
+        { id: 'mo-new-york', name: 'Mandarin Oriental New York', place: 'Columbus Circle, Manhattan', country: 'United States', style: 'City', img: 'mandarin-oriental-new-york-with-central.webp',
+          line: 'Central Park from the 35th floor: the city laid out like a film set below your window.', rate: 1820, credit: '$100' },
+        { id: 'faena-new-york', name: 'Faena New York', place: 'Financial District, Manhattan', country: 'United States', style: 'City', img: 'faena-new-york-exterior-by-tony.webp',
+          line: 'Buenos Aires maximalism in a 1920s bank: Damien Hirst art, velvet everything, a rooftop pool overlooking the East River.', rate: 1730, credit: '$100' },
+        { id: 'maybourne-beverly-hills', name: 'The Maybourne Beverly Hills', place: 'Beverly Hills, California', country: 'United States', style: 'City', img: 'the-maybourne-beverly-hills-rooftop-pool.webp',
+          line: 'The team behind Claridge\'s brings London polish to the golden triangle: rooftop pool, Cipriani, industry energy.', rate: 920, credit: '$100' },
+        { id: '1-hotel-west-hollywood', name: '1 Hotel West Hollywood', place: 'West Hollywood, California', country: 'United States', style: 'City', img: '1-hotel-west-hollywood-rooftop-pool.webp',
+          line: 'Sustainable luxury on the Sunset Strip: living walls, fruit trees around the pool, farm-to-table everything.', rate: 1190, credit: '$100' },
+        { id: 'four-seasons-toronto', name: 'Four Seasons Toronto', place: 'Yorkville, Toronto', country: 'Canada', style: 'City', img: 'four-seasons-hotel-toronto-exterior.webp',
+          line: 'The city\'s undisputed luxury leader: Yorkville elegance, d|bar cocktails, and the largest urban hotel spa in Canada.', rate: 830, credit: 'C$125' },
+        { id: 'hotel-arts-barcelona', name: 'Hotel Arts Barcelona', place: 'Barcelona, Spain', country: 'Spain', style: 'City', img: 'hotel-arts-barcelona-tower-beside-the.webp',
+          line: 'Frank Gehry\'s golden fish glints at its base: beachfront, two Michelin stars, and the sea at your doorstep.', rate: 1910, credit: '€85' },
+        { id: 'hotel-de-russie', name: 'Hotel de Russie', place: 'Rome, Italy', country: 'Italy', style: 'City', img: 'terraced-garden-courtyard-at-hotel-de.webp',
+          line: 'A Rocco Forte hideaway with terraced gardens between Piazza del Popolo and the Spanish Steps.', rate: 1370, credit: '€85' },
+        { id: 'estelle-manor', name: 'Estelle Manor', place: 'Oxfordshire, Cotswolds', country: 'United Kingdom', style: 'Countryside', img: 'estelle-manor-house-and-outdoor-pool.webp',
+          line: 'A reimagined Jacobean manor on 90 acres: botanical spa, playground, cinema, and the most imaginative family hotel in England.', rate: 1190, credit: '£75' },
+        { id: 'villa-serbelloni', name: 'Grand Hotel Villa Serbelloni', place: 'Bellagio, Lake Como', country: 'Italy', style: 'Countryside', img: 'bellagio-and-grand-hotel-villa-serbelloni.webp',
+          line: 'The grande dame of Lake Como since 1872: royal suites, a private lakeshore, and a tennis court the grandchildren will commandeer by day two.', rate: 1820, credit: '€85' },
+        { id: 'kwandwe', name: 'Kwandwe Private Game Reserve', place: 'Eastern Cape, South Africa', country: 'South Africa', style: 'Safari', img: 'a-young-guest-and-a-guide.webp',
+          line: 'Malaria-free Big Five on 54,000 acres: exclusive-use homesteads where the whole family checks in and the outside world checks out.', rate: 1730, credit: '$100' }
+    ];
+
+    // Kara's guides, as members see them: each hotel carries its member rate
+    var GUIDES = [
+        { id: 'family-summer-travel', title: 'Family Summer', img: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1400&q=80&auto=format',
+          lead: 'Where to take children in summer when you want adventure and downtime in the same week.', hotels: ['amanzoe', 'castiglion-del-bosco', 'cap-ferrat', 'la-residencia', 'cala-di-volpe'] },
+        { id: 'family-safari-guide', title: 'The Family Safari', img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1400&q=80&auto=format',
+          lead: 'Camps and lodges that are properly set up for children, not just willing to take them.', hotels: ['singita-sabora', 'marataba', 'londolozi', 'xaranna', 'singita-kwitonda'] },
+        { id: 'city-guides', title: 'City Guides', img: 'https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1400&q=80&auto=format',
+          lead: 'New York, Los Angeles and Toronto: where to stay, and why.', hotels: ['mo-new-york', 'faena-new-york', 'maybourne-beverly-hills', '1-hotel-west-hollywood', 'four-seasons-toronto'] },
+        { id: 'where-to-go-in-spring', title: 'Where to Go in Spring', img: IMG + 'spring-blooms-at-a-luxury-countryside.webp',
+          lead: 'The few weeks of the year when gardens, light and weather all line up.', hotels: ['la-mamounia', 'four-seasons-kyoto', 'hotel-arts-barcelona', 'hotel-de-russie'] },
+        { id: 'multigenerational-travel', title: 'The Multigenerational Holiday', img: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1400&q=80&auto=format',
+          lead: 'Places with room for three generations to be together, and apart.', hotels: ['castiglion-del-bosco', 'estelle-manor', 'villa-serbelloni', 'soneva-fushi', 'kwandwe'] }
     ];
     HOTELS.forEach(function (h) {
         h.rooms = [
@@ -85,6 +138,11 @@
     function setMember(m) { memory.member = m; store('hh_insider_member', m); }
     function getTrips() { return store('hh_insider_trips') || memory.trips || []; }
     function getSaved() { return store('hh_insider_saved') || memory.saved || []; }
+    // "Positano, Italy", without repeating a country the place already names
+    function placeLine(h) {
+        var p = h.place, c = h.country;
+        return esc(p.slice(-c.length) === c ? p : p + ', ' + c);
+    }
     function hotelById(id) { return HOTELS.filter(function (h) { return h.id === id; })[0]; }
     function params() { return new URLSearchParams(window.location.search); }
 
@@ -124,7 +182,7 @@
         return '<div class="in-wrap in-head__row">' +
             '<a class="in-logo" href="search.html"><img src="../assets/images/logo.png" alt="" width="34" height="34">Heirloom <span>Insider</span></a>' +
             '<nav class="in-head__nav" aria-label="Insider">' +
-            link('search.html', 'Search', 'search') + link('trips.html', 'My trips', 'trips') +
+            link('search.html', 'Search', 'search') + link('guides.html', 'Guides', 'guides') + link('trips.html', 'My trips', 'trips') +
             '<a href="../index.html?hotel=an%20Insider%20booking#contact">Ask Kara</a>' +
             '</nav>' +
             '<div class="in-head__me"><span class="in-head__name">' + first + '</span>' +
@@ -139,8 +197,9 @@
             '</div>';
     }
     function ribbon() {
-        var el = document.createElement('p');
+        var el = document.createElement('aside');
         el.className = 'in-ribbon';
+        el.setAttribute('aria-label', 'About this preview');
         var open = /^(landing|join|signin|about)$/.test(document.body.getAttribute('data-page') || '');
         el.innerHTML = 'Preview with sample rates. No live Little Emperors data is shown. ' +
             (open ? '<a href="search.html?preview=1">Open the search page</a> <span aria-hidden="true">/</span> ' : '') +
@@ -207,14 +266,22 @@
         form.out.value = s.out;
         form.guests.value = s.guests;
         form.in.min = iso(new Date());
+        form.out.min = iso(addDays(parseDate(s.in), 1));
         form.in.addEventListener('change', function () {
             var d = parseDate(form.in.value);
-            if (d && (!parseDate(form.out.value) || parseDate(form.out.value) <= d)) { form.out.value = iso(addDays(d, 3)); }
-            form.out.min = iso(addDays(d || new Date(), 1));
+            if (!d) { return; }
+            if (!parseDate(form.out.value) || parseDate(form.out.value) <= d) { form.out.value = iso(addDays(d, 3)); }
+            form.out.min = iso(addDays(d, 1));
         });
-        $('#in-places').innerHTML = HOTELS.map(function (h) { return h.country; })
-            .filter(function (c, i, a) { return a.indexOf(c) === i; })
-            .map(function (c) { return '<option value="' + esc(c) + '">'; }).join('');
+        form.addEventListener('submit', function (e) {
+            var a = parseDate(form.in.value), b = parseDate(form.out.value);
+            form.out.setCustomValidity(a && b && b <= a ? 'Choose a leaving date after your arrival date.' : '');
+            if (!form.reportValidity()) { e.preventDefault(); }
+        });
+        form.out.addEventListener('input', function () { form.out.setCustomValidity(''); });
+        var suggestions = [];
+        HOTELS.forEach(function (h) { [h.country, h.place.split(', ').pop(), h.name].forEach(function (v) { if (suggestions.indexOf(v) < 0) { suggestions.push(v); } }); });
+        $('#in-places').innerHTML = suggestions.sort().map(function (c) { return '<option value="' + esc(c) + '">'; }).join('');
 
         var styles = ['Beach', 'City', 'Countryside', 'Ski', 'Safari'];
         function href(over) {
@@ -234,7 +301,7 @@
         });
         if (sort === 'rate') { list.sort(function (a, b) { return a.rate - b.rate; }); }
 
-        $('#in-count').textContent = list.length ? plural(list.length, 'hotel') + (q ? ' for “' + q + '”' : '') + ', ' + plural(s.nights, 'night') + ' from ' + niceDate(s.in) : '';
+        $('#in-count').textContent = list.length ? plural(list.length, 'hotel') + (q ? ' for “' + q + '”' : '') + ', ' + plural(s.nights, 'night') + ' from ' + niceDate(s.in) + '. Rates are per room, per night.' : '';
         $('#in-sort').innerHTML = '<a href="' + href({ sort: '' }) + '"' + (!sort ? ' aria-current="true"' : '') + '>Our order</a>' +
             '<a href="' + href({ sort: 'rate' }) + '"' + (sort === 'rate' ? ' aria-current="true"' : '') + '>Lowest rate first</a>';
 
@@ -245,23 +312,59 @@
                 '<p><a class="in-btn in-btn--line" href="search.html?' + stayQuery(s) + '">Clear the search</a></p></div>';
             return;
         }
-        out.innerHTML = list.map(function (h, i) {
-            var url = 'hotel.html?id=' + h.id + '&' + stayQuery(s);
-            return '<article class="in-result">' +
-                '<a class="in-result__img" href="' + url + '" tabindex="-1" aria-hidden="true"><img loading="' + (i < 3 ? 'eager' : 'lazy') + '" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '></a>' +
-                '<div class="in-result__body">' +
-                '<p class="in-place">' + esc(h.place) + ', ' + esc(h.country) + '</p>' +
-                '<h2><a href="' + url + '">' + esc(h.name) + '</a></h2>' +
-                '<p class="in-result__line">' + esc(h.line) + '</p>' +
-                '<p class="in-result__priv">Breakfast for two, an upgrade when available, ' + esc(h.credit) + ' hotel credit</p>' +
-                '</div>' +
-                '<div class="in-result__rate">' +
-                '<p class="in-rate__label">Member rate, a night</p>' +
-                '<p class="in-rate__num">' + money(h.rate) + '</p>' +
-                '<p class="in-rate__total">' + money(h.rate * s.nights) + ' for ' + plural(s.nights, 'night') + '</p>' +
-                '<a class="in-btn" href="' + url + '">View hotel</a>' +
-                '</div></article>';
+        out.innerHTML = list.map(function (h, i) { return resultRow(h, s, i); }).join('');
+    }
+
+    function resultRow(h, s, i) {
+        var url = 'hotel.html?id=' + h.id + '&' + stayQuery(s);
+        return '<article class="in-result">' +
+            '<a class="in-result__img" href="' + url + '" tabindex="-1" aria-hidden="true"><img decoding="async" loading="' + (i < 3 ? 'eager' : 'lazy') + '" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '></a>' +
+            '<div class="in-result__body">' +
+            '<p class="in-place">' + placeLine(h) + '</p>' +
+            '<h2><a href="' + url + '">' + esc(h.name) + '</a></h2>' +
+            '<p class="in-result__line">' + esc(h.line) + '</p>' +
+            '<p class="in-result__priv">Breakfast for two, an upgrade when available, ' + esc(h.credit) + ' hotel credit</p>' +
+            '</div>' +
+            '<div class="in-result__rate">' +
+            '<p class="in-rate__label">Member rate, a night</p>' +
+            '<p class="in-rate__num">' + money(h.rate) + '</p>' +
+            '<p class="in-rate__total">' + money(h.rate * s.nights) + ' for ' + plural(s.nights, 'night') + '</p>' +
+            '<a class="in-btn" href="' + url + '">View hotel<span class="in-vh">: ' + esc(h.name) + '</span></a>' +
+            '</div></article>';
+    }
+
+    // ---------------------------------------------------------------- guides
+    function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
+    function pageGuides() {
+        if (!requireMember()) { return; }
+        frame('guides');
+        $('#in-guides').innerHTML = GUIDES.map(function (g, i) {
+            return '<article class="in-guide">' +
+                '<a class="in-guide__img" href="guide.html?g=' + g.id + '" tabindex="-1" aria-hidden="true"><img decoding="async" loading="' + (i < 2 ? 'eager' : 'lazy') + '" src="' + g.img + '" alt=""></a>' +
+                '<div><h2><a href="guide.html?g=' + g.id + '">' + esc(g.title) + '</a></h2>' +
+                '<p class="in-guide__lead">' + esc(g.lead) + '</p>' +
+                '<p class="in-guide__meta">' + plural(g.hotels.length, 'hotel') + ', each with your member rate</p></div>' +
+                '</article>';
         }).join('');
+    }
+    function pageGuide() {
+        if (!requireMember()) { return; }
+        frame('guides');
+        var g = guideById(params().get('g'));
+        var main = $('#in-guide');
+        if (!g) { window.location.replace('guides.html'); return; }
+        var s = stay();
+        document.title = g.title + ' | Heirloom Insider';
+        main.innerHTML = '<div class="in-wrap">' +
+            '<p class="in-back"><a href="guides.html">All guides</a></p>' +
+            '<header class="in-guidehead"><div><p class="in-kicker">A guide by Kara</p><h1>' + esc(g.title) + '</h1>' +
+            '<p class="in-lede">' + esc(g.lead) + '</p>' +
+            '<p><a href="../guides/' + g.id + '.html">Read the full guide</a></p></div>' +
+            '<img src="' + g.img + '" alt=""></header>' +
+            '<p class="in-count">' + plural(g.hotels.length, 'hotel') + ' from this guide. Rates are for ' + plural(s.nights, 'night') + ' from ' + niceDate(s.in) + ', per room, per night. ' +
+            '<a href="search.html?' + stayQuery(s) + '">Search other dates</a></p>' +
+            '<div>' + g.hotels.map(hotelById).filter(Boolean).map(function (h, i) { return resultRow(h, s, i); }).join('') + '</div>' +
+            '</div>';
     }
 
     // ----------------------------------------------------------------- hotel
@@ -282,7 +385,7 @@
             '<div class="in-wrap">' +
             '<p class="in-back"><a href="search.html?' + stayQuery(s) + '">Back to results</a></p>' +
             '<header class="in-hotel__head">' +
-            '<div><p class="in-place">' + esc(h.place) + ', ' + esc(h.country) + '</p><h1>' + esc(h.name) + '</h1></div>' +
+            '<div><p class="in-place">' + placeLine(h) + '</p><h1>' + esc(h.name) + '</h1></div>' +
             '<button type="button" class="in-btn in-btn--line" data-save aria-pressed="' + isSaved + '">' + (isSaved ? 'Saved' : 'Save hotel') + '</button>' +
             '</header>' +
             '</div>' +
@@ -337,7 +440,7 @@
         $('#in-book-summary').innerHTML =
             '<img src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '>' +
             '<div class="in-sum__body">' +
-            '<p class="in-place">' + esc(h.place) + ', ' + esc(h.country) + '</p>' +
+            '<p class="in-place">' + placeLine(h) + '</p>' +
             '<h2>' + esc(h.name) + '</h2>' +
             '<dl class="in-sum__list">' +
             '<div><dt>Room</dt><dd>' + room.name + '</dd></div>' +
@@ -393,8 +496,8 @@
             var h = hotelById(t.id);
             if (!h) { return ''; }
             return '<article class="in-trip">' +
-                '<img loading="lazy" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '>' +
-                '<div><p class="in-place">' + esc(h.place) + ', ' + esc(h.country) + '</p><h3>' + esc(h.name) + '</h3>' +
+                '<img decoding="async" loading="lazy" src="' + IMG + h.img + '" alt=""' + (h.pos ? ' style="object-position:' + h.pos + '"' : '') + '>' +
+                '<div><p class="in-place">' + placeLine(h) + '</p><h3>' + esc(h.name) + '</h3>' +
                 '<p>' + esc(t.room) + ', ' + niceDate(t.in) + ' to ' + niceDate(t.out) + ', ' + plural(t.guests, 'guest') + '</p>' +
                 '<p class="in-trip__ref">Reference ' + esc(t.ref) + ' / ' + money(t.total) + ' sample total</p></div>' +
                 '</article>';
@@ -463,7 +566,7 @@
     }
 
     // ------------------------------------------------------------------ boot
-    var pages = { landing: pageLanding, join: pageJoin, signin: pageSignIn, search: pageSearch, hotel: pageHotel, book: pageBook, trips: pageTrips, about: frame };
+    var pages = { landing: pageLanding, join: pageJoin, signin: pageSignIn, search: pageSearch, hotel: pageHotel, book: pageBook, trips: pageTrips, guides: pageGuides, guide: pageGuide, about: frame };
     var run = pages[document.body.getAttribute('data-page')];
     if (run) { run(); }
     ribbon();
