@@ -2040,7 +2040,10 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(to top, rgba(10, 22, 40, 0.86) 0%, rgba(10, 22, 40, 0.35) 48%, rgba(10, 22, 40, 0.3) 100%);
+    /* Darker along the bottom for the headline and down the right for the scene names */
+    background:
+        linear-gradient(to left, rgba(10, 22, 40, 0.62) 0%, rgba(10, 22, 40, 0) 34%),
+        linear-gradient(to top, rgba(10, 22, 40, 0.86) 0%, rgba(10, 22, 40, 0.38) 48%, rgba(10, 22, 40, 0.32) 100%);
 }
 
 .lx-b__copy {
