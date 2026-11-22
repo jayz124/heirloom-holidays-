@@ -1786,3 +1786,24 @@
         grid-column: 1 / -1;
     }
 }
+
+/* --- The whole destination card is the link, not only "Discover more" --- */
+.destination-card {
+    cursor: pointer;
+}
+
+.destination-link::after {
+    content: '';
+    position: absolute;
+    inset: -1000px 0 0 0; /* reaches up over the photograph; the card clips it */
+    z-index: 1;
+}
+
+.destination-card:focus-within {
+    outline: 2px solid var(--gold-ink);
+    outline-offset: 3px;
+}
+
+.destination-link:focus-visible {
+    outline: none;
+}
