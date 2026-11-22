@@ -1807,3 +1807,500 @@
 .destination-link:focus-visible {
     outline: none;
 }
+
+
+/* ==========================================================================
+   Landing: four full-screen scenes, white type, and the hotel search (beta).
+   Chosen by Jacob on 22 Nov 2026 from three options.
+   ========================================================================== */
+.lx-hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.lx-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 6.4vw, 6.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+}
+
+.lx-kicker {
+    font: italic 400 clamp(1.15rem, 1.6vw, 1.45rem)/1.2 'Cormorant Garamond', serif;
+}
+
+.lx-sub {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 34rem;
+}
+
+.lx-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.lx-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.35rem;
+    padding: 0 2.1rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font: 400 0.75rem/1 'Outfit', sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.lx-btn--navy {
+    background: var(--midnight);
+    color: var(--ivory);
+}
+
+.lx-btn--navy:hover {
+    background: var(--navy);
+    color: var(--champagne-light);
+}
+
+.lx-btn--light {
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.lx-btn--light:hover {
+    background: var(--champagne-light);
+}
+
+.lx-btn--line {
+    border-color: currentColor;
+    color: inherit;
+    background: transparent;
+}
+
+.lx-btn--line:hover {
+    background: rgba(250, 248, 245, 0.14);
+}
+
+.lx-credit {
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+}
+
+/* --- The search bar: one pill, where / when / who --- */
+.lx-search {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.7fr) auto;
+    align-items: stretch;
+    padding: 0.45rem;
+    border-radius: 999px;
+    background: rgba(250, 248, 245, 0.9);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 24px 60px -30px rgba(10, 22, 40, 0.55);
+    color: var(--midnight);
+    text-align: left;
+}
+
+.lx-search label {
+    display: grid;
+    gap: 0.05rem;
+    padding: 0.55rem 1.4rem 0.45rem;
+    border-right: 1px solid rgba(10, 22, 40, 0.12);
+    min-width: 0;
+}
+
+.lx-search label:nth-of-type(4) {
+    border-right: 0;
+}
+
+.lx-search span {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--gold-ink);
+}
+
+.lx-search input,
+.lx-search select {
+    width: 100%;
+    min-height: 1.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: 400 1rem/1.4 'Outfit', sans-serif;
+    color: var(--midnight);
+}
+
+.lx-search input:focus,
+.lx-search select:focus {
+    outline: none;
+}
+
+.lx-search label:focus-within {
+    outline: 2px solid var(--gold-ink);
+    outline-offset: -2px;
+    border-radius: 999px;
+}
+
+.lx-search input::placeholder {
+    color: #6a6a6a;
+    opacity: 1;
+}
+
+.lx-search .lx-btn {
+    min-height: 3.35rem;
+}
+
+.lx-searchnote {
+    margin-top: 0.85rem;
+    font-size: 0.875rem;
+}
+
+.lx-beta {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.lx-searchlink {
+    display: none;
+}
+
+/* ==========================================================================
+   Option B: cinematic. Four scenes, white type, one at a time.
+   ========================================================================== */
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) {
+    background: linear-gradient(to bottom, rgba(10, 22, 40, 0.55), rgba(10, 22, 40, 0));
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) .logo,
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) .nav-links > li > a {
+    color: var(--ivory);
+}
+
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) .logo span {
+    color: var(--champagne-light);
+}
+
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) .nav-cta {
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.lx-top-dark #navbar:not(.scrolled):not(.menu-open) .mobile-menu-toggle span {
+    background: var(--ivory);
+}
+
+.lx-b {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto;
+    gap: 2.5rem 4rem;
+    align-items: end;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 9rem clamp(1.5rem, 5vw, 5rem) 3rem;
+    color: var(--ivory);
+    overflow: hidden;
+    background: var(--midnight);
+}
+
+.lx-b__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.lx-b__scene.is-on {
+    opacity: 1;
+}
+
+.lx-b__scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lx-b::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* Darker along the bottom for the headline and down the right for the scene names */
+    background:
+        linear-gradient(to left, rgba(10, 22, 40, 0.62) 0%, rgba(10, 22, 40, 0) 34%),
+        linear-gradient(to top, rgba(10, 22, 40, 0.86) 0%, rgba(10, 22, 40, 0.38) 48%, rgba(10, 22, 40, 0.32) 100%);
+}
+
+.lx-b__copy {
+    max-width: 46rem;
+}
+
+.lx-b .lx-kicker {
+    color: var(--champagne-light);
+}
+
+.lx-b h1 {
+    margin: 0.9rem 0 1.4rem;
+    max-width: 13ch;
+    color: var(--ivory);
+}
+
+.lx-b .lx-sub {
+    margin-bottom: 2rem;
+    color: rgba(250, 248, 245, 0.88);
+}
+
+.lx-b__tabs {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 15rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lx-b__tabs button {
+    position: relative;
+    width: 100%;
+    padding: 0.85rem 0 0.85rem;
+    border: 0;
+    border-top: 1px solid rgba(250, 248, 245, 0.28);
+    background: none;
+    color: rgba(250, 248, 245, 0.7);
+    font: 400 0.9375rem/1.3 'Outfit', sans-serif;
+    text-align: left;
+    cursor: pointer;
+}
+
+.lx-b__tabs button strong {
+    display: block;
+    font: 400 1.35rem/1.2 'Cormorant Garamond', serif;
+    color: inherit;
+}
+
+.lx-b__tabs button[aria-pressed="true"] {
+    color: var(--ivory);
+}
+
+.lx-b__tabs button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 0;
+    height: 1px;
+    background: var(--champagne-light);
+}
+
+.lx-b__tabs button[aria-pressed="true"]::before {
+    width: 100%;
+    transition: width 7s linear;
+}
+
+.lx-b__tabs button:focus-visible {
+    outline: 2px solid var(--champagne-light);
+    outline-offset: 4px;
+}
+
+.lx-b__search {
+    grid-column: 1 / -1;
+}
+
+.lx-b__search .lx-searchnote {
+    color: rgba(250, 248, 245, 0.82);
+}
+
+.lx-b__now {
+    display: none;
+    font-size: 0.875rem;
+    color: rgba(250, 248, 245, 0.82);
+}
+
+/* ==========================================================================
+   Philosophy, three ways
+   ========================================================================== */
+.lx-phil {
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 8rem);
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.lx-phil h2 {
+    font-size: clamp(2.4rem, 4.2vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+}
+
+.lx-phil h2 em {
+    font-style: italic;
+    color: var(--gold-display);
+}
+
+.lx-phil p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #454545;
+}
+
+.lx-phil figure {
+    margin: 0;
+}
+
+.lx-phil figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--gold-ink);
+}
+
+/* P2: one large statement, one wide photograph, three facts */
+.lx-p2 {
+    text-align: center;
+    padding-inline: 0;
+}
+
+.lx-phil .lx-p2__statement {
+    max-width: 22ch;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+    font: 400 clamp(2.3rem, 4.6vw, 4.25rem)/1.1 'Cormorant Garamond', serif;
+    letter-spacing: -0.015em;
+    color: var(--midnight);
+}
+
+.lx-p2__statement em {
+    color: var(--gold-display);
+}
+
+.lx-phil .lx-p2__wide {
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.lx-p2__wide img {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: center 70%;
+}
+
+.lx-p2__wide figcaption {
+    padding-inline: clamp(1.5rem, 6vw, 8rem);
+    text-align: left;
+}
+
+.lx-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 78rem;
+    margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+    padding-inline: clamp(1.5rem, 6vw, 4rem);
+    text-align: left;
+}
+
+.lx-facts > div {
+    padding: 0 2.5rem;
+    border-left: 1px solid rgba(10, 22, 40, 0.16);
+}
+
+.lx-facts > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.lx-facts h3 {
+    font: 400 clamp(1.6rem, 2.2vw, 2rem)/1.15 'Cormorant Garamond', serif;
+    margin-bottom: 0.6rem;
+}
+
+.lx-facts p {
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+
+/* --- Landing and philosophy on tablets and phones --- */
+@media (max-width: 1000px) {
+    .lx-search {
+        display: none;
+    }
+
+    .lx-searchlink {
+        display: inline-flex;
+    }
+
+    .lx-b {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding-top: 7rem;
+    }
+
+    .lx-b__tabs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        min-width: 0;
+    }
+
+    .lx-b__tabs button strong {
+        font-size: 1.05rem;
+    }
+
+    .lx-b__tabs button small {
+        display: none;
+    }
+
+    .lx-b__now {
+        display: block;
+        margin-top: -0.75rem;
+    }
+
+    .lx-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .lx-facts > div,
+    .lx-facts > div:first-child {
+        padding: 1.5rem 0;
+        border-left: 0;
+        border-top: 1px solid rgba(10, 22, 40, 0.14);
+    }
+
+    .lx-p2__wide img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 640px) {
+    .lx-hero h1 {
+        font-size: clamp(2.6rem, 11vw, 3.4rem);
+    }
+
+    .lx-b {
+        padding: 6.5rem 1.5rem 2rem;
+    }
+
+    .lx-btn {
+        min-height: 3.1rem;
+        padding: 0 1.6rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lx-b__scene,
+    .lx-b__tabs button[aria-pressed="true"]::before {
+        transition: none;
+    }
+}
