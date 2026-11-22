@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/shared.css">
     <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
-<body>
+<body class="lx-top-dark">
     <!-- Navigation -->
     <nav id="navbar">
         <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="Heirloom Holidays Logo" class="logo-img">HEIRLOOM <span>HOLIDAYS</span></a>
@@ -71,36 +71,37 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-label">Bespoke Luxury Travel</span>
-            <h1>Journeys That Become <em>Family Heirlooms</em></h1>
-            <p class="hero-description">We design luxury holidays so perfectly crafted, your family will be retelling the stories for generations.</p>
-            <div class="hero-cta-group">
-                <a href="#contact" class="btn-primary">
-                    Start Planning
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="#destinations" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                    Explore Destinations
-                </a>
-            </div>
-            <div class="hero-proof">
-                <div class="hero-proof-avatar">SA</div>
-                <blockquote>"She took care of every detail... and made our holiday stress free." <cite>— Shelly & Asif</cite></blockquote>
-            </div>
-            <div class="hero-scroll">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
+    <section class="lx-hero lx-b">
+        <div class="lx-b__scene is-on" data-credit="&amp;Beyond Serengeti Under Canvas, Tanzania"><img fetchpriority="high" src="assets/images/hero/serengeti-under-canvas-2000.webp" srcset="assets/images/hero/serengeti-under-canvas-1100.webp 1100w, assets/images/hero/serengeti-under-canvas-2000.webp 2000w" sizes="100vw" alt="Tents lit at dusk beneath an acacia on the Serengeti"></div>
+        <div class="lx-b__scene" data-credit="Four Seasons Maldives at Landaa Giraavaru"><img loading="lazy" src="assets/images/hero/water-villa-2000.webp" srcset="assets/images/hero/water-villa-1100.webp 1100w, assets/images/hero/water-villa-2000.webp 2000w" sizes="100vw" alt="A water villa with its own pool over the lagoon"></div>
+        <div class="lx-b__scene" data-credit="Mandarin Oriental, New York"><img loading="lazy" src="assets/images/hero/mandarin-oriental-new-york-view-2000.webp" srcset="assets/images/hero/mandarin-oriental-new-york-view-1100.webp 1100w, assets/images/hero/mandarin-oriental-new-york-view-2000.webp 2000w" sizes="100vw" alt="Central Park and the Manhattan skyline at golden hour"></div>
+        <div class="lx-b__scene" data-credit="Gstaad Palace, Switzerland"><img loading="lazy" src="assets/images/hero/gstaad-palace-2000.webp" srcset="assets/images/hero/gstaad-palace-1100.webp 1100w, assets/images/hero/gstaad-palace-2000.webp 2000w" sizes="100vw" alt="Gstaad Palace among snow-covered pines"></div>
+        <div class="lx-b__copy">
+            <p class="lx-kicker">Bespoke luxury travel, planned by Kara</p>
+            <h1>Journeys that become family heirlooms</h1>
+            <p class="lx-sub">Holidays designed around your family, at the hotels we know best, with the upgrades and extras we have earned there.</p>
+            <div class="lx-actions">
+                <a class="lx-btn lx-btn--light" href="#contact">Start planning</a>
+                <a class="lx-btn lx-btn--line" href="#destinations">Explore destinations</a>
             </div>
         </div>
-        <div class="hero-image">
-            <img fetchpriority="high" src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80&auto=format" srcset="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80&auto=format 1200w" sizes="100vw" alt="Luxury Maldives overwater villa">
+        <ul class="lx-b__tabs">
+            <li><button type="button" aria-pressed="true"><strong>On safari</strong><small>&amp;Beyond Serengeti Under Canvas, Tanzania</small></button></li>
+            <li><button type="button" aria-pressed="false"><strong>On the water</strong><small>Four Seasons Maldives at Landaa Giraavaru</small></button></li>
+            <li><button type="button" aria-pressed="false"><strong>In the city</strong><small>Mandarin Oriental, New York</small></button></li>
+            <li><button type="button" aria-pressed="false"><strong>In the mountains</strong><small>Gstaad Palace, Switzerland</small></button></li>
+        </ul>
+        <p class="lx-b__now" aria-live="polite"></p>
+        <div class="lx-b__search">
+            <form class="lx-search" action="insider/search.html" method="get">
+                    <label><span>Where</span><input name="q" type="search" placeholder="A hotel, city or country" autocomplete="off"></label>
+                    <label><span>Arrive</span><input name="in" type="date"></label>
+                    <label><span>Leave</span><input name="out" type="date"></label>
+                    <label><span>Guests</span><select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+                    <button class="lx-btn lx-btn--navy" type="submit">Search</button>
+                </form>
+                <a class="lx-btn lx-btn--light lx-searchlink" href="insider/search.html">Search hotels</a>
+                <p class="lx-searchnote"><span class="lx-beta">Beta</span>Search the hotel collection. Member rates are on request for now.</p>
         </div>
     </section>
 
@@ -125,21 +126,16 @@
     </section>
 
     <!-- Philosophy Section -->
-    <section id="philosophy" class="philosophy">
-        <div class="philosophy-content reveal">
-            <span class="section-label">Our Philosophy</span>
-            <h2>Travel Should Be <em>Treasured</em>, Not Just Taken</h2>
-            <p>You could spend weeks researching hotels, comparing rates, and hoping you've chosen well. Or you could tell Kara what matters to your family — and let her handle everything else.</p>
-            <p>As a member of Little Emperors, a network of 5,000+ luxury hotels worldwide, we secure room upgrades, complimentary breakfast, spa credits, and rates consistently lower than booking directly. You get better hotels at better prices, without the legwork.</p>
-            <p>The result? Holidays your children actually ask to do again — and stories your family retells for years.</p>
-        </div>
-        <div class="philosophy-visual reveal">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&q=80&auto=format" alt="Overwater villa lounge looking out to a turquoise lagoon" class="philosophy-image-main">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=400&q=80&auto=format" alt="Timber pool deck shaded by trees beside the sea" class="philosophy-image-accent">
-            <div class="philosophy-badge">
-                <span>Est. 2023</span>
-                <span>London</span>
-            </div>
+    <section id="philosophy" class="lx-phil lx-p2">
+        <p class="lx-p2__statement">You could spend weeks researching hotels. Or you could <em>tell Kara what matters</em> to your family.</p>
+        <figure class="lx-p2__wide">
+            <img loading="lazy" src="assets/images/hero/rosewood-miyakojima-2000.webp" srcset="assets/images/hero/rosewood-miyakojima-1100.webp 1100w, assets/images/hero/rosewood-miyakojima-2000.webp 2000w" sizes="100vw" alt="A private terrace with a plunge pool above the beach at Rosewood Miyakojima">
+            <figcaption>Rosewood Miyakojima, Japan</figcaption>
+        </figure>
+        <div class="lx-facts">
+            <div><h3>She handles everything</h3><p>Flights, hotels, transfers, restaurants and the days in between, built around how your family travels.</p></div>
+            <div><h3>Better than booking direct</h3><p>Through Little Emperors and more than 5,000 hotels: upgrades, breakfast, spa credits and lower rates.</p></div>
+            <div><h3>Worth repeating</h3><p>Holidays your children ask to do again, and stories your family retells for years.</p></div>
         </div>
     </section>
 

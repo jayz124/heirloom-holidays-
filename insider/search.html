@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search hotels | Heirloom Insider beta</title>
+    <meta name="description" content="Search the Heirloom Insider hotel collection. Member rates are on request during the beta.">
+    <!-- Beta: kept out of search engines until Insider launches -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="color-scheme" content="light">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/insider.css">
+</head>
+<body data-page="search">
+    <a class="in-skip" href="#main">Skip to content</a>
+    <header class="in-head" id="in-header"></header>
+    <noscript><p class="in-noscript">The Insider beta needs JavaScript switched on. You can always <a href="../index.html#contact">ask Kara directly</a>.</p></noscript>
+    <main id="main" class="in-wrap">
+        <div class="in-top">
+            <h1 id="in-greeting">Search the collection</h1>
+            <form class="in-searchbar" id="in-search" action="search.html" method="get">
+                <label><span>Where</span><input name="q" type="search" list="in-places" placeholder="A hotel, city or country" autocomplete="off"></label>
+                <label><span>Arrive</span><input name="in" type="date" required></label>
+                <label><span>Leave</span><input name="out" type="date" required></label>
+                <label><span>Guests</span><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+                <button class="in-btn" type="submit">Search</button>
+                <datalist id="in-places"></datalist>
+            </form>
+            <div class="in-toolbar">
+                <nav class="in-pills" id="in-styles" aria-label="Kind of stay"></nav>
+                <nav class="in-sort" id="in-sort" aria-label="Sort"></nav>
+            </div>
+            <p class="in-count" id="in-count" aria-live="polite"></p>
+        </div>
+        <div id="in-results"></div>
+    </main>
+    <footer class="in-foot" id="in-footer">
+        <div class="in-wrap in-foot__row">
+            <p class="in-foot__powered">Heirloom Insider, in beta</p>
+            <p class="in-foot__small">The members' booking room of <a href="../index.html">Heirloom Holidays</a>, a proud member of Little Emperors. <a href="about-this-preview.html">About this beta</a> <span aria-hidden="true">/</span> <a href="../privacy.html">Privacy</a></p>
+        </div>
+    </footer>
+    <script src="../assets/js/insider.js"></script>
+</body>
+</html>

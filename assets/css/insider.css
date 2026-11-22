@@ -2093,3 +2093,77 @@ body[data-page="holding"] .in-hero__copy {
         justify-self: stretch;
     }
 }
+
+/* ==========================================================================
+   Beta: rates on request until live pricing is connected
+   ========================================================================== */
+.in-tag {
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--gold-ink);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--gold-ink);
+}
+
+.in-result__rate--ask {
+    gap: 0.35rem;
+}
+
+.in-rate__ask {
+    margin-bottom: 0.85rem;
+    font: italic 400 2rem/1 var(--serif);
+    color: var(--midnight);
+}
+
+.in-rate__more {
+    margin-top: 0.75rem;
+    font-size: 0.9375rem;
+}
+
+.in-request {
+    margin-top: 1.5rem;
+    padding: 1.75rem 2rem;
+    background: var(--ivory-warm);
+    border-left: 2px solid var(--champagne);
+}
+
+.in-request p {
+    max-width: 38rem;
+}
+
+.in-request__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.in-error {
+    padding: 0.85rem 1rem;
+    background: #fbefec;
+    border-left: 2px solid #b3412e;
+    color: #7a2a1c;
+    font-size: 0.9375rem;
+}
+
+.in-register__beta {
+    margin-top: 1.25rem;
+}
+
+@media (max-width: 1000px) {
+    .in-result__rate--ask .in-rate__ask {
+        margin-bottom: 0;
+        font-size: 1.6rem;
+    }
+
+    .in-result__rate--ask .in-rate__more {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .in-head__me .in-tag {
+        display: none;
+    }
+}
