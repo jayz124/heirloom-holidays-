@@ -1,0 +1,827 @@
+/* ==========================================================================
+   Landing options: three ways to open the homepage, for review only.
+   Everything is prefixed lx- so nothing here touches the live styles.
+   ========================================================================== */
+
+.lx-hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.lx-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 6.4vw, 6.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+}
+
+.lx-kicker {
+    font: italic 400 clamp(1.15rem, 1.6vw, 1.45rem)/1.2 'Cormorant Garamond', serif;
+}
+
+.lx-sub {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 34rem;
+}
+
+.lx-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.lx-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.35rem;
+    padding: 0 2.1rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font: 400 0.75rem/1 'Outfit', sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.lx-btn--navy {
+    background: var(--midnight);
+    color: var(--ivory);
+}
+
+.lx-btn--navy:hover {
+    background: var(--navy);
+    color: var(--champagne-light);
+}
+
+.lx-btn--light {
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.lx-btn--light:hover {
+    background: var(--champagne-light);
+}
+
+.lx-btn--line {
+    border-color: currentColor;
+    color: inherit;
+    background: transparent;
+}
+
+.lx-btn--line:hover {
+    background: rgba(250, 248, 245, 0.14);
+}
+
+.lx-credit {
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+}
+
+/* --- The search bar: one pill, where / when / who --- */
+.lx-search {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.7fr) auto;
+    align-items: stretch;
+    padding: 0.45rem;
+    border-radius: 999px;
+    background: rgba(250, 248, 245, 0.9);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 24px 60px -30px rgba(10, 22, 40, 0.55);
+    color: var(--midnight);
+    text-align: left;
+}
+
+.lx-search label {
+    display: grid;
+    gap: 0.05rem;
+    padding: 0.55rem 1.4rem 0.45rem;
+    border-right: 1px solid rgba(10, 22, 40, 0.12);
+    min-width: 0;
+}
+
+.lx-search label:nth-of-type(4) {
+    border-right: 0;
+}
+
+.lx-search span {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--gold-ink);
+}
+
+.lx-search input,
+.lx-search select {
+    width: 100%;
+    min-height: 1.75rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: 400 1rem/1.4 'Outfit', sans-serif;
+    color: var(--midnight);
+}
+
+.lx-search input:focus,
+.lx-search select:focus {
+    outline: none;
+}
+
+.lx-search label:focus-within {
+    outline: 2px solid var(--gold-ink);
+    outline-offset: -2px;
+    border-radius: 999px;
+}
+
+.lx-search input::placeholder {
+    color: #6a6a6a;
+    opacity: 1;
+}
+
+.lx-search .lx-btn {
+    min-height: 3.35rem;
+}
+
+.lx-searchnote {
+    margin-top: 0.85rem;
+    font-size: 0.875rem;
+}
+
+.lx-beta {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.lx-searchlink {
+    display: none;
+}
+
+/* ==========================================================================
+   Option A: full bleed, light. Navy type on a pale photograph.
+   ========================================================================== */
+.opt-a #navbar:not(.scrolled):not(.menu-open) {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.lx-a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(7.5rem, 16vh, 11rem) clamp(1.5rem, 7vw, 8rem) 2.25rem;
+    color: var(--midnight);
+    text-align: left;
+    overflow: hidden;
+}
+
+.lx-a__photo {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.lx-a__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 100%;
+    animation: lx-drift 26s ease-out both;
+}
+
+@keyframes lx-drift {
+    from {
+        transform: scale(1.07);
+    }
+}
+
+.lx-a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(100deg, rgba(250, 248, 245, 0.82) 0%, rgba(250, 248, 245, 0.55) 34%, rgba(250, 248, 245, 0) 62%);
+}
+
+.lx-a .lx-kicker {
+    color: var(--gold-ink);
+}
+
+.lx-a h1 {
+    max-width: 14ch;
+    font-size: clamp(3rem, 5.6vw, 5.5rem);
+    margin: 1rem 0 1.5rem;
+}
+
+.lx-a .lx-sub {
+    margin: 0 0 2rem;
+    color: #2c3445;
+}
+
+.lx-a__search {
+    width: 100%;
+    max-width: 66rem;
+    margin-top: auto;
+    padding-top: 3rem;
+    color: var(--ivory);
+}
+
+.lx-a__foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+}
+
+.lx-a__search .lx-searchnote {
+    text-shadow: 0 1px 12px rgba(10, 22, 40, 0.6);
+}
+
+.lx-a .lx-credit {
+    margin-top: 0.85rem;
+    color: rgba(250, 248, 245, 0.92);
+    text-shadow: 0 1px 10px rgba(10, 22, 40, 0.7);
+}
+
+/* ==========================================================================
+   Option B: cinematic. Four scenes, white type, one at a time.
+   ========================================================================== */
+.opt-b #navbar:not(.scrolled):not(.menu-open) {
+    background: linear-gradient(to bottom, rgba(10, 22, 40, 0.55), rgba(10, 22, 40, 0));
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.opt-b #navbar:not(.scrolled):not(.menu-open) .logo,
+.opt-b #navbar:not(.scrolled):not(.menu-open) .nav-links > li > a {
+    color: var(--ivory);
+}
+
+.opt-b #navbar:not(.scrolled):not(.menu-open) .logo span {
+    color: var(--champagne-light);
+}
+
+.opt-b #navbar:not(.scrolled):not(.menu-open) .nav-cta {
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.opt-b #navbar:not(.scrolled):not(.menu-open) .mobile-menu-toggle span {
+    background: var(--ivory);
+}
+
+.lx-b {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto;
+    gap: 2.5rem 4rem;
+    align-items: end;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 9rem clamp(1.5rem, 5vw, 5rem) 3rem;
+    color: var(--ivory);
+    overflow: hidden;
+    background: var(--midnight);
+}
+
+.lx-b__scene {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.lx-b__scene.is-on {
+    opacity: 1;
+}
+
+.lx-b__scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lx-b::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(10, 22, 40, 0.86) 0%, rgba(10, 22, 40, 0.35) 48%, rgba(10, 22, 40, 0.3) 100%);
+}
+
+.lx-b__copy {
+    max-width: 46rem;
+}
+
+.lx-b .lx-kicker {
+    color: var(--champagne-light);
+}
+
+.lx-b h1 {
+    margin: 0.9rem 0 1.4rem;
+    max-width: 13ch;
+    color: var(--ivory);
+}
+
+.lx-b .lx-sub {
+    margin-bottom: 2rem;
+    color: rgba(250, 248, 245, 0.88);
+}
+
+.lx-b__tabs {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 15rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lx-b__tabs button {
+    position: relative;
+    width: 100%;
+    padding: 0.85rem 0 0.85rem;
+    border: 0;
+    border-top: 1px solid rgba(250, 248, 245, 0.28);
+    background: none;
+    color: rgba(250, 248, 245, 0.7);
+    font: 400 0.9375rem/1.3 'Outfit', sans-serif;
+    text-align: left;
+    cursor: pointer;
+}
+
+.lx-b__tabs button strong {
+    display: block;
+    font: 400 1.35rem/1.2 'Cormorant Garamond', serif;
+    color: inherit;
+}
+
+.lx-b__tabs button[aria-pressed="true"] {
+    color: var(--ivory);
+}
+
+.lx-b__tabs button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 0;
+    height: 1px;
+    background: var(--champagne-light);
+}
+
+.lx-b__tabs button[aria-pressed="true"]::before {
+    width: 100%;
+    transition: width 7s linear;
+}
+
+.lx-b__tabs button:focus-visible {
+    outline: 2px solid var(--champagne-light);
+    outline-offset: 4px;
+}
+
+.lx-b__search {
+    grid-column: 1 / -1;
+}
+
+.lx-b__search .lx-searchnote {
+    color: rgba(250, 248, 245, 0.82);
+}
+
+.lx-b__now {
+    display: none;
+    font-size: 0.875rem;
+    color: rgba(250, 248, 245, 0.82);
+}
+
+/* ==========================================================================
+   Option C: editorial. Type first on ivory, then one wide photograph.
+   ========================================================================== */
+.lx-c {
+    padding: clamp(8.5rem, 18vh, 11.5rem) clamp(1.5rem, 5vw, 5rem) 0;
+    color: var(--midnight);
+    text-align: center;
+    background: var(--ivory);
+}
+
+.lx-c .lx-kicker {
+    color: var(--gold-ink);
+}
+
+.lx-c h1 {
+    max-width: 17ch;
+    margin: 1rem auto 1.5rem;
+    font-size: clamp(3.1rem, 7vw, 6.75rem);
+}
+
+.lx-c .lx-sub {
+    margin: 0 auto 2.25rem;
+    color: #444;
+}
+
+.lx-c .lx-actions {
+    justify-content: center;
+}
+
+.lx-c__figure {
+    position: relative;
+    max-width: 96rem;
+    margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+}
+
+.lx-c__figure > img {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: center 62%;
+    border-radius: 1.25rem;
+}
+
+.lx-c .lx-credit {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.25rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(250, 248, 245, 0.88);
+    color: var(--midnight);
+}
+
+.lx-c__search {
+    position: relative;
+    z-index: 2;
+    width: min(62rem, calc(100% - 4rem));
+    margin: -2.4rem auto 0;
+}
+
+.lx-c__search .lx-search {
+    background: var(--ivory);
+    box-shadow: 0 30px 70px -30px rgba(10, 22, 40, 0.45), 0 0 0 1px rgba(10, 22, 40, 0.06);
+}
+
+.lx-c__search .lx-searchnote {
+    color: var(--text-muted);
+    padding-bottom: 3.5rem;
+}
+
+/* ==========================================================================
+   Philosophy, three ways
+   ========================================================================== */
+.lx-phil {
+    padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 6vw, 8rem);
+    background: var(--ivory);
+    color: var(--midnight);
+}
+
+.lx-phil h2 {
+    font-size: clamp(2.4rem, 4.2vw, 3.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+}
+
+.lx-phil h2 em {
+    font-style: italic;
+    color: var(--gold-display);
+}
+
+.lx-phil p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #454545;
+}
+
+.lx-phil figure {
+    margin: 0;
+}
+
+.lx-phil figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--gold-ink);
+}
+
+/* P1: text beside three tall photographs, stepped like a staircase */
+.lx-p1 {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2.5rem, 6vw, 7rem);
+    align-items: center;
+}
+
+.lx-p1 h2 {
+    margin-bottom: 1.75rem;
+}
+
+.lx-p1 p + p {
+    margin-top: 1.1rem;
+}
+
+.lx-trip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 1.6vw, 1.5rem);
+    align-items: start;
+}
+
+.lx-trip figure:nth-child(2) {
+    margin-top: clamp(2rem, 5vw, 4.5rem);
+}
+
+.lx-trip figure:nth-child(3) {
+    margin-top: clamp(4rem, 10vw, 9rem);
+}
+
+.lx-trip img {
+    width: 100%;
+    aspect-ratio: 3 / 5;
+    object-fit: cover;
+}
+
+/* P2: one large statement, one wide photograph, three facts */
+.lx-p2 {
+    text-align: center;
+    padding-inline: 0;
+}
+
+.lx-phil .lx-p2__statement {
+    max-width: 22ch;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+    font: 400 clamp(2.3rem, 4.6vw, 4.25rem)/1.1 'Cormorant Garamond', serif;
+    letter-spacing: -0.015em;
+    color: var(--midnight);
+}
+
+.lx-p2__statement em {
+    color: var(--gold-display);
+}
+
+.lx-phil .lx-p2__wide {
+    margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.lx-p2__wide img {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: center 70%;
+}
+
+.lx-p2__wide figcaption {
+    padding-inline: clamp(1.5rem, 6vw, 8rem);
+    text-align: left;
+}
+
+.lx-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 78rem;
+    margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+    padding-inline: clamp(1.5rem, 6vw, 4rem);
+    text-align: left;
+}
+
+.lx-facts > div {
+    padding: 0 2.5rem;
+    border-left: 1px solid rgba(10, 22, 40, 0.16);
+}
+
+.lx-facts > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.lx-facts h3 {
+    font: 400 clamp(1.6rem, 2.2vw, 2rem)/1.15 'Cormorant Garamond', serif;
+    margin-bottom: 0.6rem;
+}
+
+.lx-facts p {
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+/* P3: a room with a view, text beside it */
+.lx-p3 {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 7rem);
+    align-items: center;
+    padding-left: 0;
+}
+
+.lx-p3__photo img {
+    width: 100%;
+    height: clamp(26rem, 62vw, 46rem);
+    object-fit: cover;
+    object-position: 30% center;
+}
+
+.lx-p3__photo figcaption {
+    padding-left: clamp(1.5rem, 6vw, 8rem);
+}
+
+.lx-p3 h2 {
+    margin-bottom: 1.5rem;
+}
+
+.lx-lines {
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--midnight);
+}
+
+.lx-lines li {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(10, 22, 40, 0.14);
+    font-size: 1rem;
+    color: #454545;
+}
+
+.lx-lines strong {
+    font: 400 1.35rem/1.2 'Cormorant Garamond', serif;
+    color: var(--midnight);
+}
+
+/* --- The switcher that moves between the three options (review only) --- */
+.lx-switch {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 950;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.5rem 0.4rem 1rem;
+    border-radius: 999px;
+    background: var(--champagne-light);
+    color: var(--midnight);
+    font: 400 0.8125rem/1 'Outfit', sans-serif;
+    box-shadow: 0 12px 30px -14px rgba(10, 22, 40, 0.6);
+}
+
+.lx-switch a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    color: var(--midnight);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.lx-switch a[aria-current="page"] {
+    background: var(--midnight);
+    color: var(--ivory);
+}
+
+/* ==========================================================================
+   Tablets and phones
+   ========================================================================== */
+@media (max-width: 1000px) {
+    .lx-search {
+        display: none;
+    }
+
+    .lx-searchlink {
+        display: inline-flex;
+    }
+
+    .lx-b {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding-top: 7rem;
+    }
+
+    .lx-b__tabs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+        min-width: 0;
+    }
+
+    .lx-b__tabs button strong {
+        font-size: 1.05rem;
+    }
+
+    .lx-b__tabs button small {
+        display: none;
+    }
+
+    .lx-b__now {
+        display: block;
+        margin-top: -0.75rem;
+    }
+
+    .lx-c__search {
+        margin-top: 1.75rem;
+    }
+
+    .lx-c__figure > img {
+        aspect-ratio: 4 / 3;
+        border-radius: 0.9rem;
+    }
+
+    .lx-p1,
+    .lx-p3 {
+        grid-template-columns: 1fr;
+    }
+
+    .lx-p3 {
+        padding-left: clamp(1.5rem, 6vw, 8rem);
+    }
+
+    .lx-phil .lx-p3__photo {
+        margin-left: calc(-1 * clamp(1.5rem, 6vw, 8rem));
+    }
+
+    .lx-p3__photo img {
+        height: clamp(20rem, 80vw, 34rem);
+    }
+
+    .lx-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .lx-facts > div,
+    .lx-facts > div:first-child {
+        padding: 1.5rem 0;
+        border-left: 0;
+        border-top: 1px solid rgba(10, 22, 40, 0.14);
+    }
+
+    .lx-p2__wide img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 640px) {
+    .lx-hero h1 {
+        font-size: clamp(2.6rem, 11vw, 3.4rem);
+    }
+
+    .lx-a {
+        padding: 7rem 1.5rem 2.5rem;
+    }
+
+    .lx-a__photo img {
+        object-position: 78% 100%;
+    }
+
+    /* On a narrow screen the copy sits on a soft ivory wash above the pool */
+    .lx-a::before {
+        background: linear-gradient(to bottom, rgba(250, 248, 245, 0.94) 0%, rgba(250, 248, 245, 0.86) 46%, rgba(250, 248, 245, 0) 74%);
+    }
+
+    .lx-b {
+        padding: 6.5rem 1.5rem 2rem;
+    }
+
+    .lx-c {
+        padding: 7rem 1.25rem 0;
+    }
+
+    .lx-btn {
+        min-height: 3.1rem;
+        padding: 0 1.6rem;
+    }
+
+    .lx-lines li {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+    }
+
+    .lx-switch {
+        bottom: 4.75rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lx-a__photo img {
+        animation: none;
+    }
+
+    .lx-b__scene,
+    .lx-b__tabs button[aria-pressed="true"]::before {
+        transition: none;
+    }
+}
